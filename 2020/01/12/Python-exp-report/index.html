@@ -1,0 +1,436 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Python程序设计实验报告 | Sun's Blog</title><meta name="description" content="Python程序设计实验报告"><meta name="keywords" content="实验报告,Python,Python程序设计"><meta name="author" content="Marshall Sun"><meta name="copyright" content="Marshall Sun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="http://ta.qq.com"/><link rel="preconnect" href="https://lib.baomitu.com" crossorigin="crossorigin"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Python程序设计实验报告"><meta name="twitter:description" content="Python程序设计实验报告"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-python.jpg"><meta property="og:type" content="article"><meta property="og:title" content="Python程序设计实验报告"><meta property="og:url" content="https://msun.work/2020/01/12/Python-exp-report/"><meta property="og:site_name" content="Sun's Blog"><meta property="og:description" content="Python程序设计实验报告"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-python.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://msun.work/2020/01/12/Python-exp-report/"><link rel="prev" title="NEU-stuinfo-autocompleter" href="https://msun.work/2020/04/02/NEU-stuinfo-autocompleter/"><link rel="next" title="操作系统实验报告" href="https://msun.work/2020/01/01/OS-exp-report/"><script src="https://tajs.qq.com/stats?sId=66539492" charset="UTF-8"></script><link rel="stylesheet" href="/css/blog_title_font/blog_title_font.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">4</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实验目的"><span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验内容"><span class="toc-text">实验内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础实验"><span class="toc-text">1. 基础实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-数据分析实验"><span class="toc-text">2. 数据分析实验</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验环境"><span class="toc-text">实验环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验过程与分析"><span class="toc-text">实验过程与分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础实验"><span class="toc-text">基础实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-问题描述及分析"><span class="toc-text">1. 问题描述及分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-关键算法设计"><span class="toc-text">2. 关键算法设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-实现结果"><span class="toc-text">3. 实现结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据分析实验"><span class="toc-text">数据分析实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-分析数据特征间的关系以及各个特征的分布与分散状况"><span class="toc-text">1. 分析数据特征间的关系以及各个特征的分布与分散状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用分组聚合方法进行数据分析"><span class="toc-text">2. 使用分组聚合方法进行数据分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-数据预处理"><span class="toc-text">3. 数据预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-数据分析"><span class="toc-text">4. 数据分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验总结"><span class="toc-text">实验总结</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-python.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Sun's Blog</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">Python程序设计实验报告</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-01-12 14:55:51"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-01-12</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-07 10:53:19"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-04-07</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>在基础实验中，能熟练运用Python语言的基本语法、控制语句、函数、面向对象、GUI等开发一个应用类游戏。为后续Python学习打下扎实基础。</p>
+<p>在数据分析实验中，能熟练运用Python列表、字典、集合、数组等数据结构以及索引和切片等查询操作解决实际问题，熟练掌握Python读写数据文件的方法，熟练使用Matplotlib数据可视化工具，熟练使用pandas数据分析库函数，基本掌握使用scikit-learn库多种机器学习算法进行数据分析的过程，了解Python程序的调试方法，运用Python编写程序解决实际应用问题。</p>
+<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><h2 id="1-基础实验"><a href="#1-基础实验" class="headerlink" title="1. 基础实验"></a>1. 基础实验</h2><p>设计一个带有图形用户界面的人机对战井字棋游戏。</p>
+<p>游戏在九宫方格内进行，如果一方抢先于某方向（横、竖、斜）连成3子，则获取胜利。游戏界面，首先询问哪个玩家先走，然后根据玩家落子位置，显示棋盘状态。最终根据游戏规则，评判哪个玩家获胜。</p>
+<h2 id="2-数据分析实验"><a href="#2-数据分析实验" class="headerlink" title="2. 数据分析实验"></a>2. 数据分析实验</h2><ol>
+<li>分析1996—2015年人口数据特征间的关系以及各个特征的分布与分散状况</li>
+<li>读取并查看P2P网络贷款数据主表的基本信息，使用分组聚合方法进一步分析用户信息更新表和登录信息表</li>
+<li>插补用户用电量数据缺失值，合并线损、用电量趋势与线路告警数据，标准化建模专家样本数据</li>
+<li>使用sklearn处理wine和wine_quality数据集，构建基于wine数据集的K-Means聚类模型、SVM分类模型、回归模型</li>
+</ol>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ul>
+<li>Python 3.7.4 64-bit</li>
+<li>Anaconda 2019.10</li>
+<li>Visual Studio Code 1.40.2</li>
+</ul>
+<h1 id="实验过程与分析"><a href="#实验过程与分析" class="headerlink" title="实验过程与分析"></a>实验过程与分析</h1><h2 id="基础实验"><a href="#基础实验" class="headerlink" title="基础实验"></a>基础实验</h2><h3 id="1-问题描述及分析"><a href="#1-问题描述及分析" class="headerlink" title="1. 问题描述及分析"></a>1. 问题描述及分析</h3><p>本实验要求设计一个带有图形用户界面的人机对战井字棋游戏。故采用tkinter来创建GUI程序。在游戏界面中，首先通过tkinter的<code>messagebox</code>弹窗询问哪个玩家先走，然后根据玩家落子位置，显示棋盘状态。最终根据游戏规则，再次调用<code>messagebox</code>显示游戏结果。</p>
+<h3 id="2-关键算法设计"><a href="#2-关键算法设计" class="headerlink" title="2. 关键算法设计"></a>2. 关键算法设计</h3><p>创建了一个列表<code>buttons[]</code>来初始化存储井字棋中所有的9个按键，并将其绑定到界面上。同时当用户点按按钮时，调用<code>btnClick()</code>函数来检测此按钮是否可点击，若不可点击则弹窗警告；若可点击则调用<code>checkForWin()</code>函数检测当前情况是否结束游戏，若游戏已结束则弹窗显示游戏结果；若游戏继续，则调用<code>computer_move()</code>函数来计算电脑的下一步棋，并将选择权交回给用户，周而复始。</p>
+<h3 id="3-实现结果"><a href="#3-实现结果" class="headerlink" title="3. 实现结果"></a>3. 实现结果</h3><ol>
+<li><p>游戏开始时弹窗询问先后顺序</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/ask-page.png"  alt=""></p>
+</li>
+<li><p>游戏结果弹窗</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/result-page.png"  alt=""></p>
+</li>
+<li><p>游戏起始界面</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/start-page.png"  alt=""></p>
+</li>
+<li><p>游戏中界面</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/gaming-page.png"  alt=""></p>
+</li>
+</ol>
+<h2 id="数据分析实验"><a href="#数据分析实验" class="headerlink" title="数据分析实验"></a>数据分析实验</h2><h3 id="1-分析数据特征间的关系以及各个特征的分布与分散状况"><a href="#1-分析数据特征间的关系以及各个特征的分布与分散状况" class="headerlink" title="1. 分析数据特征间的关系以及各个特征的分布与分散状况"></a>1. 分析数据特征间的关系以及各个特征的分布与分散状况</h3><p><strong>（1）问题理解</strong></p>
+<p>本实验要求分析1996至2015年人口数据特征间的关系以及各个特征的分布与分散状况。故采用numpy来读取人口数据，同时使用matplotlib.pyplot模块来进行图像的绘制。通过对数据内容的分析，绘画出散点图、折线图、柱状图、饼图、箱线图，进而可较为直观地了解1996至2015年人口数据的大致情况。</p>
+<p><strong>（2）实验过程</strong></p>
+<p>通过numpy的<code>load()</code>方法来实现实验数据的读取，并使用pyplot中提供的对应绘图函数构建五个模型，分别为1996至2015年人口散点与折线图、1996至2015年男女人口与城乡人口对比柱状图、1997至2015年全国人口变化折线图、1996与2015年男女人口与城乡人口对比饼图与1996至2015年人口数据箱线图。经过多次分析测试，各图都达到了较好的展示效果，易于从图中获得相关信息，达到了构建模型的目的。</p>
+<p><strong>（3）实验结果分析</strong></p>
+<ol>
+<li><p>1996至2015年人口散点与折线图如下，根据此图，可以大致地了解年末总人口、男性人口、女性人口、城镇人口与乡村人口的历年分布情况。而通过对这张图的绘制，初步掌握了使用pyplot来绘制图片的方法，同时也根据实际需要将横纵轴信息优化地更为美观。</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/population-1.png"  alt=""></p>
+</li>
+<li><p>1996至2015年男女人口与城乡人口对比柱状图如下，根据此图，可直观地了解男女人口与城乡人口的历年变化情况：从1996年一直到2015年，男性人口数一直多于女性人口数，且逐渐保持一个相对稳定的差值；而城镇人口与乡村人口的情况则恰恰相反，城镇人口在逐年增加，乡村人口在逐年减少，在2011年城镇人口完成了对乡村人口的数量反超。</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/population-2.png"  alt=""></p>
+</li>
+</ol>
+<ol start="3">
+<li><p>1997至2015年全国人口变化折线图如下，通过此图，可直观地了解全国历年的年末总人口变化详细情况。可以看出，在2009年之前全国年末总人口在逐年上升的同时，人口增长率却在逐年下降，可以容易得出这是计划生育政策的影响。在2009年之后人口增长率基本保持不变，但由于我国人口基数大，全国年末总人口仍保持上升趋势。</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/population-3.png"  alt=""></p>
+</li>
+<li><p>1996与2015年男女人口与城乡人口对比饼图如下，通过此图，可以大致地了解男女人口以及城乡人口从1996年开始直至2015年结束的这一段时间中各部分占总体比例的变化情况。由图可知，从1996年至2015年，男性人口与女性人口的比例几乎无较大变化，从微观上看，男性比例稍微多于女性比例，但在宏观上看，男性比例于女性比例大致相等。而城乡人口比例在同一段时期则变化较大，城镇人口从1996年占比不到三分之一逐渐增多，至2015年占比几乎为总人口的三分之二，于此相伴的是乡村人口占比的减少，这一现象直接反映出我国城市化现象明显。</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/population-4.png"  alt=""></p>
+</li>
+<li><p>1996至2015年人口数据箱线图如下，通过此图，可以大致地了解年末总人口、男性人口、女性人口、城镇人口与乡村人口的数据分散情况。因为年末总人口是各类型人口数量之和，其箱线图相对来说位于高处。对于男性人口与女性人口，可以看出两者的变化都不大。而城镇人口与乡村人口的历年变化程度是最大的。</p>
+<p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/population-5.png"  alt=""></p>
+</li>
+</ol>
+<h3 id="2-使用分组聚合方法进行数据分析"><a href="#2-使用分组聚合方法进行数据分析" class="headerlink" title="2. 使用分组聚合方法进行数据分析"></a>2. 使用分组聚合方法进行数据分析</h3><p><strong>（1）问题理解</strong></p>
+<p>本实验要求读取并查看P2P网络贷款数据主表的基本信息，使用分组聚合方法进一步分析用户信息更新表和登录信息表，洞察数据的整体分布、数据的类属关系，发现数据间的关联。因此首先通过打印出维度、大小、占用内存信息，显示出用户信息更新表和登录信息表的基本属性，了解到其基本情况。之后进行数据清洗，即剔除值相同或全为空的列，并进行描述性统计再次分析数据。最后提取时间本身的信息以及进行组内分析，提取出有效信息。</p>
+<p><strong>（2）实验过程</strong></p>
+<ol>
+<li><p>使用ndim、shapc、memory_usage属性分别查看维度、大小、占用内存信息。</p>
+<p> 登录信息表 <code>Training_LogInfo.csv</code></p>
+<pre><code>维度： 2
+大小： (580551, 5)
+占用内存信息： &lt;bound method DataFrame.memory_usage of
+Idx Listinginfo1 LogInfo1 LogInfo2 LogInfo3
+0 10001 2014-03-05 107 6 2014-02-20
+1 10001 2014-03-05 107 6 2014-02-23
+2 10001 2014-03-05 107 6 2014-02-24
+3 10001 2014-03-05 107 6 2014-02-25
+4 10001 2014-03-05 107 6 2014-02-27
+... ... ... ... ... ...
+580546 9998 2014-03-05 2 1 2014-02-20
+580547 9998 2014-03-05 4 1 2014-02-20
+580548 9998 2014-03-05 -4 6 2014-02-20
+580549 9998 2014-03-05 -4 6 2014-03-05
+580550 9998 2014-03-05 4 7 2014-03-05
+[580551 rows x 5 columns]&gt;</code></pre><p> 用户信息更新表 <code>Training_Userupdate.csv</code></p>
+<pre><code>维度： 2
+大小： (372463, 4)
+占用内存信息： &lt;bound method DataFrame.memory_usage of
+Idx ListingInfo1 UserupdateInfo1 UserupdateInfo2
+0 10001 2014/03/05 _EducationId 2014/02/20
+1 10001 2014/03/05 _HasBuyCar 2014/02/20
+2 10001 2014/03/05 _LastUpdateDate 2014/02/20
+3 10001 2014/03/05 _MarriageStatusId 2014/02/20
+4 10001 2014/03/05 _MobilePhone 2014/02/20
+... ... ... ... ...
+372458 9998 2014/03/05 _QQ 2014/02/20
+372459 9998 2014/03/05 _ResidenceAddress 2014/02/20
+372460 9998 2014/03/05 _ResidencePhone 2014/02/20
+372461 9998 2014/03/05 _ResidenceTypeId 2014/02/20
+372462 9998 2014/03/05 _ResidenceYears 2014/02/20
+[372463 rows x 4 columns]&gt;</code></pre><p> 主表 <code>Training_Master.csv</code></p>
+<pre><code>维度： 2
+大小： (30000, 228)
+占用内存信息： &lt;bound method DataFrame.memory_usage of
+Idx UserInfo_1 UserInfo_2 ... SocialNetwork_17 target ListingInfo
+0 10001 1.0 深圳 ... 1 0 2014/3/5
+1 10002 1.0 温州 ... 2 0 2014/2/26
+2 10003 1.0 宜昌 ... 0 0 2014/2/28
+3 10006 4.0 南平 ... 0 0 2014/2/25
+4 10007 5.0 辽阳 ... 0 0 2014/2/27
+... ... ... ... ... ... ... ...
+29995 9991 3.0 南阳 ... 1 0 2014/2/22
+29996 9992 3.0 宁德 ... 1 0 2014/2/28
+29997 9995 1.0 天津 ... 0 0 2014/2/24
+29998 9997 3.0 运城 ... 1 0 2014/2/28
+29999 9998 4.0 金华 ... 0 0 2014/3/5
+
+[30000 rows x 228 columns]&gt;</code></pre></li>
+<li><p>使用<code>describe</code>方法进行描述性统计，并剔除值相同或全为空的列。</p>
+<p> 登录信息表</p>
+<pre><code>去除的列的数目为： 0
+去除后数据的形状为： (580551, 5)
+describe：
+Idx LogInfo1 LogInfo2
+count 580551.000000 580551.000000 580551.000000
+mean 44911.327794 11.760608 6.070486
+std 26484.183832 63.741930 5.123067
+min 3.000000 -10.000000 0.000000
+25% 21450.000000 -4.000000 2.000000
+50% 45325.000000 1.000000 6.000000
+75% 67913.000000 2.000000 6.000000
+max 91703.000000 3001.000000 23.000000</code></pre><p> 用户信息更新表</p>
+<pre><code>去除的列的数目为： 0
+去除后数据的形状为： (372463, 4)
+describe：
+Idx
+count 372463.000000
+mean 44838.613344
+std 26436.962709
+min 3.000000
+25% 22434.000000
+50% 44394.000000
+75% 67239.000000
+max 91703.000000</code></pre><p> 主表</p>
+<pre><code>去除的列的数目为： 2
+去除后数据的形状为： (30000, 226)
+describe：
+Idx UserInfo_1 ... SocialNetwork_17 target
+count 30000.000000 29994.000000 ... 30000.000000 30000.000000
+mean 46318.673267 3.219911 ... 0.253467 0.073267
+std 26640.397805 1.827684 ... 0.437296 0.260578
+min 3.000000 0.000000 ... 0.000000 0.000000
+25% 22924.250000 1.000000 ... 0.000000 0.000000
+50% 46849.500000 3.000000 ... 0.000000 0.000000
+75% 69447.250000 5.000000 ... 1.000000 0.000000
+max 91703.000000 7.000000 ... 3.000000 1.000000
+[8 rows x 206 columns]</code></pre></li>
+<li><p>使用<code>to_datetime</code>函数转换用户信息更新表和登录信息表的时间字符串。</p>
+</li>
+<li><p>使用<code>year</code>、<code>month</code>、<code>week</code>等方法提取用户信息更新表和登录信息表中的时间信息。</p>
+</li>
+<li><p>计算用户信息更新表和登录信息表中两时间的差，分别以日、小时、分钟计算。</p>
+<p> 登录信息表 <code>Training_LogInfo.csv</code></p>
+<pre><code>日： [13, 10, 9, 8, 6, 1, 13, ...]
+小时： [312, 240, 216, 192, 144, 24, 312, ...]
+分钟： [18720, 14400, 12960, 11520, 8640, 1440, 18720, ...]</code></pre><p> 用户信息更新表 <code>Training_Userupdate.csv</code></p>
+<pre><code>日： [13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 250, 250, 250, 250, 250, 250, 233, 233, 233, ...]
+小时： [312, 312, 312, 312, 312, 312, 312, 312, 312, 312, 312, 6000, 6000, 6000, 6000, 6000, 6000, 5592, 5592, 5592, ...]
+分钟： [18720, 18720, 18720, 18720, 18720, 18720, 18720, 18720, 18720, 18720, 18720, 360000, 360000, 360000, 360000, 360000, 360000, 335520, 335520, 335520, ...]</code></pre></li>
+<li><p>使用<code>groupby</code>方法对用户信息更新表和登录信息表进行分组。</p>
+</li>
+<li><p>使用<code>agg</code>方法求取分组后的最早和最晚更新及登录时间。</p>
+</li>
+<li><p>使用<code>size</code>方法求取分组后的数据的信息更新次数与登录次数。</p>
+<p> 登录信息表 <code>Training_LogInfo.csv</code></p>
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x0000024A4658EE08&gt;
+最早登录时间
+Idx
+3 2013-08-30
+5 2013-10-24
+8 2013-10-25
+12 2012-12-08
+16 2013-10-27
+...
+91689 2014-10-26
+91693 2014-10-26
+91695 2014-09-26
+91702 2014-10-26
+91703 2014-10-26
+Name: LogInfo3, Length: 28987, dtype: object
+最晚登录时间
+Idx
+3 2013-11-01
+5 2013-11-06
+8 2013-11-06
+12 2013-11-01
+16 2013-11-04
+...
+91689 2014-10-29
+91693 2014-11-05
+91695 2014-10-30
+91702 2014-10-28
+91703 2014-11-03
+Name: LogInfo3, Length: 28987, dtype: object
+每组登录次数
+Idx
+3 26
+5 11
+8 125
+12 199
+16 15
+...
+91689 7
+91693 15
+91695 20
+91702 7
+91703 21
+Length: 28987, dtype: int64</code></pre><p> 用户信息更新表 <code>Training_Userupdate.csv</code></p>
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x0000024A48CA1308&gt;
+最早更新时间
+Idx
+3 2013/08/30
+5 2013/10/24
+8 2013/10/25
+12 2012/12/08
+16 2013/10/27
+...
+91689 2014/10/26
+91693 2014/10/26
+91695 2014/09/26
+91702 2014/10/26
+91703 2014/10/26
+Name: UserupdateInfo2, Length: 29995, dtype: object
+最晚更新时间
+Idx
+3 2013/08/30
+5 2013/10/24
+8 2013/11/04
+12 2013/10/02
+16 2013/11/05
+...
+91689 2014/10/26
+91693 2014/10/28
+91695 2014/10/26
+91702 2014/10/26
+91703 2014/11/02
+Name: UserupdateInfo2, Length: 29995, dtype: object
+每组更新次数
+Idx
+3 13
+5 13
+8 14
+12 14
+16 13
+..
+91689 12
+91693 3
+91695 20
+91702 11
+91703 15
+Length: 29995, dtype: int64</code></pre></li>
+</ol>
+<p><strong>（3）实验结果分析</strong></p>
+<p>在实验过程中得到了非常多的有效信息。首先，在查看维度、大小、占用内存信息的过程中，发现登录信息表、用户信息更新表与主表的所含数据都极大，登录信息表与用户信息更新表都包含着十万级别的用户数据，但其数据内容较少，每一行数据仅包含四五项内容；但是主表的情况则有所区别，其仅含三万行用户数据，相对较少，然而每一行数据包含了上百条内容，这对接下来的数据处理工作提出了挑战。</p>
+<p>在数据处理过程中，首先清除无效数据，即通过<code>dropNullStd()</code>将值相同或全为空的列剔除，然后使用<code>describe</code>方法进行描述性统计，这样对于表中的每一列数据都可以看出其平均数、总数、中位数、总数与上下四分位点。然后通过转换并提取用户信息更新表和登录信息表的时间字符串，计算用户信息更新表和登录信息表中两时间的差，可以得出各用户登录至更新信息的延迟时间。最后通过分组可以了解到不同用户的最早和最晚更新及登录时间以及登录次数。</p>
+<h3 id="3-数据预处理"><a href="#3-数据预处理" class="headerlink" title="3. 数据预处理"></a>3. 数据预处理</h3><p><strong>（1）问题理解</strong></p>
+<p>因为用户用电量数据呈现一定的周期性关系，所以本实验主要对用户用电量数据进行分析，希望可以得出有用结论。根据要求，插补用户用电量数据缺失值，合并线损、用电量趋势与线路告警数据，标准化建模专家样本数据。填补缺失值方面，采取拉格朗日插值法；合并数据方面，采用pandas中的<code>merge()</code>方法；标准化数据方面，使用定义标准差标准化函数来完成。</p>
+<p><strong>（2）实验过程</strong></p>
+<ol>
+<li><p>读取<code>missing_data.csv</code>表中的数据，查询缺失值所在位置。使用SciPy库中interpolate模块中的<code>lagrange</code>对数据进行拉格朗日插值。直看数据中是否存在缺失值，若不存在则说明插值成功。</p>
+<pre><code>    0           1           2
+0   235.833300  324.034300  478.323100
+1   236.270800  325.637900  515.456400
+2   238.052100  328.089700  517.090900
+3   235.906300  203.462116  514.890000
+4   236.760400  268.832400  493.352591
+5   237.151181  404.048000  486.091200
+6   237.416700  391.265200  516.233000
+7   238.656300  380.824100  493.342382
+8   237.604200  388.023000  435.350800
+9   238.031300  206.434900  487.675000
+10  235.072900  237.348072  609.193564
+11  235.531300  400.078700  660.234700
+12  235.314951  411.206900  621.234600
+13  234.468800  395.234300  611.340800
+14  235.500000  344.822100  643.086300
+15  235.635400  385.643200  642.348200
+16  234.552100  401.623400  618.197198
+17  236.000000  409.648900  602.934700
+18  235.239600  416.879500  589.345700
+19  235.489600  420.748600  556.345200
+20  236.968800  408.963200  538.347000</code></pre></li>
+<li><p>读取<code>ele_loss.csv</code>和<code>alarm.csv</code>表，查看两表的形状。以ID和date两个键值作为主键进行内连接，直看合并后的数据。</p>
+<pre><code>alarm.csv的形状为： (25, 3)
+ele_loss.csv的形状为： (49, 4)
+以ID为主键内连接后的形状为： (686, 6)
+以date为主键内连接后的形状为： (8, 6)</code></pre></li>
+<li><p>读取<code>model.csv</code>数据。定义标准差标准化函数，使用函数分别对3列数据进行标准化，查看标准化后的数据。</p>
+<pre><code>标准差标准化之前的指标数据为：
+电量趋势 下降指标 线损指标 告警类指标
+0 4 1 1
+1 4 0 4
+2 2 1 1
+3 9 0 0
+4 3 1 0
+
+标准差标准化之后的指标数据为：
+电量趋势 下降指标 线损指标 告警类指标
+0 0.612777 0.974549 -0.161216
+1 0.612777 -1.022590 2.653616
+2 -0.343352 0.974549 -0.161216
+3 3.003099 -1.022590 -1.099494
+4 0.134712 0.974549 -1.099494</code></pre></li>
+</ol>
+<p><strong>（3）实验结果分析</strong></p>
+<p>本实验完成了处理数据这一任务，得到了一定量的信息。首先，在缺失值插补的过程中，了解到三个用户用电量的基本情况，并成功使用SciPy库中interpolate模块中的<code>lagrange()</code>方法对数据进行拉格朗日插值，补全了缺失的数据。其次，在内连接数据方面，采用pandas的<code>merge()</code>方法将<code>ele_loss.csv</code>和<code>alarm.csv</code>表分别按ID和date两个键值作为主键进行内连接，获得了数据链接后的DataFrame对象。最后通过自定义标准差标准化函数<code>StandardScaler()</code>，分别对3列数据进行标准化，查看到标准化后的数据，极大地方便了后续数据建模操作。</p>
+<h3 id="4-数据分析"><a href="#4-数据分析" class="headerlink" title="4. 数据分析"></a>4. 数据分析</h3><p><strong>（1）问题理解</strong></p>
+<p>本实验要求使用sklearn处理wine和wine_quality<br>数据集，构建基于wine数据集的K-Means聚类模型、SVM分类模型、回归模型。根据实验具体要求，需充分学习与熟练掌握sklearn的用法，同时借助sklearn的各项功能对实验所提供的数据集进行划分、降维、建模与评价。</p>
+<p><strong>（2）实验过程</strong></p>
+<ol>
+<li><p>使用pandas库分别读取wine数据集和wine_quality数据集。将这两个数据集的数据和标签拆分开。将wine_quality数据集划分为训练集和测试集。标准化wine数据集和wine_qualiy数据集。对wine数据集和wine_quality数据集进行PCA降维。</p>
+<pre><code>quality_train原始数据：
+[[ 9.1 0.4 0.57 ... 3.28 0.57 12.5 ]
+[ 6.8 0.57 0. ... 3.43 0.56 11.2 ]
+[ 8.6 0.55 0.09 ... 3.23 0.44 10. ]
+...
+[ 7.9 0.57 0.31 ... 3.29 0.69 9.5 ]
+[ 8.7 0.765 0.22 ... 3.1 0.55 9.4 ]
+[10.6 0.44 0.68 ... 3.06 0.66 13.4 ]]
+
+quality_train标准化数据：
+[[ 0.45205105 -0.70826556 1.53141963 ... -0.17869062 -0.50589159
+1.9641406 ]
+[-0.89594548 0.24357436 -1.403751 ... 0.81125436 -0.56419882
+0.73164806]
+[ 0.15900833 0.13159319 -0.94030301 ... -0.50867228 -1.26388559
+-0.40603737]
+...
+[-0.25125149 0.24357436 0.19256987 ... -0.11269428 0.19379518
+-0.88007296]
+[ 0.21761687 1.33539075 -0.27087813 ... -1.36662459 -0.62250605
+-0.97488008]
+[ 1.33117923 -0.48430323 2.09785607 ... -1.63060992 0.01887349
+2.81740467]]
+quality_train PCA降维数据：
+[[ 1.02069423e+00 -1.88089477e+00 7.48609845e-01 -1.37965920e+00
+1.49564460e+00 9.20255153e-01]
+[-2.24752273e+00 7.89782818e-01 1.16102602e+00 -2.42194230e-01
+-1.07337281e-01 2.85457227e-01]
+[-3.18402242e-01 -2.85638973e-01 -1.55907651e+00 -9.70248012e-01
+1.29764641e-01 3.71417746e-01]
+...
+[ 4.42290553e-02 5.59755833e-01 -2.90101298e-01 3.05368095e-01
+-6.81464821e-01 -2.33878510e-01]
+[ 6.61882894e-04 2.91762797e-01 -1.57691327e+00 -2.23943631e-01
+-8.32750886e-01 1.06199600e+00]
+[ 2.55830724e+00 -2.19299775e+00 9.99096764e-01 -8.84059978e-01
+1.28855330e+00 2.03246623e+00]]</code></pre></li>
+<li><p>根据wine数据集处理的结果，构建聚类数目为3的K-Means模型。对比真实标签和聚类标签求取FMI。在聚类数目为2-10类时，确定最优聚类数目。求取模型的轮廓系数，绘制轮廓系数折线图，确定最优聚类数目。求取Calinski-Harabasz指数，确定最优聚类数目。</p>
+<pre><code>wine数据集聚为2类，FMI为0.637868，Calinski-Harabasz指数为69.523332
+wine数据集聚为3类，FMI为0.931908，Calinski-Harabasz指数为70.940008
+wine数据集聚为4类，FMI为0.846812，Calinski-Harabasz指数为56.186148
+wine数据集聚为5类，FMI为0.723802，Calinski-Harabasz指数为46.945015
+wine数据集聚为6类，FMI为0.740962，Calinski-Harabasz指数为41.539482
+wine数据集聚为7类，FMI为0.618858，Calinski-Harabasz指数为37.449841
+wine数据集聚为8类，FMI为0.576580，Calinski-Harabasz指数为34.539278
+wine数据集聚为9类，FMI为0.569021，Calinski-Harabasz指数为32.811725
+wine数据集聚为10类，FMI为0.571891，Calinski-Harabasz指数为30.143088</code></pre><p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/sklearn-1.png"  alt=""></p>
+</li>
+<li><p>读取wine数据集，区分标签和数据。将wine数据集划分为训练集和测试集。使用离差标准化方法标准化wine数据集。构建SVM模型，并预测测试集结果。打印出分类报告，评价分类模型性能。</p>
+<pre><code>预测测试集： [2 1 3 3 1 1 1 2 1 3 2 1 3 3 2 3 2 1 2 3 2 3 2 3 1 1 2 1 1 2 1 3 1 2 2 2]
+
+SVM分类报告：
+precision recall f1-score support
+1 0.92 1.00 0.96 12
+2 1.00 0.93 0.96 14
+3 1.00 1.00 1.00 10
+accuracy 0.97 36
+macro avg 0.97 0.98 0.97 36
+weighted avg 0.97 0.97 0.97 36</code></pre><p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/sklearn-2.png"  alt=""></p>
+</li>
+<li><p>根据wine_quality数据集处理的结果，构建线性回归模型、梯度提升回归模型，结合真实评分和预测评分，计算均方误差，中值绝对误差，可解释方差值，根据得分，判定模型的性能优劣。</p>
+<pre><code>quality数据集线性回归模型：
+平均绝对误差： 0.49155784689225135
+均方误差： 0.3908578954179275
+中值绝对误差： 0.38092331403073976
+可解释方差值： 0.3838722000425565
+R方值： 0.3838693274200158
+
+quality数据集梯度提升回归树模型：
+平均绝对误差： 0.4628008410496564
+均方误差： 0.3514089483864155
+中值绝对误差： 0.3630740762653355
+可解释方差值： 0.4461509316024106
+R方值： 0.44605485968643854</code></pre><p> <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/Python-report/sklearn-3.png"  alt=""></p>
+</li>
+</ol>
+<p><strong>（3）实验结果分析</strong></p>
+<p>在本实验中，首先从对应csv文件读取wine数据集和wine_quality数据集并对其拆分、降维，掌握了初步处理这些数据的方法，为接下来的工作做好了准备。其次，先算出区间由2至10的聚类模型的FMI指数和Calinski-Harabasz指数，加以比较后发现聚类数目为2或3时其指数较大，这代表着类自身更加紧密，类与类之间越分散，即更优的聚类结果。 因此进一步绘制出聚类数目为2的K-Means模型以及聚类数目为3的K-Means模型散点图，由两个散点图看出聚类数目为3时散点更加分散，即聚类结果最好。</p>
+<p>接下来，通过调用实验开始时划分的训练集和测试集，调用sklearn中的<code>MinMaxScaler()</code>和<code>transform()</code>函数进行离差标准化，得到标准化后的数据集wine_trainScaler和wine_testScaler。这样，就可以构建SVM模型，并得到预测测试集结果与分类报告，由报告可以直观地得到各值的精确度，召回率，F1值以及出现次数。我们也可以通过构建好的SVM模型来绘制接受者操作特征曲线(ROC)，因为ROC曲线越靠近左上角，诊断价值越大；ROC曲线下面积越大，应用价值越大，所以可认为此SVM模型分为2类和3类的价值都较大。</p>
+<p>最后，采用之前处理好的wine_quality数据集构建线性回归模型、梯度提升回归模型，结合真实评分和预测评分，计算均方误差、中值绝对误差、可解释方差值。由这十个方差值可以看出，wine_quality数据集的线性回归模型和梯度提升回归模型总体性能较为接近，在不同方差值上各有千秋，因此根据两个模型分别绘制折线图。从两幅折线图中可看出，梯度提升回归模型与线性回归模型的预测效果相差无几，因此认为这两个模型的预测效果相似，需结合特定需求来进行模型的选用。</p>
+<h1 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h1><p>本系列实验包括一个基础实验以及四个数据分析实验。在基础实验中使用了tkinter来绘制GUI界面，完成了一个井字棋程序。我认为其主要的不足在于界面不够现代，不能吸引用户持续游玩，而导致如此的原因一是tkinter的各种控件不够现代，二是实验时间、实验精力不足使得引用自定义美化资源过少，希望在今后的实验中能更进一步。</p>
+<p>而在数据分析实验一中，使用了pyplot来分析1996—2015年人口数据特征间的关系以及各个特征的分布与分散状况。我认为其主要的不足是我对pyplot的主要功能掌握地不够熟练，导致绘图过程中走了很多弯路，这启示着要善于学习与搜索资源，这样在学习新知识时才能如鱼得水。在数据分析实验二中通过对pandas的使用，成功读取并查看P2P网络贷款数据主表的基本信息，使用分组聚合方法进一步分析用户信息更新表和登录信息表。我认为此实验不足之处主要为pandas的各种功能较为复杂，其中DataFrame的功能又与python自带的列表功能有较大出入，我在处理DataFrame中各种数据时效率过低，这也应归咎于我自身的知识储备不够完善，所幸最后通过搜索引擎解决了一系列的问题。</p>
+<p>在数据分析实验三中，使用了SciPy库中interpolate模块中的<code>lagrange()</code>方法插补用户用电量数据缺失值，并利用pandas合并线损、用电量趋势与线路告警数据，标准化建模专家样本数据。在数据分析实验四中则采用sklearn处理wine和wine_quality数据集，构建基于wine数据集的K-Means聚类模型、SVM分类模型、回归模型并通过绘制相关图表来直观地展示模型拟合情况，得出结论。我认为这两个实验在实验设计上都非常详细，在实验要求上贴合所学知识，在实验目的上要求明确。我在完成实验的过程中虽然遇到了一些挫折，但最终将其逐一解决，因此我认为这两个实验无不足之处。</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Marshall Sun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://msun.work/2020/01/12/Python-exp-report/">https://msun.work/2020/01/12/Python-exp-report/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://msun.work" target="_blank">Sun's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">实验报告</a><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Python%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">Python程序设计</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/post.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/04/02/NEU-stuinfo-autocompleter/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/post.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">NEU-stuinfo-autocompleter</div></div></a></div><div class="next-post pull_right"><a href="/2020/01/01/OS-exp-report/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-java.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统实验报告</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-python.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Marshall Sun</div><div class="footer_custom_text">Inspired in South, implemented in Northeast.</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i></div><div id="rightside-config-show"><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>操作系统实验报告 | Sun's Blog</title><meta name="description" content="操作系统实验报告"><meta name="keywords" content="实验报告,Java,操作系统"><meta name="author" content="Marshall Sun"><meta name="copyright" content="Marshall Sun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="http://ta.qq.com"/><link rel="preconnect" href="https://lib.baomitu.com" crossorigin="crossorigin"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="操作系统实验报告"><meta name="twitter:description" content="操作系统实验报告"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-java.jpg"><meta property="og:type" content="article"><meta property="og:title" content="操作系统实验报告"><meta property="og:url" content="https://msun.work/2020/01/01/OS-exp-report/"><meta property="og:site_name" content="Sun's Blog"><meta property="og:description" content="操作系统实验报告"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-java.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://msun.work/2020/01/01/OS-exp-report/"><link rel="prev" title="Python程序设计实验报告" href="https://msun.work/2020/01/12/Python-exp-report/"><link rel="next" title="数据结构与算法课程设计实验报告" href="https://msun.work/2019/12/08/DSA-exp-report/"><script src="https://tajs.qq.com/stats?sId=66539492" charset="UTF-8"></script><link rel="stylesheet" href="/css/blog_title_font/blog_title_font.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">4</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实验一-进程的同步与互斥"><span class="toc-text">实验一 进程的同步与互斥</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、问题分析与程序设计"><span class="toc-text">二、问题分析与程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实现过程与测试结果分析"><span class="toc-text">三、实现过程与测试结果分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验结果总结"><span class="toc-text">四、实验结果总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、创新的部分"><span class="toc-text">五、创新的部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、对实验的意见与建议"><span class="toc-text">六、对实验的意见与建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、思考题"><span class="toc-text">七、思考题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验二-处理机调度"><span class="toc-text">实验二 处理机调度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的-1"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、问题分析与程序设计-1"><span class="toc-text">二、问题分析与程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实现过程与测试结果分析-1"><span class="toc-text">三、实现过程与测试结果分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验结果总结-1"><span class="toc-text">四、实验结果总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、创新的部分-1"><span class="toc-text">五、创新的部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、对实验的意见与建议-1"><span class="toc-text">六、对实验的意见与建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、思考题-1"><span class="toc-text">七、思考题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验三-存储管理"><span class="toc-text">实验三 存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的-2"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、问题分析与程序设计-2"><span class="toc-text">二、问题分析与程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实现过程与测试结果分析-2"><span class="toc-text">三、实现过程与测试结果分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验结果总结-2"><span class="toc-text">四、实验结果总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、创新的部分-2"><span class="toc-text">五、创新的部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、对实验的意见与建议-2"><span class="toc-text">六、对实验的意见与建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、思考题-2"><span class="toc-text">七、思考题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验四-文件系统"><span class="toc-text">实验四 文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的-3"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、问题分析与程序设计-3"><span class="toc-text">二、问题分析与程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实现过程与测试结果分析-3"><span class="toc-text">三、实现过程与测试结果分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验结果总结-3"><span class="toc-text">四、实验结果总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、创新的部分-3"><span class="toc-text">五、创新的部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、对实验的意见与建议-3"><span class="toc-text">六、对实验的意见与建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、思考题-3"><span class="toc-text">七、思考题</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-java.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Sun's Blog</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">操作系统实验报告</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-01-01 16:57:55"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-01-01</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-07 10:53:19"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-04-07</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="实验一-进程的同步与互斥"><a href="#实验一-进程的同步与互斥" class="headerlink" title="实验一 进程的同步与互斥"></a>实验一 进程的同步与互斥</h1><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li>加深对进程概念的理解，明确进程和程序的区别。</li>
+<li>进一步认识并发执行的实质。</li>
+<li>分析进程竞争资源现象，学习解决进程互斥的方法。</li>
+</ol>
+<h2 id="二、问题分析与程序设计"><a href="#二、问题分析与程序设计" class="headerlink" title="二、问题分析与程序设计"></a>二、问题分析与程序设计</h2><p>本实验要求实现一个简单的生产者/消费者问题程序，此问题是线程模型中的经典问题。因为线程是进程的实体，所以通过继承<code>java.lang.Thread</code>类来实现生产者进程与消费者进程，并覆写其中的<code>run()</code>方法以将实际的生产与消费过程打印到控制台上。</p>
+<p>在进程同步方面，使用Object的<code>wait()/notify()</code>方法来实现进程的同步：<code>wait()</code>方法是当缓冲区已满/空时，生产者/消费者线程停止自己的执行，放弃锁，使自己处于等待状态，让其他线程执行。而<code>notify()</code>方法是当生产者/消费者向缓冲区放入/取出一个产品时，向其他等待的线程发出可执行的通知，同时放弃锁，使自己处于等待状态。并且使用<code>synchronized()</code>来实现互斥锁，在最后调用了<code>Thread.sleep()</code>，这不会影响锁的相关行为。</p>
+<p>数据结构方面，本程序使用了队列来实现线程的先入先出，更贴合实际。用户界面方面，本程序将选择权交给用户，在程序运行后让用户自行选择需初始化的生产者和消费者数量以及可同时运行的线程数量，当用户输入非法时也做了对应的提示与错误处理，使得本程序更为灵活和人性化。程序流程图如下。</p>
+<p><img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/OS-report/exp1.png"  alt=""></p>
+<h2 id="三、实现过程与测试结果分析"><a href="#三、实现过程与测试结果分析" class="headerlink" title="三、实现过程与测试结果分析"></a>三、实现过程与测试结果分析</h2><p>由于生产者类与消费者类高度相似，故只展示生产者代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (queue) &#123;                  <span class="comment">//实现互斥锁</span></span><br><span class="line">            <span class="keyword">while</span> (queue.size() == maxSize) &#123;   <span class="comment">//检测队列是否满</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    System.out.println(<span class="string">"队列已满，["</span> + name +</span><br><span class="line">                            <span class="string">"]需等待消费者从队列中取出数字"</span>);</span><br><span class="line">                    queue.wait();               <span class="comment">//调用wait()等待</span></span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">                    ex.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"["</span> +name + <span class="string">"]生产数字："</span> + i);</span><br><span class="line">            queue.offer(i++);                   <span class="comment">//进队列</span></span><br><span class="line">            queue.notifyAll();</span><br><span class="line">            <span class="comment">//向其他等待的线程发出可执行的通知，同时放弃锁</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;                                   <span class="comment">//2秒内随机暂停</span></span><br><span class="line">            Thread.sleep((<span class="keyword">int</span>) (Math.random() * (<span class="number">2000</span>)));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在调试过程中，发现对进程同步的理解不够深刻，对互斥锁的掌握不够熟练，通过翻阅课本和查询相关资料解决。同时对一些Exception的处理不够完善，通过询问同学解决。</p>
+<h2 id="四、实验结果总结"><a href="#四、实验结果总结" class="headerlink" title="四、实验结果总结"></a>四、实验结果总结</h2><p>对实验结果进行分析，列出测试数据以相应输出结果，给出关键运行界面的截屏。</p>
+<p>测试数据：</p>
+<pre><code>请输入生产者和消费者数量（空格分割）：3 2
+请输入能够同时运行的线程数：3</code></pre><p>结果：</p>
+<pre><code>[生产者1]生产数字：0
+[生产者3]生产数字：1
+[消费者1]消费数字：0
+[生产者2]生产数字：2
+[消费者2]消费数字：1
+[消费者1]消费数字：2
+队列空，[消费者2]在等待生产者
+[生产者2]生产数字：3
+[消费者2]消费数字：3
+[生产者1]生产数字：4
+[消费者1]消费数字：4
+[生产者3]生产数字：5
+[生产者3]生产数字：6
+...</code></pre><h2 id="五、创新的部分"><a href="#五、创新的部分" class="headerlink" title="五、创新的部分"></a>五、创新的部分</h2><p>本程序将选择权交给用户，在程序运行后让用户自行选择需初始化的生产者和消费者数量以及可同时运行的线程数量，当用户输入非法时也做了对应的提示与错误处理，使得本程序更为灵活和人性化。</p>
+<h2 id="六、对实验的意见与建议"><a href="#六、对实验的意见与建议" class="headerlink" title="六、对实验的意见与建议"></a>六、对实验的意见与建议</h2><p>通过本实验，我加深了对进程概念的理解，明确了进程和程序的区别。同时通过对进程竞争资源现象的分析，理解了解决进程互斥的方法。具体而言，我不仅进一步理解了进程同步的知识，而且掌握了互斥锁的使用方法。在认识并发执行的实质的同时也在编写用户界面的实践中接触了更多样的错误处理方法。</p>
+<p>关于对实验的建议，只有一点：由于我们的课程主要与Java相关，对C++的掌握不够，而实验指导书中给出的提示只有C++的版本，故这些提示并没有给我们带来很大的帮助，希望实验指导书中添加Java相关的提示。</p>
+<h2 id="七、思考题"><a href="#七、思考题" class="headerlink" title="七、思考题"></a>七、思考题</h2><ol>
+<li><p>如何控制进程间的相互通信？</p>
+<p> 管道、信号量、消息队列、信号、共享内存、套接字</p>
+</li>
+<li><p>什么是进程的同步？什么是进程的互斥？分别有哪些实现方式？</p>
+<p> 进程同步是一个操作系统级别的概念，是在多道程序的环境下，存在着不同的制约关系，为了协调这种互相制约的关系，实现资源共享和进程协作，从而避免进程之间的冲突，引入了进程同步。实现方法：临界区、互斥量、信号量、事件</p>
+<p> 进程互斥是进程之间的间接制约关系。当一个进程进入临界区使用临界资源时，另一个进程必须等待。只有当使用临界资源的进程退出临界区后，这个进程才会解除阻塞状态。实现方法：Peterson算法、原语、信号量、管程、进程通信</p>
+</li>
+</ol>
+<h1 id="实验二-处理机调度"><a href="#实验二-处理机调度" class="headerlink" title="实验二 处理机调度"></a>实验二 处理机调度</h1><h2 id="一、实验目的-1"><a href="#一、实验目的-1" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>加深对处理机调度的作用和工作原理的理解。</p>
+</li>
+<li><p>进一步认识并发执行的实质。</p>
+</li>
+</ol>
+<h2 id="二、问题分析与程序设计-1"><a href="#二、问题分析与程序设计-1" class="headerlink" title="二、问题分析与程序设计"></a>二、问题分析与程序设计</h2><p>本实验题目为设计一个按优先权调度算法实现处理器调度的程序，根据指导书中相关要求，每个进程用一个进程控制块PCB来代表，PCB中拥有进程名、指针、要求运行时间、优先数与状态五个属性。每个PCB中的指针都指向下个PCB，实现进程链表。当进程运行时，采用动态改变优先数的办法，进程每运行一次优先数就减1，如此循环，直到所有进程都成为结束状态。</p>
+<p>数据结构方面，本程序使用了HashMap将PCB与时间数据一一对应，在运用哈希表改进查找效率的同时也便于代码的理解与维护。用户界面方面，本程序将选择权交给用户，在程序运行后让用户自行选择需初始化的进程数量以及对每个进程都可以自定义运行时间和优先权，当用户输入非法时也做了对应的提示与错误处理，使得本程序更为灵活和人性化。程序流程图如下。</p>
+<p><img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/OS-report/exp2.png"  alt=""></p>
+<h2 id="三、实现过程与测试结果分析-1"><a href="#三、实现过程与测试结果分析-1" class="headerlink" title="三、实现过程与测试结果分析"></a>三、实现过程与测试结果分析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(ArrayList&lt;PCB&gt; list)</span> </span>&#123;</span><br><span class="line">    PCB curPCB = setAllPointer(list);                       <span class="comment">//初始化PCB指针</span></span><br><span class="line">    HashMap&lt;PCB, Integer&gt; cpuTimeList = <span class="keyword">new</span> HashMap&lt;&gt;();    <span class="comment">//存储时间数据</span></span><br><span class="line">    HashMap&lt;PCB, Integer&gt; roundTimeList = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    HashMap&lt;PCB, Integer&gt; waitTimeList = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"\nINPUT:"</span>);</span><br><span class="line">    System.out.println(<span class="string">"NAME\tNEEDTIME\tPRIORITY"</span>);</span><br><span class="line">    <span class="keyword">for</span> (PCB pcb : list) &#123;                                  <span class="comment">//遍历打印PCB数据</span></span><br><span class="line">        System.out.printf(<span class="string">"%-12s%-12s%s\n"</span>,</span><br><span class="line">                pcb.getName(), pcb.getRunningTime(), pcb.getPriority());</span><br><span class="line">        cpuTimeList.put(pcb, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"\nOUTPUT OF PRIORITY:"</span>);</span><br><span class="line">    <span class="keyword">int</span> timeCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (curPCB.getPointer() != <span class="keyword">null</span> || curPCB.getRunningTime() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        curPCB.setState(<span class="string">"W"</span>);                               <span class="comment">//将当前PCB状态设为运行</span></span><br><span class="line">        print(list, timeCount, cpuTimeList);                <span class="comment">//打印数据</span></span><br><span class="line"></span><br><span class="line">        curPCB.setRunningTime(curPCB.getRunningTime() - <span class="number">1</span>); <span class="comment">//运行时间-1</span></span><br><span class="line">        cpuTimeList.put(curPCB, cpuTimeList.get(curPCB) + <span class="number">1</span>);</span><br><span class="line">        curPCB.setPriority(curPCB.getPriority() - <span class="number">1</span>);       <span class="comment">//优先权-1</span></span><br><span class="line"></span><br><span class="line">        timeCount++;                                        <span class="comment">//时间计数+1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (curPCB.getRunningTime() == <span class="number">0</span>) &#123;</span><br><span class="line">            curPCB.setState(<span class="string">"E"</span>);                           <span class="comment">//将当前PCB状态设为结束</span></span><br><span class="line">            roundTimeList.put(curPCB, timeCount);           <span class="comment">//计算周转时间</span></span><br><span class="line">            waitTimeList.put(curPCB, timeCount - cpuTimeList.get(curPCB));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        PCB nextPCB = setAllPointer(list);                  <span class="comment">//调用下个PCB</span></span><br><span class="line">        <span class="keyword">if</span> (nextPCB != <span class="keyword">null</span> &amp;&amp; !curPCB.getName().equals(nextPCB.getName())) &#123;</span><br><span class="line">            <span class="keyword">if</span> (curPCB.getRunningTime() != <span class="number">0</span>) &#123;</span><br><span class="line">                curPCB.setState(<span class="string">"R"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            curPCB = nextPCB;                               <span class="comment">//PCB切换</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    print(list, timeCount, cpuTimeList);</span><br><span class="line">    System.out.println(<span class="string">"\nNAME\tRoundTime\tWaitingTime"</span>);   <span class="comment">//结束时打印周转、等待时间</span></span><br><span class="line">    <span class="keyword">for</span> (PCB pcb : list) &#123;</span><br><span class="line">        System.out.printf(<span class="string">"%-12s%-12s%s\n"</span>,</span><br><span class="line">                pcb.getName(), roundTimeList.get(pcb), waitTimeList.get(pcb));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在调试过程中，发现对处理机调度的作用和工作原理的理解不够深刻，对等待时间、周转时间的计算不够熟练，通过翻阅课本和查询相关资料解决。同时对一些Exception的处理不够完善，通过询问同学解决。</p>
+<h2 id="四、实验结果总结-1"><a href="#四、实验结果总结-1" class="headerlink" title="四、实验结果总结"></a>四、实验结果总结</h2><p>测试数据：</p>
+<pre><code>请输入进程数量：3
+请输入进程1的运行时间与优先级：3 1
+请输入进程2的运行时间与优先级：2 3
+请输入进程3的运行时间与优先级：1 2</code></pre><p>输出结果：</p>
+<pre><code>INPUT:
+NAME    NEEDTIME    PRIORITY
+P1          3           1
+P2          2           3
+P3          1           2
+
+OUTPUT OF PRIORITY:
+
+CPUTIME:0
+NAME     CPUTIME     NEEDTIME    PRIORITY   STATE
+P1          0           3           1       ready
+P2          0           2           3       working
+P3          0           1           2       ready
+
+CPUTIME:1
+NAME     CPUTIME     NEEDTIME    PRIORITY   STATE
+P1          0           3           1       ready
+P2          1           1           2       working
+P3          0           1           2       ready
+
+CPUTIME:2
+NAME     CPUTIME     NEEDTIME    PRIORITY   STATE
+P1          0           3           1       ready
+P2          2           0           1       finish
+P3          0           1           2       working
+
+CPUTIME:3
+NAME     CPUTIME     NEEDTIME    PRIORITY   STATE
+P1          0           3           1       working
+P2          2           0           1       finish
+P3          1           0           1       finish
+
+CPUTIME:4
+NAME     CPUTIME     NEEDTIME    PRIORITY   STATE
+P1          1           2           0       working
+P2          2           0           1       finish
+P3          1           0           1       finish
+
+CPUTIME:5
+NAME     CPUTIME     NEEDTIME    PRIORITY   STATE
+P1          2           1           -1      working
+P2          2           0           1       finish
+P3          1           0           1       finish
+
+CPUTIME:6
+NAME     CPUTIME     NEEDTIME    PRIORITY   STATE
+P1          3           0           -2      finish
+P2          2           0           1       finish
+P3          1           0           1       finish
+
+NAME    RoundTime    WaitingTime
+P1          6           3
+P2          2           0
+P3          3           2</code></pre><h2 id="五、创新的部分-1"><a href="#五、创新的部分-1" class="headerlink" title="五、创新的部分"></a>五、创新的部分</h2><p>本程序将选择权交给用户，在程序运行的一开始让用户自行输入运行的进程数量，而不是根据实验指导书的要求实现固定的5个进程。同时用户也可自定义各个进程的要求运行时间和优先权。当用户输入非法时也做了对应的提示与错误处理，使得本程序更为灵活和人性化。</p>
+<h2 id="六、对实验的意见与建议-1"><a href="#六、对实验的意见与建议-1" class="headerlink" title="六、对实验的意见与建议"></a>六、对实验的意见与建议</h2><p>通过本实验，我成功地加深了对处理机调度的作用和工作原理的理解，也进一步认识了并发执行的实质。在对各种问题的处理中也加强了编程能力，例如对PCB数据的表格化输出等。另外，<br>通过翻阅课本和查询相关资料，我对等待时间、周转时间的计算已十分娴熟，这十分有利于操作系统概念的学习。</p>
+<h2 id="七、思考题-1"><a href="#七、思考题-1" class="headerlink" title="七、思考题"></a>七、思考题</h2><ol>
+<li><p>处理机调度的目的？</p>
+<p> 使处理机在满足系统要求的响应时间，吞吐量和处理机利用率的前提下及时的运行进程。</p>
+</li>
+<li><p>你实现优先权调度算法的思想？比较效率如何？</p>
+<p> 通过调用归并排序方法比较各个PCB的优先权，并根据优先权来设置PCB指针，实现PCB链表。在调用PCB时直接调用头节点，即优先权最高节点。由于使用了归并排序，时间复杂度为O(nlogn)。</p>
+</li>
+</ol>
+<h1 id="实验三-存储管理"><a href="#实验三-存储管理" class="headerlink" title="实验三 存储管理"></a>实验三 存储管理</h1><h2 id="一、实验目的-2"><a href="#一、实验目的-2" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>加深对存储管理的作用和工作原理的理解。</p>
+</li>
+<li><p>进一步认识主存空间的分配和回收方法。</p>
+</li>
+<li><p>进一步认识虚拟存储器的工作原理。</p>
+</li>
+</ol>
+<h2 id="二、问题分析与程序设计-2"><a href="#二、问题分析与程序设计-2" class="headerlink" title="二、问题分析与程序设计"></a>二、问题分析与程序设计</h2><p>本实验题目为模拟分页式存储管理中硬件的地址转换和产生缺页中断，并用先进先出（FIFO）页面调度算法处理缺页中断。根据指导书中相关要求，使用<code>PageTableItem</code>类来表示页，其具有页号、标志、主存块号、修改标志与磁盘位置四个属性;使用<code>Command</code>类来表示指令，其具有操作名称、页号与单元号三个属性。</p>
+<p>因为块长为128，所以计算主存单元地址时，把块号作为高地址部分，把单元号作为低地址部分，两者拼接而成绝对地址。故本程序成功模拟了硬件的地址转换工作。当发生缺页中断时，用FIFO页面调度算法把该作业中最先进入主存的一页调出，存放到磁盘上。然后再把当前要访问的页装入该块。调出和装入后都修改了页表中对应页的标志。</p>
+<p>数据结构方面，本程序使用了HashMap将页指针与页号一一对应，在运用哈希表改进查找效率的同时也便于代码的理解与维护。用户界面方面，本程序采用格式化输出列表，使界面变得更加美观，更便于维护。程序流程图如下。</p>
+<p><img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/OS-report/exp3.png"  alt=""></p>
+<h2 id="三、实现过程与测试结果分析-2"><a href="#三、实现过程与测试结果分析-2" class="headerlink" title="三、实现过程与测试结果分析"></a>三、实现过程与测试结果分析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Queue&lt;PageTableItem&gt; pageQueue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"页表："</span>);</span><br><span class="line">    System.out.println(<span class="string">"页号\t标志\t主存块号\t在磁盘上的位置"</span>);</span><br><span class="line">    <span class="keyword">for</span> (Integer key : pageTable.keySet()) &#123;     <span class="comment">//遍历页表</span></span><br><span class="line">        PageTableItem p = pageTable.get(key);</span><br><span class="line">        p.setPageNumber(key);                    <span class="comment">//初始化页号</span></span><br><span class="line">        String blockNum = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (p.isLoaded()) &#123;</span><br><span class="line">            pageQueue.add(p);                    <span class="comment">//进队列</span></span><br><span class="line">            blockNum = p.getBlockNumber() + <span class="string">""</span>;  <span class="comment">//初始化块号</span></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.printf(<span class="string">"%2s%8s%10s%16s\n"</span>,    <span class="comment">//打印页表</span></span><br><span class="line">                key, p.isLoaded() ? <span class="number">1</span> : <span class="number">0</span>,</span><br><span class="line">                blockNum, p.getPageLocation());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"\n指令序列："</span>);</span><br><span class="line">    System.out.println(<span class="string">"操作\t页号\t单元号"</span>);</span><br><span class="line">    <span class="keyword">for</span> (Command cmd : commandList) &#123;           <span class="comment">//打印命令集</span></span><br><span class="line">        System.out.printf(<span class="string">"%-5s\t%2s%10s\n"</span>, cmd.getName(),</span><br><span class="line">                cmd.getPageNumber(), cmd.getUnitNumber());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!commandList.isEmpty()) &#123;</span><br><span class="line">        Command cmd = commandList.poll();       <span class="comment">//指令出队列</span></span><br><span class="line">        System.out.println(<span class="string">"\n执行指令："</span> + cmd.getName());</span><br><span class="line">        PageTableItem p = pageTable.get(cmd.getPageNumber());</span><br><span class="line">        <span class="keyword">if</span> (p.isLoaded()) &#123;                     <span class="comment">//判断是否在主存</span></span><br><span class="line">            <span class="keyword">if</span> (cmd.getName().equals(<span class="string">"存"</span>)) &#123;</span><br><span class="line">                p.setChange(<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;                                <span class="comment">//页出队列</span></span><br><span class="line">            PageTableItem oldPage = pageQueue.poll();</span><br><span class="line">            System.out.println(<span class="string">"*页号"</span> + cmd.getPageNumber() + <span class="string">"发生缺页中断"</span>);</span><br><span class="line">            System.out.print(<span class="string">"调出页号："</span> + oldPage.getPageNumber() + <span class="string">"，"</span>);</span><br><span class="line">            <span class="keyword">int</span> blockNumber = oldPage.getBlockNumber();</span><br><span class="line">            oldPage.eliminate();                <span class="comment">//调出页</span></span><br><span class="line"></span><br><span class="line">            System.out.print(<span class="string">"装入页号："</span> + cmd.getPageNumber() + <span class="string">"，"</span>);</span><br><span class="line">            pageQueue.add(p);                   <span class="comment">//装入页</span></span><br><span class="line">            p.load(blockNumber);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"绝对地址："</span> +</span><br><span class="line">                ((p.getBlockNumber() * LENGTH + <span class="string">""</span>) + cmd.getUnitNumber()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.print(<span class="string">"\n运行结束，FIFO队列剩余页号："</span>);</span><br><span class="line">    <span class="keyword">for</span> (PageTableItem p : pageQueue) &#123;         <span class="comment">//打印队列</span></span><br><span class="line">        System.out.print(p.getPageNumber() + <span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在调试过程中，发现对存储管理的作用和工作原理与虚拟存储器的工作原理的理解不够深刻，对页出队入队的实际操作不够熟练，通过翻阅课本和查询相关资料解决。同时对FIFO算法的具体构造不够了解，通过搜索资料解决。</p>
+<h2 id="四、实验结果总结-2"><a href="#四、实验结果总结-2" class="headerlink" title="四、实验结果总结"></a>四、实验结果总结</h2><p>测试数据:</p>
+<pre><code>页表：
+页号    标志    主存块号    在磁盘上的位置
+0       1         5              11
+1       1         8              12
+2       1         9              13
+3       1         1              21
+4       0                        22
+5       0                        23
+6       0                       121
+
+指令序列：
+操作    页号    单元号
++       0        70
++       1        50
+*       2        15
+存      3        21
+取      0        56
+-       6        40
+移位    4        53
++       5        25
+存      1        37
+取      2        78
++       4        1
+存      6        84</code></pre><p>输出结果:</p>
+<pre><code>执行指令：+
+绝对地址：64070
+
+执行指令：+
+绝对地址：102450
+
+执行指令：*
+绝对地址：115215
+
+执行指令：存
+绝对地址：12821
+
+执行指令：取
+绝对地址：64056
+
+执行指令：-
+*页号6发生缺页中断
+调出页号：0，装入页号：6，绝对地址：64040
+
+执行指令：移位
+*页号4发生缺页中断
+调出页号：1，装入页号：4，绝对地址：102453
+
+执行指令：+
+*页号5发生缺页中断
+调出页号：2，装入页号：5，绝对地址：115225
+
+执行指令：存
+*页号1发生缺页中断
+调出页号：3，装入页号：1，绝对地址：12837
+
+执行指令：取
+*页号2发生缺页中断
+调出页号：6，装入页号：2，绝对地址：64078
+
+执行指令：+
+绝对地址：10241
+
+执行指令：存
+*页号6发生缺页中断
+调出页号：4，装入页号：6，绝对地址：102484
+
+运行结束，FIFO队列剩余页号：5 1 2 6</code></pre><h2 id="五、创新的部分-2"><a href="#五、创新的部分-2" class="headerlink" title="五、创新的部分"></a>五、创新的部分</h2><p>本实验严格按照实验指导书中相关要求实行，在程序输出方面优化了输出格式，使界面更加美观，便于后期的代码维护与调试。</p>
+<h2 id="六、对实验的意见与建议-2"><a href="#六、对实验的意见与建议-2" class="headerlink" title="六、对实验的意见与建议"></a>六、对实验的意见与建议</h2><p>通过本实验，我成功地加深了对存储管理的作用和工作原理以及虚拟存储器工作原理的理解，也进一步认识了主存空间的分配和回收方法。在对各种问题的处理中也加强了编程能力，例如对页表的FIFO访问等。</p>
+<h2 id="七、思考题-2"><a href="#七、思考题-2" class="headerlink" title="七、思考题"></a>七、思考题</h2><ol>
+<li><p>先进先出页面调度算法的思想？</p>
+<p> 根据页面进入内存的时间先后选择淘汰页面，先进入内存的页面先淘汰，后进入内存的后淘汰。实现时将页面按进入内存的时间先后组成一个队列，每次调度队首页面予以淘汰。</p>
+</li>
+<li><p>最近最少用（LRU）页面调度算法思想？</p>
+<p> 选择淘汰页面时考虑页面最近的使用，总是选择在最近一段时间以来最少使用的页面予以淘汰。</p>
+</li>
+<li><p>比较两种调度算法的效率（哪种调度算法使产生缺页中断的次数少）？</p>
+<p> 最近最少用（LRU）页面调度算法产生缺页中断的次数少。</p>
+</li>
+<li><p>分析在什么情况下采用哪种调度算法更有利？</p>
+<p> 如果页访问高度随机的话，FIFO相对于LRU可能更好，因为LRU是根据最近最少使用的来决定哪个页表被替换，但过去很多时候不能代表未来。</p>
+</li>
+</ol>
+<h1 id="实验四-文件系统"><a href="#实验四-文件系统" class="headerlink" title="实验四 文件系统"></a>实验四 文件系统</h1><h2 id="一、实验目的-3"><a href="#一、实验目的-3" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>加深理解文件系统的内部功能及内部实现。</p>
+</li>
+<li><p>进一步认识文件系统的作用。</p>
+</li>
+</ol>
+<h2 id="二、问题分析与程序设计-3"><a href="#二、问题分析与程序设计-3" class="headerlink" title="二、问题分析与程序设计"></a>二、问题分析与程序设计</h2><p>本实验为编写和调试一个简单的文件系统，模拟文件管理的工作过程。根据指导书中相关要求，使用<code>FileSystem</code>类来表示主系统，<code>MFD</code>类表示用户目录，<code>User</code>类表示用户， <code>UFD</code>类表示用户文件目录，<code>MyFile</code>类表示文件自定义类。在程序开始时，用户需要输入用户名，此时系统调用<code>MFD</code>来查找用户，若用户不存在则返回警告;若用户存在则提示用户输入密码，若密码错误则提示重新输入密码;若密码正确则登录成功，加载<code>UFD</code>，同时初始化<code>AFD</code>。在<code>AFD</code>界面中提示用户输入对应指令，这些指令包括新建文件、删除文件、打开文件、编辑已打开文件、保存并退出、读文件、写文件与关闭文件。</p>
+<p>数据结构方面，本程序使用了<code>LinkedList</code>来实现文件的存储，同时使用<code>FileOutputStream</code>以及<code>ObjectOutputStream</code>来实现通过txt文件的用户数据保存。程序流程图如下。</p>
+<p><img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/OS-report/exp4.png"  alt=""></p>
+<h2 id="三、实现过程与测试结果分析-3"><a href="#三、实现过程与测试结果分析-3" class="headerlink" title="三、实现过程与测试结果分析"></a>三、实现过程与测试结果分析</h2><p>本实验中新建文件与写入txt数据的方法较有代表性，展示如下。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"新建文件..."</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">"请输入新文件名："</span>);</span><br><span class="line">        String filename = <span class="keyword">new</span> Scanner(System.in).nextLine();</span><br><span class="line">        System.out.print(<span class="string">"请输入文件长度（bytes）："</span>);</span><br><span class="line">        <span class="keyword">int</span> length = <span class="keyword">new</span> Scanner(System.in).nextInt();</span><br><span class="line">        System.out.print(<span class="string">"是否保护此文件？（Y/N）："</span>);</span><br><span class="line">        String protect = <span class="keyword">new</span> Scanner(System.in).nextLine();</span><br><span class="line"></span><br><span class="line">        MyFile newFile = <span class="keyword">new</span> MyFile();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!filename.isEmpty() &amp;&amp; length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (protect.equalsIgnoreCase(<span class="string">"y"</span>)) &#123;</span><br><span class="line">                newFile = <span class="keyword">new</span> MyFile(filename, <span class="number">0</span>, length);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (protect.equalsIgnoreCase(<span class="string">"n"</span>)) &#123;</span><br><span class="line">                newFile = <span class="keyword">new</span> MyFile(filename, <span class="number">1</span>, length);</span><br><span class="line">            &#125;</span><br><span class="line">            fileList.add(newFile);</span><br><span class="line">            System.out.println(<span class="string">"文件创建成功！"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"文件创建失败！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writeUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">    ObjectOutputStream oos = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"src/exp4/UserData.txt"</span>);</span><br><span class="line">        oos = <span class="keyword">new</span> ObjectOutputStream(fos);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!<span class="keyword">this</span>.userList.isEmpty()) &#123;</span><br><span class="line">            oos.writeObject(<span class="keyword">this</span>.userList.pollFirst());</span><br><span class="line">        &#125;</span><br><span class="line">        oos.flush();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fos != <span class="keyword">null</span>) &#123;</span><br><span class="line">                fos.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (oos != <span class="keyword">null</span>) &#123;</span><br><span class="line">                oos.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、实验结果总结-3"><a href="#四、实验结果总结-3" class="headerlink" title="四、实验结果总结"></a>四、实验结果总结</h2><pre><code>欢迎访问二级文件系统！
+请输入您的用户名：u2
+用户u2，请输入您的密码：2
+登录成功！
+文件列表：
+文件名     保护码     长度      物理地址
+初始1        1        233       exp4.MyFile@1ed4004b
+初始2        0        234       exp4.MyFile@ff5b51f
+初始3        1        235       exp4.MyFile@25bbe1b6
+初始4        0        236       exp4.MyFile@5702b3b1
+
+1    新建文件
+2    删除文件
+3    打开文件
+4    编辑已打开文件
+0    保存并退出
+请输入选项:1
+新建文件...
+请输入新文件名：文件1
+请输入文件长度（bytes）：2
+是否保护此文件？（Y/N）：y
+文件创建成功！
+
+1    新建文件
+2    删除文件
+3    打开文件
+4    编辑已打开文件
+0    保存并退出
+请输入选项:2
+文件列表：
+文件名     保护码     长度      物理地址
+初始1        1        233       exp4.MyFile@1ed4004b
+初始2        0        234       exp4.MyFile@ff5b51f
+初始3        1        235       exp4.MyFile@25bbe1b6
+初始4        0        236       exp4.MyFile@5702b3b1
+文件1        0        2         exp4.MyFile@4bec1f0c
+请输入您要删除文件的名称：初始2
+文件删除成功！
+
+1    新建文件
+2    删除文件
+3    打开文件
+4    编辑已打开文件
+0    保存并退出
+请输入选项:3
+文件列表：
+文件名     保护码     长度      物理地址
+初始1        1        233       exp4.MyFile@1ed4004b
+初始3        1        235       exp4.MyFile@25bbe1b6
+初始4        0        236       exp4.MyFile@5702b3b1
+文件1        0        2         exp4.MyFile@4bec1f0c
+请输入您要打开文件的名称：初始3
+文件加入打开列表成功！
+
+1    新建文件
+2    删除文件
+3    打开文件
+4    编辑已打开文件
+0    保存并退出
+请输入选项:4
+文件列表：
+文件名     保护码     长度      物理地址
+初始3        1        235       exp4.MyFile@25bbe1b6
+
+1    读文件
+2    写文件
+3    关闭文件
+0    保存并退出编辑
+请输入选项:2
+文件列表：
+文件名     保护码     长度      物理地址
+初始3        1        235       exp4.MyFile@25bbe1b6
+请输入您要写入文件的名称：初始3
+文件写入成功！
+
+1    读文件
+2    写文件
+3    关闭文件
+0    保存并退出编辑
+请输入选项:0
+
+1    新建文件
+2    删除文件
+3    打开文件
+4    编辑已打开文件
+0    保存并退出
+请输入选项:0</code></pre><h2 id="五、创新的部分-3"><a href="#五、创新的部分-3" class="headerlink" title="五、创新的部分"></a>五、创新的部分</h2><p>本实验严格按照实验指导书中相关要求实行，在程序输出方面优化了输出格式，使界面更加美观，便于后期的代码维护与调试。</p>
+<h2 id="六、对实验的意见与建议-3"><a href="#六、对实验的意见与建议-3" class="headerlink" title="六、对实验的意见与建议"></a>六、对实验的意见与建议</h2><p>通过本实验，我更深入地理解了文件系统的作用。并在代码的调试过程中发现对文件系统的内部功能及内部实现的理解不够深刻，对文件输出流与文件输入流的实现掌握不深，通过查询网页解决。关于对实验的建议，我认为本实验很好地体现了文件系统的内容，不存在急需完善的问题。</p>
+<h2 id="七、思考题-3"><a href="#七、思考题-3" class="headerlink" title="七、思考题"></a>七、思考题</h2><ol>
+<li><p>文件管理的思想？</p>
+<p> 文件管理是操作系统的五大职能之一，主要涉及文件的逻辑组织和物理组织，目录的结构和管理。</p>
+</li>
+<li><p>目录管理的思想？</p>
+<p> 实现按名存取、提高对目录的检索速度与文件共享。</p>
+</li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Marshall Sun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://msun.work/2020/01/01/OS-exp-report/">https://msun.work/2020/01/01/OS-exp-report/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://msun.work" target="_blank">Sun's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">实验报告</a><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/post.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/01/12/Python-exp-report/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-python.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Python程序设计实验报告</div></div></a></div><div class="next-post pull_right"><a href="/2019/12/08/DSA-exp-report/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-java.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据结构与算法课程设计实验报告</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/Marshall-Sun/CDN/img/cover-java.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Marshall Sun</div><div class="footer_custom_text">Inspired in South, implemented in Northeast.</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i></div><div id="rightside-config-show"><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>

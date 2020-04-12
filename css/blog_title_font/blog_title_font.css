@@ -1,0 +1,13 @@
+/* ubuntu-regular */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  src: url('//lib.baomitu.com/fonts/ubuntu/ubuntu-regular.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu'), local('Ubuntu-Normal'),
+       url('//lib.baomitu.com/fonts/ubuntu/ubuntu-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('//lib.baomitu.com/fonts/ubuntu/ubuntu-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('//lib.baomitu.com/fonts/ubuntu/ubuntu-regular.woff') format('woff'), /* Modern Browsers */
+       url('//lib.baomitu.com/fonts/ubuntu/ubuntu-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('//lib.baomitu.com/fonts/ubuntu/ubuntu-regular.svg#Ubuntu') format('svg'); /* Legacy iOS */
+}
+  
