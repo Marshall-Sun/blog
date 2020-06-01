@@ -2664,6 +2664,8 @@ figure.gallery-group .gallery-group-name:after {
   -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   -ms-transition: -ms-transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  background-color: rgba(255,255,255,0.72);
+  backdrop-filter: saturate(180%) blur(10px);
 }
 #page-header.fixed a,
 #page-header.fixed #site-name,
