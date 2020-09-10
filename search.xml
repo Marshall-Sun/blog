@@ -4,9 +4,55 @@
   
     
     <entry>
+      <title>Leetcode/15.三数之和</title>
+      <link href="/post/Leetcode/15.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+      <url>/post/Leetcode/15.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/link" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。</p><p>注意：答案中不可以包含重复的三元组。</p><p>示例：</p><pre><code>给定数组 nums = [-1, 0, 1, 2, -1, -4]，满足要求的三元组集合为：[    [-1, 0, 1],    [-1, -1, 2]]</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[][]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> threeSum = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  nums.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line">  <span class="keyword">const</span> res = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">2</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> n1 = nums[i];</span><br><span class="line">    <span class="keyword">if</span> (n1 &gt; <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span> (n1 == nums[i - <span class="number">1</span>] &amp;&amp; i &gt; <span class="number">0</span>) <span class="keyword">continue</span>; <span class="comment">// 遍历到重复的数，跳过</span></span><br><span class="line">    <span class="keyword">let</span> left = i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">      <span class="keyword">let</span> n2 = nums[left];</span><br><span class="line">      <span class="keyword">let</span> n3 = nums[right];</span><br><span class="line">      <span class="keyword">if</span> (n1 + n2 + n3 === <span class="number">0</span>) &#123;</span><br><span class="line">        res.push([n1, n2, n3]);</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] === n2) left++; <span class="comment">//直到指向不一样的数</span></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] === n3) right--;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n1 + n2 + n3 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        left++;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right--;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>外层循环：指针 i 遍历数组。内层循环：双指针去寻找满足三数和等于0的项</li></ul><h3 id="排序的意义"><a href="#排序的意义" class="headerlink" title="排序的意义"></a>排序的意义</h3><ul><li>因为不能有重复的解，为了简化操作，我们先对数组排序，于是判断一个元素是否重复，只需看它和它前面的元素是否相等即可</li></ul><h3 id="双指针的移动时，避免出现重复解"><a href="#双指针的移动时，避免出现重复解" class="headerlink" title="双指针的移动时，避免出现重复解"></a>双指针的移动时，避免出现重复解</h3><ul><li><p>得到一个解后，需要左右指针向 “内” 收缩，为了避免指向重复的元素</p></li><li><p>左指针要在 <code>left &lt; right</code> 的前提下，一直右移，直到指向不重复的元素</p></li><li><p>右指针要在 <code>left &lt; right</code> 的前提下，一直左移，直到指向不重复的元素</p></li></ul><h3 id="稍微优化"><a href="#稍微优化" class="headerlink" title="稍微优化"></a>稍微优化</h3><ul><li>经过了排序，如果外层遍历的数已经大于0，则另外两个数一定大于0，sum不会等于0，所以这种情况直接break结束遍历</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 中级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>研究Array.prototype.sort()</title>
+      <link href="/post/Note/%E7%A0%94%E7%A9%B6Array.prototype.sort()/"/>
+      <url>/post/Note/%E7%A0%94%E7%A9%B6Array.prototype.sort()/</url>
+      
+        <content type="html"><![CDATA[<p>Array 的原型上有一个非常容易误用的方法 <code>sort()</code> ，它总是能让诸多 JavaScript 新手感到相当地困惑，本篇文章会先介绍它的正确使用姿势，而后讨论各家厂商是如何来实现排序。最后再来探讨 sort 常常成为 JavaScript 被抨击的原因。</p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 Chrome 的控制台输入 sort 语句，输出令人困惑</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">-2</span>, <span class="number">-3</span>].sort()</span><br><span class="line">&gt;&gt;&gt; [<span class="number">-2</span>, <span class="number">-3</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">[(<span class="string">"Mon"</span>, <span class="string">"Tue"</span>, <span class="string">"Wed"</span>, <span class="string">"Thu"</span>, <span class="string">"Fri"</span>, <span class="string">"Sat"</span>, <span class="string">"Sun"</span>)].sort()</span><br><span class="line">&gt;&gt;&gt; [<span class="string">"Fri"</span>, <span class="string">"Mon"</span>, <span class="string">"Sat"</span>, <span class="string">"Sun"</span>, <span class="string">"Thu"</span>, <span class="string">"Tue"</span>, <span class="string">"Wed"</span>];</span><br></pre></td></tr></table></figure><p>JavaScript 的函数用法，总是跟新手想的不一样。这也是撰写这篇文章的主要原因之一，常见的 sort 方法太过容易被误用，导致不断有人制作成 meme 图来攻击 JavaScript 很 weird。</p><p>另外这篇文章并非教学文，虽然还是会介绍语法，但主要想讨论的是「正确的语法」、「实际上的排序操作」、「为什么它让人讨厌」等等。</p><h2 id="sort-的用法"><a href="#sort-的用法" class="headerlink" title="sort() 的用法"></a><code>sort()</code> 的用法</h2><p><code>arr.sort([compareFunction])</code></p><p>可以发现 Array 上的 sort 方法是可以接受一个回调函数，MDN 把它称为 compareFunction，我们来看看实际上这个回调函数是怎么样去设计的。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (在某排序标准下a小于b) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (在某排序标准下a大于b) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// a必须等于b</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我们先不管排序标准，当我们要看懂一个函数的时候，有一件最重要的事，就是看懂传入的参数代表什么。于是我们来做一个实验来看看参数到底是什么：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> week = [<span class="string">"Mon"</span>, <span class="string">"Tue"</span>, <span class="string">"Wed"</span>, <span class="string">"Thu"</span>, <span class="string">"Fri"</span>, <span class="string">"Sat"</span>, <span class="string">"Sun"</span>];</span><br><span class="line">week.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 为了让元素不交换我们先 return 0</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><img src="/" class="lazyload" data-src="https://miro.medium.com/max/875/1*QbKIMev7z2WSa6L4274VBQ.png"  alt="Chrome 运行结果"></p><p><img src="/" class="lazyload" data-src="https://miro.medium.com/max/875/1*t7Ba4j3gtqT16IXmIlUIfQ.png"  alt="FireFox 运行结果"></p><p>我们发现输出的结果完全相反，这十分不易于理解。但是本来 JavaScript 就没有规范 compareFunction 传入的参数到底该是什么顺序（这跟等等提到的算法有关）， compareFunction 只是在制定一个两数之间的比较规则。</p><h2 id="什么是明确规则？"><a href="#什么是明确规则？" class="headerlink" title="什么是明确规则？"></a>什么是明确规则？</h2><p>如果今天要比较的两个数字分别是 113、114，我们要告诉 JavaScript 的引擎，到底排序的方式是什么样的，这个时候只有三种状况：a 排在 b 前面、a 排在 b 后面、ab 位置不动。</p><pre><code>if (a &lt; b) {  return -1;}//当a小于b的时候，把a排在b前面if (a &gt; b) {    return 1;}//当a大于b的时候，把a排在b的后面return 0;//a等于b，return 0 代表不改变彼此之间的顺序</code></pre><p>在这个明确规则的定义后，不管 a 跟 b 两数传进来的顺序为何，我们只在乎它们彼此的排序关系。这也解释了为什么同样的 compareFunction 下，尽管 Chrome 与 Firefox 接受的参数不一样，还是能排序出一样的结果。</p><p>再次注意！Compare Function 的这个回调只在乎排序两数之间的规则。</p><p>你可能会觉得有点懵，明明传进来的顺序就不一样，为什么可以这样做，这有点像是在绕口令：</p><p>我比你高，换句话说你比我矮，只要规定高矮之间谁在前面、谁在后面就好。</p><h2 id="快捷的方式撰写-compareFunction"><a href="#快捷的方式撰写-compareFunction" class="headerlink" title="快捷的方式撰写 compareFunction"></a>快捷的方式撰写 compareFunction</h2><p>明白了 Compare Function 撰写方式后，我们可以用一些比较快捷的方式来撰写：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当我们想要由小至大</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"></span><br><span class="line"><span class="comment">//当我们想要由大至小</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b - a);</span><br></pre></td></tr></table></figure><h2 id="那当我们什么都不写的时候呢？"><a href="#那当我们什么都不写的时候呢？" class="headerlink" title="那当我们什么都不写的时候呢？"></a>那当我们什么都不写的时候呢？</h2><p>根据规范，预设的排序顺序是根据字串的 Unicode 编码位置（code points）而定，这也是为什么许多人直接输入<code>arr.sort()</code>仍然会排序（但通常排出来的跟想象中不一样）的原因。</p><h2 id="聊聊各家实现-sort-的演算法"><a href="#聊聊各家实现-sort-的演算法" class="headerlink" title="聊聊各家实现 sort() 的演算法"></a>聊聊各家实现 <code>sort()</code> 的演算法</h2><h3 id="仔细看看-sort-的介绍"><a href="#仔细看看-sort-的介绍" class="headerlink" title="仔细看看 sort() 的介绍"></a>仔细看看 <code>sort()</code> 的介绍</h3><p><code>sort()</code>方法会原地（in place）对一个数组的所有元素进行排序，并回传此数组。排序不一定是稳定的（stable）。由于依赖执行环境的实作，所以并不能保证排序的时间及空间复杂度。</p><h3 id="先来讲讲原地（in-place）"><a href="#先来讲讲原地（in-place）" class="headerlink" title="先来讲讲原地（in place）"></a>先来讲讲原地（in place）</h3><p>维基百科上针对原地算法有详细的介绍，所以就直接告诉你，原地的算法会直接在原本的数组上操作元素，这样不用额外的内存空间，也就是空间复杂度为 O(1)，副作用就是会覆盖原本的数组。</p><h3 id="再来讲讲什么是稳定（stable）"><a href="#再来讲讲什么是稳定（stable）" class="headerlink" title="再来讲讲什么是稳定（stable）"></a>再来讲讲什么是稳定（stable）</h3><p>稳定的排序法在拥有相同值的状况下，排序后的位置保证会跟排序前相同：</p><p><code>排序前：[1, 3, 2, 5, 6, 3*]、排序后：[1, 2, 3, 3*, 5, 6]</code></p><p>然而不稳定的排序法可能会造成：</p><p><code>排序前：[1, 3, 2, 5, 6, 3*] 、排序后：[1, 2, 3*, 3, 5, 6]</code></p><p>你可能会觉得这有什么不妥？稳定、不稳定会造成什么问题？<br>我们观看以下例子就可以发现还是有些差别的。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jojo = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">"Jonathan"</span>,</span><br><span class="line">    height: <span class="number">195</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">"东方仗助"</span>,</span><br><span class="line">    height: <span class="number">180</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">"Dio"</span>,</span><br><span class="line">    height: <span class="number">195</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure><p>如果依照身高（height）做排序，稳定的排序可以确保 Jonathan 永远排序在 Dio 前面，但是不稳定的排序可能最终的回传结果会是 Dio 在 Jonathan 前面。</p><h2 id="sort-的实现方式并没有统一规范"><a href="#sort-的实现方式并没有统一规范" class="headerlink" title="sort() 的实现方式并没有统一规范"></a><code>sort()</code> 的实现方式并没有统一规范</h2><p>由于依赖执行环境的实现方式不同，所以并不能保证排序的时间及空间复杂度。</p><p>对，这也代表一件事，不同的浏览器之间的实现方式并没有统一，而且尽管是同一种浏览器，也会因为版本的不同，而有不同的排序实现方式。</p><p>可能采用不同的算法，各个算法可能是 stable 也可能是 unstable。</p><p><a href="https://stackoverflow.com/questions/3026281/what-is-the-stability-of-the-array-sort-method-in-different-browsers" target="_blank" rel="noopener">What is the stability of the Array.sort() method in different browsers?  - Stack Overflow</a></p><ul><li>IE6+: stable</li><li>Firefox &lt; 3: unstable</li><li>Firefox &gt;= 3: stable</li><li>Chrome &lt; 70: unstable</li><li>Chrome &gt;= 70: stable</li><li>Opera &lt; 10: unstable</li><li>Opera &gt;= 10: stable</li><li>Safari 4: stable</li><li>Edge: unstable for long arrays</li></ul><p>这个答案的整理很棒，这意味着即使你传入同样的 compareFunction，最终结果在不同的浏览器，甚至是同个浏览器的不同版本都会有歧义。</p><p>由 Mathias Bynens（V8的开发者）提供的答案：</p><blockquote><p>As of V8 v7.0 and Chrome 70, our <code>Array.prototype.sort</code>implementation is now stable. 🎉<br><br>Previously, V8 used an unstable QuickSort for arrays with more than 10 elements. Now, V8 uses the stable TimSort algorithm.</p></blockquote><p>可以发现，在旧版本的Chrome中，他们使用快速排序法（quick sort）来实作排序，但在新的 Chrome 版本里头是使用 TimSort 来实现，两者的时间复杂度都是 O(nlogn)，但是后者是稳定的排序法。</p><p>那我们刨根究底来看看 Firefox 的 stable sorting 是用什么算法呢？<br>答案就是合并排序法（merge sort），时间复杂度也是 O(nlogn)，<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=224128" target="_blank" rel="noopener">这个讨论串</a><br>还可以看到当时的讨论。</p><p>就像上头说的，ECMA 并没有明确规定<code>Array.prototype.sort()</code>的方式到底需不需要 stable，所以掀起一阵讨论。</p><h2 id="为什么有人会使用-sort-来抨击JavaScript"><a href="#为什么有人会使用-sort-来抨击JavaScript" class="headerlink" title="为什么有人会使用 sort() 来抨击JavaScript"></a>为什么有人会使用 <code>sort()</code> 来抨击JavaScript</h2><ol><li><p>没有搞清楚 <code>sort()</code> 是高阶函数</p><p> 太多刚接触JavaScript 的同学，可能默认了 <code>sort()</code> 的行为，对于函数不够熟练。</p></li><li><p>没有阅读文档</p><p> 因为太多语言的<code>sort()</code>开箱即用，不会有这么一个古怪的规则「预设的排序顺序是根据字串的 Unicode编码位置（code points）而定」。</p></li><li><p>搞不懂 compare function</p><p> 如果直接的把两参数打印出来只会更加的无解，需要知道的是， <code>sort()</code> 方法本来就与<code>forEach()</code>、<code>map()</code>、<code>filter()</code> 有一个根本上的差异，后者都是透过不停地迭代往前，但<code>sort()</code> 并不是，试想难道一轮迭代就能结束排序了吗？</p></li><li><p>被各家实现方法不一的 stable 、 unstable 搞得非常困惑</p><p> 这没什么好说的，就真的 weird，如果要 stable 的排序，还是使用外部的函数库会比较保险。</p></li></ol><h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p><strong>注意：本文翻译于 <a href="https://medium.com/@realdennis" target="_blank" rel="noopener">Medium</a>， 一切权利归原作者所有</strong></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 前端知识 </tag>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>正则表达式</title>
-      <link href="/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-      <url>/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+      <link href="/post/Note/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <url>/post/Note/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
       
         <content type="html"><![CDATA[<h2 id="什么是正则表达式？"><a href="#什么是正则表达式？" class="headerlink" title="什么是正则表达式？"></a>什么是正则表达式？</h2><blockquote><p>正则表达式是一组由字母和符号组成的特殊文本，它可以用来从文本中找出满足你想要的格式的句子。</p></blockquote><p>一个正则表达式是一种从左到右匹配主体字符串的模式。<br>“Regular expression”这个词比较拗口，我们常使用缩写的术语“regex”或“regexp”。<br>正则表达式可以从一个基础字符串中根据一定的匹配模式替换文本中的字符串、验证表单、提取字符串等等。</p><p>想象你正在写一个应用，然后你想设定一个用户命名的规则，让用户名包含字符、数字、下划线和连字符，以及限制字符的个数，好让名字看起来没那么丑。<br>我们使用以下正则表达式来验证一个用户名：</p><p align="center">  <img src="/" class="lazyload" data-src="https://cdn.jsdelivr.net/gh/ziishaned/learn-regex@latest/img/regexp-cn.png"  alt="Regular expression"></p><p>以上的正则表达式可以接受 <code>john_doe</code>、<code>jo-hn_doe</code>、<code>john12_as</code>。<br>但不匹配<code>Jo</code>，因为它包含了大写的字母而且太短了。</p><h2 id="1-基本匹配"><a href="#1-基本匹配" class="headerlink" title="1. 基本匹配"></a>1. 基本匹配</h2><p>正则表达式其实就是在执行搜索时的格式，它由一些字母和数字组合而成。<br>例如：一个正则表达式 <code>the</code>，它表示一个规则：由字母<code>t</code>开始，接着是<code>h</code>，再接着是<code>e</code>。</p><pre>"the" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre><p><a href="https://regex101.com/r/dmRygT/1" target="_blank" rel="noopener">在线练习</a></p><p>正则表达式<code>123</code>匹配字符串<code>123</code>。它逐个字符的与输入的正则表达式做比较。</p><p>正则表达式是大小写敏感的，所以<code>The</code>不会匹配<code>the</code>。</p><pre>"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.</pre><p><a href="https://regex101.com/r/1paXsy/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="2-元字符"><a href="#2-元字符" class="headerlink" title="2. 元字符"></a>2. 元字符</h2><p>正则表达式主要依赖于元字符。<br>元字符不代表他们本身的字面意思，他们都有特殊的含义。一些元字符写在方括号中的时候有一些特殊的意思。以下是一些元字符的介绍：</p><table><thead><tr><th align="center">元字符</th><th>描述</th></tr></thead><tbody><tr><td align="center">.</td><td>句号匹配任意单个字符除了换行符。</td></tr><tr><td align="center">[ ]</td><td>字符种类。匹配方括号内的任意字符。</td></tr><tr><td align="center">[^ ]</td><td>否定的字符种类。匹配除了方括号里的任意字符</td></tr><tr><td align="center">*</td><td>匹配&gt;=0个重复的在*号之前的字符。</td></tr><tr><td align="center">+</td><td>匹配&gt;=1个重复的+号前的字符。</td></tr><tr><td align="center">?</td><td>标记?之前的字符为可选.</td></tr><tr><td align="center">{n,m}</td><td>匹配num个大括号之前的字符或字符集 (n &lt;= num &lt;= m).</td></tr><tr><td align="center">(xyz)</td><td>字符集，匹配与 xyz 完全相等的字符串.</td></tr><tr><td align="center">&#124;</td><td>或运算符，匹配符号前或后的字符.</td></tr><tr><td align="center">&#92;</td><td>转义字符,用于匹配一些保留的字符 <code>[ ] ( ) { } . * + ? ^ $ \ &#124;</code></td></tr><tr><td align="center">^</td><td>从开始行开始匹配.</td></tr><tr><td align="center">$</td><td>从末端开始匹配.</td></tr></tbody></table><h2 id="2-1-点运算符"><a href="#2-1-点运算符" class="headerlink" title="2.1 点运算符 ."></a>2.1 点运算符 <code>.</code></h2><p><code>.</code>是元字符中最简单的例子。<br><code>.</code>匹配任意单个字符，但不匹配换行符。<br>例如，表达式<code>.ar</code>匹配一个任意字符后面跟着是<code>a</code>和<code>r</code>的字符串。</p><pre>".ar" => The <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre><p><a href="https://regex101.com/r/xc9GkU/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="2-2-字符集"><a href="#2-2-字符集" class="headerlink" title="2.2 字符集"></a>2.2 字符集</h2><p>字符集也叫做字符类。<br>方括号用来指定一个字符集。<br>在方括号中使用连字符来指定字符集的范围。<br>在方括号中的字符集不关心顺序。<br>例如，表达式<code>[Tt]he</code> 匹配 <code>the</code> 和 <code>The</code>。</p><pre>"[Tt]he" => <a href="#learn-regex"><strong>The</strong></a> car parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre><p><a href="https://regex101.com/r/2ITLQ4/1" target="_blank" rel="noopener">在线练习</a></p><p>方括号的句号就表示句号。<br>表达式 <code>ar[.]</code> 匹配 <code>ar.</code>字符串</p><pre>"ar[.]" => A garage is a good place to park a c<a href="#learn-regex"><strong>ar.</strong></a></pre><p><a href="https://regex101.com/r/wL3xtE/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="2-2-1-否定字符集"><a href="#2-2-1-否定字符集" class="headerlink" title="2.2.1 否定字符集"></a>2.2.1 否定字符集</h3><p>一般来说 <code>^</code> 表示一个字符串的开头，但它用在一个方括号的开头的时候，它表示这个字符集是否定的。<br>例如，表达式<code>[^c]ar</code> 匹配一个后面跟着<code>ar</code>的除了<code>c</code>的任意字符。</p><pre>"[^c]ar" => The car <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre><p><a href="https://regex101.com/r/nNNlq3/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="2-3-重复次数"><a href="#2-3-重复次数" class="headerlink" title="2.3 重复次数"></a>2.3 重复次数</h2><p>后面跟着元字符 <code>+</code>，<code>*</code> or <code>?</code> 的，用来指定匹配子模式的次数。<br>这些元字符在不同的情况下有着不同的意思。</p><h3 id="2-3-1-号"><a href="#2-3-1-号" class="headerlink" title="2.3.1 * 号"></a>2.3.1 <code>*</code> 号</h3><p><code>*</code>号匹配 在<code>*</code>之前的字符出现<code>大于等于0</code>次。<br>例如，表达式 <code>a*</code> 匹配0或更多个以a开头的字符。表达式<code>[a-z]*</code> 匹配一个行中所有以小写字母开头的字符串。</p><pre>"[a-z]*" => T<a href="#learn-regex"><strong>he</strong></a> <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>parked</strong></a> <a href="#learn-regex"><strong>in</strong></a> <a href="#learn-regex"><strong>the</strong></a> <a href="#learn-regex"><strong>garage</strong></a> #21.</pre><p><a href="https://regex101.com/r/7m8me5/1" target="_blank" rel="noopener">在线练习</a></p><p><code>*</code>字符和<code>.</code>字符搭配可以匹配所有的字符<code>.*</code>。<br><code>*</code>和表示匹配空格的符号<code>\s</code>连起来用，如表达式<code>\s*cat\s*</code>匹配0或更多个空格开头和0或更多个空格结尾的cat字符串。</p><pre>"\s*cat\s*" => The fat<a href="#learn-regex"><strong> cat </strong></a>sat on the con<a href="#learn-regex"><strong>cat</strong></a>enation.</pre><p><a href="https://regex101.com/r/gGrwuz/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="2-3-2-号"><a href="#2-3-2-号" class="headerlink" title="2.3.2 + 号"></a>2.3.2 <code>+</code> 号</h3><p><code>+</code>号匹配<code>+</code>号之前的字符出现 &gt;=1 次。<br>例如表达式<code>c.+t</code> 匹配以首字母<code>c</code>开头以<code>t</code>结尾，中间跟着至少一个字符的字符串。</p><pre>"c.+t" => The fat <a href="#learn-regex"><strong>cat sat on the mat</strong></a>.</pre><p><a href="https://regex101.com/r/Dzf9Aa/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="2-3-3-号"><a href="#2-3-3-号" class="headerlink" title="2.3.3 ? 号"></a>2.3.3 <code>?</code> 号</h3><p>在正则表达式中元字符 <code>?</code> 标记在符号前面的字符为可选，即出现 0 或 1 次。<br>例如，表达式 <code>[T]?he</code> 匹配字符串 <code>he</code> 和 <code>The</code>。</p><pre>"[T]he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.</pre><p><a href="https://regex101.com/r/cIg9zm/1" target="_blank" rel="noopener">在线练习</a></p><pre>"[T]?he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in t<a href="#learn-regex"><strong>he</strong></a> garage.</pre><p><a href="https://regex101.com/r/kPpO2x/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="2-4-号"><a href="#2-4-号" class="headerlink" title="2.4 {} 号"></a>2.4 <code>{}</code> 号</h2><p>在正则表达式中 <code>{}</code> 是一个量词，常用来限定一个或一组字符可以重复出现的次数。<br>例如， 表达式 <code>[0-9]{2,3}</code> 匹配最少 2 位最多 3 位 0~9 的数字。</p><pre>"[0-9]{2,3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.</pre><p><a href="https://regex101.com/r/juM86s/1" target="_blank" rel="noopener">在线练习</a></p><p>我们可以省略第二个参数。<br>例如，<code>[0-9]{2,}</code> 匹配至少两位 0~9 的数字。</p><pre>"[0-9]{2,}" => The number was 9.<a href="#learn-regex"><strong>9997</strong></a> but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.</pre><p><a href="https://regex101.com/r/Gdy4w5/1" target="_blank" rel="noopener">在线练习</a></p><p>如果逗号也省略掉则表示重复固定的次数。<br>例如，<code>[0-9]{3}</code> 匹配3位数字</p><pre>"[0-9]{3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to 10.0.</pre><p><a href="https://regex101.com/r/Sivu30/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="2-5-特征标群"><a href="#2-5-特征标群" class="headerlink" title="2.5 (...) 特征标群"></a>2.5 <code>(...)</code> 特征标群</h2><p>特征标群是一组写在 <code>(...)</code> 中的子模式。<code>(...)</code> 中包含的内容将会被看成一个整体，和数学中小括号（ ）的作用相同。例如, 表达式 <code>(ab)*</code> 匹配连续出现 0 或更多个 <code>ab</code>。如果没有使用 <code>(...)</code> ，那么表达式 <code>ab*</code> 将匹配连续出现 0 或更多个 <code>b</code> 。再比如之前说的 <code>{}</code> 是用来表示前面一个字符出现指定次数。但如果在 <code>{}</code> 前加上特征标群 <code>(...)</code> 则表示整个标群内的字符重复 N 次。</p><p>我们还可以在 <code>()</code> 中用或字符 <code>|</code> 表示或。例如，<code>(c|g|p)ar</code> 匹配 <code>car</code> 或 <code>gar</code> 或 <code>par</code>.</p><pre>"(c|g|p)ar" => The <a href="#learn-regex"><strong>car</strong></a> is <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.</pre><p><a href="https://regex101.com/r/tUxrBG/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="2-6-或运算符"><a href="#2-6-或运算符" class="headerlink" title="2.6 | 或运算符"></a>2.6 <code>|</code> 或运算符</h2><p>或运算符就表示或，用作判断条件。</p><p>例如 <code>(T|t)he|car</code> 匹配 <code>(T|t)he</code> 或 <code>car</code>。</p><pre>"(T|t)he|car" => <a href="#learn-regex"><strong>The</strong></a> <a href="#learn-regex"><strong>car</strong></a> is parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre><p><a href="https://regex101.com/r/fBXyX0/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="2-7-转码特殊字符"><a href="#2-7-转码特殊字符" class="headerlink" title="2.7 转码特殊字符"></a>2.7 转码特殊字符</h2><p>反斜线 <code>\</code> 在表达式中用于转码紧跟其后的字符。用于指定 <code>{ } [ ] / \ + * . $ ^ | ?</code> 这些特殊字符。如果想要匹配这些特殊字符则要在其前面加上反斜线 <code>\</code>。</p><p>例如 <code>.</code> 是用来匹配除换行符外的所有字符的。如果想要匹配句子中的 <code>.</code> 则要写成 <code>\.</code> 以下这个例子 <code>\.?</code>是选择性匹配<code>.</code></p><pre>"(f|c|m)at\.?" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> sat on the <a href="#learn-regex"><strong>mat.</strong></a></pre><p><a href="https://regex101.com/r/DOc5Nu/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="2-8-锚点"><a href="#2-8-锚点" class="headerlink" title="2.8 锚点"></a>2.8 锚点</h2><p>在正则表达式中，想要匹配指定开头或结尾的字符串就要使用到锚点。<code>^</code> 指定开头，<code>$</code> 指定结尾。</p><h3 id="2-8-1-号"><a href="#2-8-1-号" class="headerlink" title="2.8.1 ^ 号"></a>2.8.1 <code>^</code> 号</h3><p><code>^</code> 用来检查匹配的字符串是否在所匹配字符串的开头。</p><p>例如，在 <code>abc</code> 中使用表达式 <code>^a</code> 会得到结果 <code>a</code>。但如果使用 <code>^b</code> 将匹配不到任何结果。因为在字符串 <code>abc</code> 中并不是以 <code>b</code> 开头。</p><p>例如，<code>^(T|t)he</code> 匹配以 <code>The</code> 或 <code>the</code> 开头的字符串。</p><pre>"(T|t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in <a href="#learn-regex"><strong>the</strong></a> garage.</pre><p><a href="https://regex101.com/r/5ljjgB/1" target="_blank" rel="noopener">在线练习</a></p><pre>"^(T|t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.</pre><p><a href="https://regex101.com/r/jXrKne/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="2-8-2-号"><a href="#2-8-2-号" class="headerlink" title="2.8.2 $ 号"></a>2.8.2 <code>$</code> 号</h3><p>同理于 <code>^</code> 号，<code>$</code> 号用来匹配字符是否是最后一个。</p><p>例如，<code>(at\.)$</code> 匹配以 <code>at.</code> 结尾的字符串。</p><pre>"(at\.)" => The fat c<a href="#learn-regex"><strong>at.</strong></a> s<a href="#learn-regex"><strong>at.</strong></a> on the m<a href="#learn-regex"><strong>at.</strong></a></pre><p><a href="https://regex101.com/r/y4Au4D/1" target="_blank" rel="noopener">在线练习</a></p><pre>"(at\.)$" => The fat cat. sat. on the m<a href="#learn-regex"><strong>at.</strong></a></pre><p><a href="https://regex101.com/r/t0AkOd/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="3-简写字符集"><a href="#3-简写字符集" class="headerlink" title="3. 简写字符集"></a>3. 简写字符集</h2><p>正则表达式提供一些常用的字符集简写。如下:</p><table><thead><tr><th align="center">简写</th><th>描述</th></tr></thead><tbody><tr><td align="center">.</td><td>除换行符外的所有字符</td></tr><tr><td align="center">\w</td><td>匹配所有字母数字，等同于 <code>[a-zA-Z0-9_]</code></td></tr><tr><td align="center">\W</td><td>匹配所有非字母数字，即符号，等同于： <code>[^\w]</code></td></tr><tr><td align="center">\d</td><td>匹配数字： <code>[0-9]</code></td></tr><tr><td align="center">\D</td><td>匹配非数字： <code>[^\d]</code></td></tr><tr><td align="center">\s</td><td>匹配所有空格字符，等同于： <code>[\t\n\f\r\p{Z}]</code></td></tr><tr><td align="center">\S</td><td>匹配所有非空格字符： <code>[^\s]</code></td></tr><tr><td align="center">\f</td><td>匹配一个换页符</td></tr><tr><td align="center">\n</td><td>匹配一个换行符</td></tr><tr><td align="center">\r</td><td>匹配一个回车符</td></tr><tr><td align="center">\t</td><td>匹配一个制表符</td></tr><tr><td align="center">\v</td><td>匹配一个垂直制表符</td></tr><tr><td align="center">\p</td><td>匹配 CR/LF（等同于 <code>\r\n</code>），用来匹配 DOS 行终止符</td></tr></tbody></table><h2 id="4-零宽度断言（前后预查）"><a href="#4-零宽度断言（前后预查）" class="headerlink" title="4. 零宽度断言（前后预查）"></a>4. 零宽度断言（前后预查）</h2><p>先行断言和后发断言都属于<strong>非捕获簇</strong>（不捕获文本 ，也不针对组合计进行计数）。<br>先行断言用于判断所匹配的格式是否在另一个确定的格式之前，匹配结果不包含该确定格式（仅作为约束）。</p><p>例如，我们想要获得所有跟在 <code>$</code> 符号后的数字，我们可以使用正后发断言 <code>(?&lt;=\$)[0-9\.]*</code>。<br>这个表达式匹配 <code>$</code> 开头，之后跟着 <code>0,1,2,3,4,5,6,7,8,9,.</code> 这些字符可以出现大于等于 0 次。</p><p>零宽度断言如下：</p><table><thead><tr><th align="center">符号</th><th>描述</th></tr></thead><tbody><tr><td align="center">?=</td><td>正先行断言-存在</td></tr><tr><td align="center">?!</td><td>负先行断言-排除</td></tr><tr><td align="center">?&lt;=</td><td>正后发断言-存在</td></tr><tr><td align="center">?&lt;!</td><td>负后发断言-排除</td></tr></tbody></table><h3 id="4-1-正先行断言"><a href="#4-1-正先行断言" class="headerlink" title="4.1 ?=... 正先行断言"></a>4.1 <code>?=...</code> 正先行断言</h3><p><code>?=...</code> 正先行断言，表示第一部分表达式之后必须跟着 <code>?=...</code>定义的表达式。</p><p>返回结果只包含满足匹配条件的第一部分表达式。<br>定义一个正先行断言要使用 <code>()</code>。在括号内部使用一个问号和等号： <code>(?=...)</code>。</p><p>正先行断言的内容写在括号中的等号后面。<br>例如，表达式 <code>(T|t)he(?=\sfat)</code> 匹配 <code>The</code> 和 <code>the</code>，在括号中我们又定义了正先行断言 <code>(?=\sfat)</code> ，即 <code>The</code> 和 <code>the</code> 后面紧跟着 <code>(空格)fat</code>。</p><pre>"(T|t)he(?=\sfat)" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.</pre><p><a href="https://regex101.com/r/IDDARt/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="4-2-负先行断言"><a href="#4-2-负先行断言" class="headerlink" title="4.2 ?!... 负先行断言"></a>4.2 <code>?!...</code> 负先行断言</h3><p>负先行断言 <code>?!</code> 用于筛选所有匹配结果，筛选条件为 其后不跟随着断言中定义的格式。<br><code>正先行断言</code>  定义和 <code>负先行断言</code> 一样，区别就是 <code>=</code> 替换成 <code>!</code> 也就是 <code>(?!...)</code>。</p><p>表达式 <code>(T|t)he(?!\sfat)</code> 匹配 <code>The</code> 和 <code>the</code>，且其后不跟着 <code>(空格)fat</code>。</p><pre>"(T|t)he(?!\sfat)" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre><p><a href="https://regex101.com/r/V32Npg/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="4-3-lt-正后发断言"><a href="#4-3-lt-正后发断言" class="headerlink" title="4.3 ?&lt;= ... 正后发断言"></a>4.3 <code>?&lt;= ...</code> 正后发断言</h3><p>正后发断言 记作<code>(?&lt;=...)</code> 用于筛选所有匹配结果，筛选条件为 其前跟随着断言中定义的格式。<br>例如，表达式 <code>(?&lt;=(T|t)he\s)(fat|mat)</code> 匹配 <code>fat</code> 和 <code>mat</code>，且其前跟着 <code>The</code> 或 <code>the</code>。</p><pre>"(?<=(T|t)he\s)(fat|mat)" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the <a href="#learn-regex"><strong>mat</strong></a>.</pre><p><a href="https://regex101.com/r/avH165/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="4-4-lt-负后发断言"><a href="#4-4-lt-负后发断言" class="headerlink" title="4.4 ?&lt;!... 负后发断言"></a>4.4 <code>?&lt;!...</code> 负后发断言</h3><p>负后发断言 记作 <code>(?&lt;!...)</code> 用于筛选所有匹配结果，筛选条件为 其前不跟随着断言中定义的格式。<br>例如，表达式 <code>(?&lt;!(T|t)he\s)(cat)</code> 匹配 <code>cat</code>，且其前不跟着 <code>The</code> 或 <code>the</code>。</p><pre>"(?&lt;!(T|t)he\s)(cat)" => The cat sat on <a href="#learn-regex"><strong>cat</strong></a>.</pre><p><a href="https://regex101.com/r/8Efx5G/1" target="_blank" rel="noopener">在线练习</a></p><h2 id="5-标志"><a href="#5-标志" class="headerlink" title="5. 标志"></a>5. 标志</h2><p>标志也叫模式修正符，因为它可以用来修改表达式的搜索结果。<br>这些标志可以任意的组合使用，它也是整个正则表达式的一部分。</p><table><thead><tr><th align="center">标志</th><th>描述</th></tr></thead><tbody><tr><td align="center">i</td><td>忽略大小写。</td></tr><tr><td align="center">g</td><td>全局搜索。</td></tr><tr><td align="center">m</td><td>多行修饰符：锚点元字符 <code>^</code> <code>$</code> 工作范围在每行的起始。</td></tr></tbody></table><h3 id="5-1-忽略大小写-Case-Insensitive"><a href="#5-1-忽略大小写-Case-Insensitive" class="headerlink" title="5.1 忽略大小写 (Case Insensitive)"></a>5.1 忽略大小写 (Case Insensitive)</h3><p>修饰语 <code>i</code> 用于忽略大小写。<br>例如，表达式 <code>/The/gi</code> 表示在全局搜索 <code>The</code>，在后面的 <code>i</code> 将其条件修改为忽略大小写，则变成搜索 <code>the</code> 和 <code>The</code>，<code>g</code> 表示全局搜索。</p><pre>"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.</pre><p><a href="https://regex101.com/r/dpQyf9/1" target="_blank" rel="noopener">在线练习</a></p><pre>"/The/gi" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.</pre><p><a href="https://regex101.com/r/ahfiuh/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="5-2-全局搜索-Global-search"><a href="#5-2-全局搜索-Global-search" class="headerlink" title="5.2 全局搜索 (Global search)"></a>5.2 全局搜索 (Global search)</h3><p>修饰符 <code>g</code> 常用于执行一个全局搜索匹配，即（不仅仅返回第一个匹配的，而是返回全部）。<br>例如，表达式 <code>/.(at)/g</code> 表示搜索 任意字符（除了换行）+ <code>at</code>，并返回全部结果。</p><pre>"/.(at)/" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the mat.</pre><p><a href="https://regex101.com/r/jnk6gM/1" target="_blank" rel="noopener">在线练习</a></p><pre>"/.(at)/g" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> <a href="#learn-regex"><strong>sat</strong></a> on the <a href="#learn-regex"><strong>mat</strong></a>.</pre><p><a href="https://regex101.com/r/dO1nef/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="5-3-多行修饰符-Multiline"><a href="#5-3-多行修饰符-Multiline" class="headerlink" title="5.3 多行修饰符 (Multiline)"></a>5.3 多行修饰符 (Multiline)</h3><p>多行修饰符 <code>m</code> 常用于执行一个多行匹配。</p><p>像之前介绍的 <code>(^,$)</code> 用于检查格式是否是在待检测字符串的开头或结尾。但我们如果想要它在每行的开头和结尾生效，我们需要用到多行修饰符 <code>m</code>。</p><p>例如，表达式 <code>/at(.)?$/gm</code> 表示小写字符 <code>a</code> 后跟小写字符 <code>t</code> ，末尾可选除换行符外任意字符。根据 <code>m</code> 修饰符，现在表达式匹配每行的结尾。</p><pre>"/.at(.)?$/" => The fat                cat sat                on the <a href="#learn-regex"><strong>mat.</strong></a></pre><p><a href="https://regex101.com/r/hoGMkP/1" target="_blank" rel="noopener">在线练习</a></p><pre>"/.at(.)?$/gm" => The <a href="#learn-regex"><strong>fat</strong></a>                  cat <a href="#learn-regex"><strong>sat</strong></a>                  on the <a href="#learn-regex"><strong>mat.</strong></a></pre><p><a href="https://regex101.com/r/E88WE2/1" target="_blank" rel="noopener">在线练习</a></p><h3 id="6-贪婪匹配与惰性匹配-Greedy-vs-lazy-matching"><a href="#6-贪婪匹配与惰性匹配-Greedy-vs-lazy-matching" class="headerlink" title="6. 贪婪匹配与惰性匹配 (Greedy vs lazy matching)"></a>6. 贪婪匹配与惰性匹配 (Greedy vs lazy matching)</h3><p>正则表达式默认采用贪婪匹配模式，在该模式下意味着会匹配尽可能长的子串。我们可以使用 <code>?</code> 将贪婪匹配模式转化为惰性匹配模式。</p><pre>"/(.*at)/" => <a href="#learn-regex"><strong>The fat cat sat on the mat</strong></a>. </pre><p><a href="https://regex101.com/r/AyAdgJ/1" target="_blank" rel="noopener">在线练习</a></p><pre>"/(.*?at)/" => <a href="#learn-regex"><strong>The fat</strong></a> cat sat on the mat. </pre><p><a href="https://regex101.com/r/AyAdgJ/2" target="_blank" rel="noopener">在线练习</a></p><h2 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h2><ul><li>报告问题</li><li>开放合并请求</li><li>传播此文档</li><li>直接联系原作者 <a href="mailto:ziishaned@gmail.com">ziishaned@gmail.com</a> </li></ul><h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p><strong>注意：本文转载于 <a href="https://github.com/ziishaned/learn-regex" target="_blank" rel="noopener">Github</a>， 一切权利归原作者所有</strong></p><p>MIT &copy; <a href="https://twitter.com/ziishaned" target="_blank" rel="noopener">Zeeshan Ahmad</a></p>]]></content>
       
@@ -41,6 +87,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -63,6 +111,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -87,6 +137,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -109,6 +161,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -133,6 +187,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -155,6 +211,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -179,6 +237,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -201,6 +261,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -225,6 +287,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -247,6 +311,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -271,6 +337,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -293,6 +361,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -317,6 +387,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -339,6 +411,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -363,6 +437,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -385,6 +461,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -409,6 +487,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -431,6 +511,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -455,6 +537,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -477,6 +561,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -501,6 +587,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -523,6 +611,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -547,6 +637,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -569,6 +661,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -593,6 +687,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -615,6 +711,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -639,6 +737,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -661,6 +761,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -685,6 +787,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -707,6 +811,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -731,6 +837,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -753,6 +861,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -777,6 +887,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -799,6 +911,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -823,6 +937,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -845,6 +961,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -869,6 +987,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -891,6 +1011,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -915,6 +1037,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -937,6 +1061,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -961,6 +1087,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -983,6 +1111,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -1007,6 +1137,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -1029,6 +1161,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -1053,6 +1187,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -1075,6 +1211,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -1099,6 +1237,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -1122,6 +1262,8 @@
             
             <tag> Javascript </tag>
             
+            <tag> 初级算法 </tag>
+            
         </tags>
       
     </entry>
@@ -1144,6 +1286,8 @@
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -1283,5 +1427,51 @@
     
     
   
+  
+    
+    
+    <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MySelf = <span class="function">(<span class="params">(</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> instance = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.personalData = &#123;</span><br><span class="line">      name: <span class="string">"Marshall Sun"</span>,</span><br><span class="line">      university: <span class="string">"Northeastern University"</span>,</span><br><span class="line">      blog: <span class="string">"https://msun.work"</span>,</span><br><span class="line">      github: <span class="string">"https://github.com/Marshall-Sun"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (instance) <span class="keyword">return</span> instance;</span><br><span class="line">    <span class="keyword">return</span> (instance = <span class="keyword">this</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">MySelf.prototype.introduce = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`My personal data: <span class="subst">$&#123;<span class="keyword">this</span>.personalData&#125;</span>`</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>访问统计</title>
+      <link href="/statistic/index.html"/>
+      <url>/statistic/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="mydata" style="pointer-events:none;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=5qmj4elvnpe&amp;m=1&amp;c=f0fff0&amp;cr1=87c438&amp;br=5&amp;oo=5&amp;sx=0" async="async"></script><p>&nbsp;&nbsp;</p><center><script type="text/javascript" src="//rf.revolvermaps.com/0/0/0.js?i=5qmj4elvnpe&amp;d=2&amp;p=1&amp;b=1&amp;w=293&amp;g=2&amp;f=arial&amp;fs=14&amp;r=0&amp;c0=87c438&amp;c1=87c438&amp;c2=000000&amp;ic0=0&amp;ic1=0" async="async"></script></center></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="无法长大"><a href="#无法长大" class="headerlink" title="无法长大 "></a>无法长大 <a href="https://music.douban.com/subject/26940909/" target="_blank" rel="noopener"><svg t="1586587249472" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2370" width="16" height="16"><path d="M1023.978667 862.826667a161.152 161.152 0 0 1-161.173334 161.173333h-701.632a161.152 161.152 0 0 1-161.173333-161.173333v-701.632a161.194667 161.194667 0 0 1 161.173333-161.173334h701.632a161.194667 161.194667 0 0 1 161.173334 161.173334v701.632z" fill="#05B711" p-id="2371"></path><path d="M218.56 208.064h586.816v66.090667h-586.816zM754.389333 601.557333v-258.410666h-484.8v258.410666h484.8z m-414.506666-192.384h344.917333v126.357334h-344.917333v-126.357334zM649.493333 750.506667c21.098667-32.298667 41.002667-69.738667 59.434667-112.256l-70.506667-25.706667c-18.346667 50.368-39.701333 96.426667-64 137.941333h-122.709333c-20.373333-53.802667-43.328-99.818667-69.077333-137.941333l-64.853334 25.706667c26.752 40.128 48.32 77.482667 64.853334 112.256h-180.693334v65.386666h620.053334v-65.386666h-172.501334z" fill="#FFFFFF" p-id="2372"></path></svg></a></h2>            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">            <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>            <script src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>            <meting-js id="35069014" server="netease" type="album" autoplay="false" mutex="true" listmaxheight="1000px" preload="auto" theme="#ad7a86"></meting-js><br><h2 id="房东的猫"><a href="#房东的猫" class="headerlink" title="房东的猫 "></a>房东的猫 <a href="https://music.douban.com/subject/27021356/" target="_blank" rel="noopener"><svg t="1586587249472" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2370" width="16" height="16"><path d="M1023.978667 862.826667a161.152 161.152 0 0 1-161.173334 161.173333h-701.632a161.152 161.152 0 0 1-161.173333-161.173333v-701.632a161.194667 161.194667 0 0 1 161.173333-161.173334h701.632a161.194667 161.194667 0 0 1 161.173334 161.173334v701.632z" fill="#05B711" p-id="2371"></path><path d="M218.56 208.064h586.816v66.090667h-586.816zM754.389333 601.557333v-258.410666h-484.8v258.410666h484.8z m-414.506666-192.384h344.917333v126.357334h-344.917333v-126.357334zM649.493333 750.506667c21.098667-32.298667 41.002667-69.738667 59.434667-112.256l-70.506667-25.706667c-18.346667 50.368-39.701333 96.426667-64 137.941333h-122.709333c-20.373333-53.802667-43.328-99.818667-69.077333-137.941333l-64.853334 25.706667c26.752 40.128 48.32 77.482667 64.853334 112.256h-180.693334v65.386666h620.053334v-65.386666h-172.501334z" fill="#FFFFFF" p-id="2372"></path></svg></a></h2>            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">            <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>            <script src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>            <meting-js id="35139573" server="netease" type="album" autoplay="false" mutex="true" listmaxheight="1000px" preload="auto" theme="#ad7a86"></meting-js><br><h2 id="摩天动物园"><a href="#摩天动物园" class="headerlink" title="摩天动物园 "></a>摩天动物园 <a href="https://music.douban.com/subject/34929848/" target="_blank" rel="noopener"><svg t="1586587249472" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2370" width="16" height="16"><path d="M1023.978667 862.826667a161.152 161.152 0 0 1-161.173334 161.173333h-701.632a161.152 161.152 0 0 1-161.173333-161.173333v-701.632a161.194667 161.194667 0 0 1 161.173333-161.173334h701.632a161.194667 161.194667 0 0 1 161.173334 161.173334v701.632z" fill="#05B711" p-id="2371"></path><path d="M218.56 208.064h586.816v66.090667h-586.816zM754.389333 601.557333v-258.410666h-484.8v258.410666h484.8z m-414.506666-192.384h344.917333v126.357334h-344.917333v-126.357334zM649.493333 750.506667c21.098667-32.298667 41.002667-69.738667 59.434667-112.256l-70.506667-25.706667c-18.346667 50.368-39.701333 96.426667-64 137.941333h-122.709333c-20.373333-53.802667-43.328-99.818667-69.077333-137.941333l-64.853334 25.706667c26.752 40.128 48.32 77.482667 64.853334 112.256h-180.693334v65.386666h620.053334v-65.386666h-172.501334z" fill="#FFFFFF" p-id="2372"></path></svg></a></h2>            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">            <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>            <script src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>            <meting-js id="7358493582" server="tencent" type="playlist" autoplay="false" mutex="true" listmaxheight="1000px" preload="auto" theme="#ad7a86"></meting-js>]]></content>
+      
+    </entry>
+    
+    
   
 </search>
