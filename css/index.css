@@ -1543,8 +1543,8 @@ canvas,
   overflow: auto;
   margin: 0 0 1rem;
   padding: 0;
-  background: #f6f8fa;
-  color: #90a4ae;
+  background: #283033;
+  color: #bfbfbf;
   line-height: 20px;
 }
 .code-area-wrap {
@@ -1593,7 +1593,7 @@ blockquote footer cite:before {
 #article-container pre code {
   padding: 0;
   background: none;
-  color: #90a4ae;
+  color: #bfbfbf;
   text-shadow: none;
 }
 #article-container figure.highlight {
@@ -1607,7 +1607,7 @@ blockquote footer cite:before {
 }
 #article-container figure.highlight .line::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container figure.highlight .line.marked {
   background-color: rgba(128,203,196,0.251);
@@ -1626,7 +1626,7 @@ blockquote footer cite:before {
 #article-container figure.highlight figcaption {
   zoom: 1;
   padding: 0.3rem 0 0.1rem 0.7rem;
-  color: #90a4ae;
+  color: #bfbfbf;
   font-size: 1em;
   line-height: 1em;
 }
@@ -1641,15 +1641,15 @@ blockquote footer cite:before {
 #article-container figure.highlight figcaption a {
   float: right;
   padding-right: 10px;
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container figure.highlight figcaption a:hover {
-  border-bottom-color: #90a4ae;
+  border-bottom-color: #bfbfbf;
 }
 #article-container figure.highlight .gutter pre {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  background-color: #f6f8fa;
+  background-color: #283033;
   color: #cfd8dc;
   text-align: right;
 }
@@ -1657,7 +1657,7 @@ blockquote footer cite:before {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   width: 100%;
-  background-color: #f6f8fa;
+  background-color: #283033;
 }
 #article-container figure.highlight .line {
   height: 1rem;
@@ -1691,7 +1691,7 @@ blockquote footer cite:before {
 }
 #article-container pre .comment::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container pre .variable,
 #article-container pre .attribute,
@@ -1720,14 +1720,14 @@ blockquote footer cite:before {
 #article-container pre .css .class::selection,
 #article-container pre .css .pseudo::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container pre .tag {
   color: #39adb5;
 }
 #article-container pre .tag::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container pre .number,
 #article-container pre .preprocessor,
@@ -1744,14 +1744,14 @@ blockquote footer cite:before {
 #article-container pre .constant::selection,
 #article-container pre .command::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container pre .built_in {
   color: #ffb62c;
 }
 #article-container pre .built_in::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container pre .ruby .class .title,
 #article-container pre .css .rules .attribute,
@@ -1778,7 +1778,7 @@ blockquote footer cite:before {
 #article-container pre .number::selection,
 #article-container pre .formula::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container pre .keyword,
 #article-container pre .title,
@@ -1789,7 +1789,7 @@ blockquote footer cite:before {
 #article-container pre .title::selection,
 #article-container pre .css .hexcolor::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container pre .function,
 #article-container pre .python .decorator,
@@ -1810,7 +1810,7 @@ blockquote footer cite:before {
 #article-container pre .javascript .title::selection,
 #article-container pre .coffeescript .title::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 #article-container pre .tag .attr,
 #article-container pre .javascript .function {
@@ -1819,15 +1819,15 @@ blockquote footer cite:before {
 #article-container pre .tag .attr::selection,
 #article-container pre .javascript .function::selection {
   background: rgba(128,203,196,0.251);
-  color: #90a4ae;
+  color: #bfbfbf;
 }
 .highlight-tools {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 1.4rem;
-  background: #e6ebf1;
-  color: #90a4ae;
+  background: #1d2325;
+  color: #bfbfbf;
   font-size: 14px;
 }
 .highlight-close {
@@ -3742,7 +3742,7 @@ img {
   top: 0;
   z-index: 1;
   padding: 7px 10px;
-  color: #90a4ae;
+  color: #bfbfbf;
   cursor: pointer;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -3774,7 +3774,7 @@ img {
   position: absolute;
   left: 15px;
   z-index: 1;
-  color: #90a4ae;
+  color: #bfbfbf;
   text-transform: capitalize;
   font-weight: bold;
   font-size: 0.8rem;
@@ -3786,7 +3786,7 @@ img {
   top: 0;
   right: 0;
   z-index: 1;
-  background: #e6ebf1;
+  background: #1d2325;
   color: #39adb5;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
