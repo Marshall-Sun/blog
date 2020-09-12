@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数据类型与数据类型转换 | 👑Sun's Blog</title><meta name="description" content="数据类型与数据类型转换"><meta name="keywords" content="前端知识,笔记"><meta name="author" content="Marshall Sun"><meta name="copyright" content="Marshall Sun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://lib.baomitu.com" crossorigin="crossorigin"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="数据类型与数据类型转换"><meta name="twitter:description" content="数据类型与数据类型转换"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/post.jpg"><meta property="og:type" content="article"><meta property="og:title" content="数据类型与数据类型转换"><meta property="og:url" content="https://msun.work/post/Note/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"><meta property="og:site_name" content="👑Sun's Blog"><meta property="og:description" content="数据类型与数据类型转换"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/post.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://msun.work/post/Note/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"><link rel="prev" title="浅拷贝与深拷贝" href="https://msun.work/post/Note/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/"><link rel="next" title="Leetcode/160.相交链表" href="https://msun.work/post/Leetcode/160.%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/"><link rel="stylesheet" href="/css/blog_title_font/blog_title_font.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: true
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">71</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/coursetable/"><i class="fa-fw fa fa-table"></i><span> 课表</span></a></div><div class="menus_item"><a class="site-page" href="/statistic/"><i class="fa-fw fa fa-users"></i><span> 访问</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、数据类型种类"><span class="toc-text">一、数据类型种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、数据类型转换"><span class="toc-text">二、数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-数据类型转换表"><span class="toc-text">2.1 数据类型转换表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-ToPrimitive"><span class="toc-text">2.2 ToPrimitive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-ToString"><span class="toc-text">2.3 ToString</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-ToNumber"><span class="toc-text">2.4 ToNumber</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-ToBoolean"><span class="toc-text">2.5 ToBoolean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-相等运算符类型转换，一共有-12-个步骤"><span class="toc-text">2.6 相等运算符类型转换，一共有 12 个步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、数据类型判断"><span class="toc-text">三、数据类型判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-typeof"><span class="toc-text">3.1 typeof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Object-prototype-toString"><span class="toc-text">3.2 Object.prototype.toString</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Instanceof"><span class="toc-text">3.3 Instanceof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Instanceof-1"><span class="toc-text">3.3 Instanceof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-Object-prototype-toString"><span class="toc-text">3.4 Object.prototype.toString</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实现-type-API"><span class="toc-text">四、实现 type API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#版权信息"><span class="toc-text">版权信息</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/post.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">👑Sun's Blog</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/coursetable/"><i class="fa-fw fa fa-table"></i><span> 课表</span></a></div><div class="menus_item"><a class="site-page" href="/statistic/"><i class="fa-fw fa fa-users"></i><span> 访问</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">数据类型与数据类型转换</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-09-12 11:01:35"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-09-12</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-12 11:36:06"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-09-12</span></time></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">1.8k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 7 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h2 id="一、数据类型种类"><a href="#一、数据类型种类" class="headerlink" title="一、数据类型种类"></a>一、数据类型种类</h2><p>JavaScript 数据类型主要有 <code>String</code>、<code>Number</code>、<code>Boolean</code>、<code>Object</code>、<code>Null</code>、<code>Undefined</code>、<code>Symbol</code></p>
+<p>值类型：<code>String</code>、<code>Number</code>、<code>Boolean</code>、<code>Symbol</code></p>
+<p>引用类型：<code>Object</code></p>
+<p>特殊类型：<code>Null</code>、<code>Undefined</code></p>
+<h2 id="二、数据类型转换"><a href="#二、数据类型转换" class="headerlink" title="二、数据类型转换"></a>二、数据类型转换</h2><h3 id="2-1-数据类型转换表"><a href="#2-1-数据类型转换表" class="headerlink" title="2.1 数据类型转换表"></a>2.1 数据类型转换表</h3><table>
+<thead>
+<tr>
+<th>值</th>
+<th>字符串</th>
+<th>数字</th>
+<th>布尔值</th>
+<th>对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>undefined</td>
+<td>“undefined”</td>
+<td>NaN</td>
+<td>false</td>
+<td>throws TypeError</td>
+</tr>
+<tr>
+<td>null</td>
+<td>“null”</td>
+<td>0</td>
+<td>false</td>
+<td>throws TypeError</td>
+</tr>
+<tr>
+<td>true</td>
+<td>“true”</td>
+<td>1</td>
+<td></td>
+<td>new Boolean(true)</td>
+</tr>
+<tr>
+<td>false</td>
+<td>“false”</td>
+<td>0</td>
+<td></td>
+<td>Boolean(false)</td>
+</tr>
+<tr>
+<td>“”(空字符串)</td>
+<td></td>
+<td>0</td>
+<td>false</td>
+<td>new String(“”)</td>
+</tr>
+<tr>
+<td>“1.2”(非空，数字)</td>
+<td></td>
+<td>1.2</td>
+<td>true</td>
+<td>new String(“”)</td>
+</tr>
+<tr>
+<td>“none”(非空，非数字)</td>
+<td></td>
+<td>NaN</td>
+<td>true</td>
+<td>new String(“one”)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>“0”</td>
+<td></td>
+<td>false</td>
+<td>new Number(0)</td>
+</tr>
+<tr>
+<td>-0</td>
+<td>“0”</td>
+<td></td>
+<td>false</td>
+<td>new Number(-0)</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>“NaN”</td>
+<td></td>
+<td>false</td>
+<td>new Number(NaN)</td>
+</tr>
+<tr>
+<td>Infinity</td>
+<td>“Infinity”</td>
+<td></td>
+<td>true</td>
+<td>new Number(Infinity)</td>
+</tr>
+<tr>
+<td>-Infinity</td>
+<td>“-Infinity”</td>
+<td></td>
+<td>true</td>
+<td>new Number(-Infinity)</td>
+</tr>
+<tr>
+<td>1(无穷大，非零)</td>
+<td>“1”</td>
+<td></td>
+<td>true</td>
+<td>new Number(1)</td>
+</tr>
+<tr>
+<td>{}(任意对象)</td>
+<td>调用对象的 toString()方法，如果值是原值则返回，否则，调用对象的 valueOf()方法，如果值是原值则返回，否则抛出 TypeError 错误</td>
+<td>调用对象的 toValue()方法，如果值是原值则返回，否则，调用对象的 valueString()方法，如果值是原值则返回，否则抛出 TypeError 错误</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>[](任意数组)</td>
+<td>“”</td>
+<td>0</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>[9](1 个数字元素)</td>
+<td>“9”</td>
+<td>9</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>[‘a’](其他数组)</td>
+<td>使用 join()方法</td>
+<td>NaN</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>function(){}(任意函数)</td>
+<td>将用户定义的函数转换为 JavaScript 源 eadc 字符串</td>
+<td>NaN</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2-2-ToPrimitive"><a href="#2-2-ToPrimitive" class="headerlink" title="2.2 ToPrimitive"></a>2.2 ToPrimitive</h3><p>抽象操作 ToPrimitive 用于将引用类型转为原始类型。实现细节比较复杂，可以<a href="https://segmentfault.com/a/1190000016325587" target="_blank" rel="noopener">参考这里</a></p>
+<h3 id="2-3-ToString"><a href="#2-3-ToString" class="headerlink" title="2.3 ToString"></a>2.3 ToString</h3><p>抽象操作 ToString，负责处理非字符串到字符串的强制类型转换。当需要一个值的字符串形式，就会进行 ToString 类型转换。</p>
+<p>String()函数就会执行抽象操作 ToString，遵循下列转换规则：</p>
+<ul>
+<li>如果值是基本类型，则直接转为字符串。如果是引用类型，则执行 ToPrimitive 抽象操作；</li>
+<li>如果值是 null，则返回”null”；</li>
+<li>如果值是 undefined，则返回”undefined”。</li>
+</ul>
+<h3 id="2-4-ToNumber"><a href="#2-4-ToNumber" class="headerlink" title="2.4 ToNumber"></a>2.4 ToNumber</h3><p>抽象操作 ToNumber，负责处理非数字到数字的强制类型转换。</p>
+<p>Number()执行抽象操作 ToNumber，函数的转换规则如下。</p>
+<ul>
+<li>如果是 Boolean 值，true 和 false 将分别被转换为 1 和 0。</li>
+<li>如果是数字值，只是简单的传入和返回。</li>
+<li>如果是 null 值，返回 0。</li>
+<li>如果是 undefined，返回 NaN。</li>
+<li>如果是字符串：如果字符串是空的（不包含任何字符），则将其转换为 0；如果含非数字，则将其转换为 NaN。</li>
+<li>如果是对象，则执行 ToPrimitive 抽象操作，返回基本类型再按照以上规则处理。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">""</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">" "</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"0"</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"asdf"</span>); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>); <span class="comment">// NaN    与null不同，需要注意</span></span><br><span class="line"><span class="comment">// 对象会先通过抽象操作ToPrimitive转为基本类型，然后再转数字</span></span><br><span class="line"><span class="built_in">Number</span>(&#123;&#125;); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Number</span>([]); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="string">""</span>]); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="string">" "</span>]); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="string">"0"</span>]); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-ToBoolean"><a href="#2-5-ToBoolean" class="headerlink" title="2.5 ToBoolean"></a>2.5 ToBoolean</h3><p>抽象操作 ToBoolean，负责处理非布尔值到布尔值的强制类型转换。</p>
+<p>转换为 boolean 类型是最为简单的一个。转换规则如下：</p>
+<p>(1) 可以被强制类型转换为 false 的值</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>false</li>
+<li>+0、-0 和 NaN</li>
+<li>“”</li>
+</ul>
+<p>(2) 其他值会被被强制类型转换为 true</p>
+<p>这里有一个概念需要先理解：js 的操作符和操作数组成了表达式，表达式必定会返回一个值。无论是一元操作++a，还是布尔操作[] || false，都会返回一个值。</p>
+<h3 id="2-6-相等运算符类型转换，一共有-12-个步骤"><a href="#2-6-相等运算符类型转换，一共有-12-个步骤" class="headerlink" title="2.6 相等运算符类型转换，一共有 12 个步骤"></a>2.6 相等运算符类型转换，一共有 12 个步骤</h3><ol>
+<li>如果 y 不是正常值，中断执行。</li>
+<li>如果 Type(x)与 Type(y)相同，执行严格相等运算 x === y。</li>
+<li>如果 x 是 null，y 是 undefined，返回 true。</li>
+<li>如果 x 是 undefined，y 是 null，返回 true。</li>
+<li>如果 Type(x)是数值，Type(y)是字符串，返回 x == ToNumber(y)的结果。</li>
+<li>如果 Type(x)是字符串，Type(y)是数值，返回 ToNumber(x) == y 的结果。</li>
+<li>如果 Type(x)是布尔值，返回 ToNumber(x) == y 的结果。</li>
+<li>如果 Type(y)是布尔值，返回 x == ToNumber(y)的结果。</li>
+<li>如果 Type(x)是字符串或数值或 Symbol 值，Type(y)是对象，返回 x == ToPrimitive(y)的结果。</li>
+<li>如果 Type(x)是对象，Type(y)是字符串或数值或 Symbol 值，返回 ToPrimitive(x) == y 的结果。</li>
+<li>返回 false。</li>
+</ol>
+<p>理解如图：<br><img src="/" class="lazyload" data-src="https://km.xiaowuzi.info/js/type.jpg"  alt="运算转换过程"></p>
+<h2 id="三、数据类型判断"><a href="#三、数据类型判断" class="headerlink" title="三、数据类型判断"></a>三、数据类型判断</h2><ul>
+<li>typeof</li>
+<li>Object.prototype.toString</li>
+<li>Instanceof</li>
+<li>Constructor</li>
+<li>实现 type API</li>
+</ul>
+<h3 id="3-1-typeof"><a href="#3-1-typeof" class="headerlink" title="3.1 typeof"></a>3.1 typeof</h3><blockquote>
+<p>typeof 是一元操作符，放在其单个操作数的前面，操作数可以是任意类型。返回值为表示操作数类型的一个字符串。</p>
+</blockquote>
+<p>typeof 不能细分 object,object 可以细分 Array、Function、Date、RegExp、Error 等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;undefined&quot; — 未定义</span><br><span class="line">&quot;boolean&quot;   — 布尔值</span><br><span class="line">&quot;string&quot;    — 字符串</span><br><span class="line">&quot;number&quot;    — 数值</span><br><span class="line">&quot;object&quot;    — 对象或null</span><br><span class="line">&quot;function&quot;  — 函数</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-Object-prototype-toString"><a href="#3-2-Object-prototype-toString" class="headerlink" title="3.2 Object.prototype.toString"></a>3.2 Object.prototype.toString</h3><p>当 toString 方法被调用的时候，下面的步骤会被执行：</p>
+<ol>
+<li>如果 this 值是 undefined，就返回 [object Undefined]</li>
+<li>如果 this 的值是 null，就返回 [object Null]</li>
+<li>让 O 成为 ToObject(this) 的结果</li>
+<li>让 class 成为 O 的内部属性 [[Class]] 的值</li>
+<li>最后返回由 “[object “ 和 class 和 “]” 三个部分组成的字符串</li>
+</ol>
+<h3 id="3-3-Instanceof"><a href="#3-3-Instanceof" class="headerlink" title="3.3 Instanceof"></a>3.3 Instanceof</h3><p>instanceof 用于检测引用类型，可以检测到它是什么类型的实例。<br>instanceof 检测一个对象 A 是不是另一个对象 B 的实例的原理是：查看对象 B 的 prototype 指向的对象是否在对象 A 的[[prototype]]链上。如果在，则返回 true,如果不在则返回 false。不过有一个特殊的情况，当对象 B 的 prototype 为 null 将会报错(类似于空指针异常)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sXzaver = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"Xzavier"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sXzaver <span class="keyword">instanceof</span> <span class="built_in">String</span>);   <span class="comment">//  "true"</span></span><br><span class="line"><span class="keyword">var</span> aXzaver = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(aXzaver <span class="keyword">instanceof</span> <span class="built_in">Array</span>);   <span class="comment">//  "true"</span></span><br><span class="line">检测数组在ECMA Script5中定义了一个新方法<span class="built_in">Array</span>.isArray()</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-Instanceof-1"><a href="#3-3-Instanceof-1" class="headerlink" title="3.3 Instanceof"></a>3.3 Instanceof</h3><p>constructor 属性返回对创建此对象的数组函数的引用。可以用于检测自定义类型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'xz'</span>.constructor == <span class="built_in">String</span> <span class="comment">// true</span></span><br><span class="line">(<span class="number">123</span>).constructor == <span class="built_in">Number</span> <span class="comment">// true</span></span><br><span class="line">(<span class="literal">true</span>).constructor == <span class="built_in">Boolean</span> <span class="comment">// true</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>].constructor == <span class="built_in">Array</span> <span class="comment">// true</span></span><br><span class="line">(&#123;<span class="attr">name</span>:<span class="string">'xz'</span>&#125;).constructor == <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;).constructor == <span class="built_in">Function</span> <span class="comment">// true</span></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">Date</span>()).constructor == <span class="built_in">Date</span> <span class="comment">// true</span></span><br><span class="line">(<span class="built_in">Symbol</span>()).constructor == <span class="built_in">Symbol</span> <span class="comment">// true</span></span><br><span class="line">(<span class="regexp">/xz/</span>).constructor == <span class="built_in">RegExp</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-Object-prototype-toString"><a href="#3-4-Object-prototype-toString" class="headerlink" title="3.4 Object.prototype.toString"></a>3.4 Object.prototype.toString</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原理：调用从Object继承来的原始的toString()方法</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">"xz"</span>); <span class="comment">//"[object String]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="number">123</span>); <span class="comment">//"[object Number]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>); <span class="comment">//"[object Boolean]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">//"[object Array]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(&#123; <span class="attr">name</span>: <span class="string">"xz"</span> &#125;); <span class="comment">//"[object Object]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;); <span class="comment">//"[object Function]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>); <span class="comment">//"[object Null]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="literal">undefined</span>); <span class="comment">//"[object Undefined]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(); <span class="comment">//"[object Undefined]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">//"[object Date]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="regexp">/xz/</span>); <span class="comment">//"[object RegExp]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">Symbol</span>()); <span class="comment">//"[object Symbol]"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">"Xzavier"</span>, <span class="attr">age</span>: <span class="number">23</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, <span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line">isType(obj); <span class="comment">// "Object"</span></span><br><span class="line">isType(a); <span class="comment">// "Array"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、实现-type-API"><a href="#四、实现-type-API" class="headerlink" title="四、实现 type API"></a>四、实现 type API</h2><p>既然有了 Object.prototype.toString 这个神器！那就让我们写个 type 函数帮助我们以后识别各种类型的值了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> class2type = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成class2type映射</span></span><br><span class="line"><span class="string">"Boolean Number String Function Array Date RegExp Object Error"</span></span><br><span class="line">  .split(<span class="string">" "</span>)</span><br><span class="line">  .map(<span class="function"><span class="keyword">function</span> (<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">    class2type[<span class="string">"[object "</span> + item + <span class="string">"]"</span>] = item.toLowerCase();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 一箭双雕</span></span><br><span class="line">  <span class="keyword">if</span> (obj == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> obj + <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> obj === <span class="string">"object"</span> || <span class="keyword">typeof</span> obj === <span class="string">"function"</span></span><br><span class="line">    ? class2type[<span class="built_in">Object</span>.prototype.toString.call(obj)] || <span class="string">"object"</span></span><br><span class="line">    : <span class="keyword">typeof</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li>《JavaScript 权威第六版》</li>
+<li>《你不知道的 JavaSctipt(中)》</li>
+<li><a href="https://juejin.im/post/5cbd1e33e51d45789161d053#heading-6" target="_blank" rel="noopener">JS 类型转换的规则是什么？</a></li>
+<li><a href="https://github.com/mqyqingfeng/Blog/issues/28" target="_blank" rel="noopener">JavaScript 专题之类型判断(上) </a></li>
+<li><a href="https://juejin.im/post/5bc5c752f265da0a9a399a62" target="_blank" rel="noopener">从一道面试题说起—js 隐式转换踩坑合集</a></li>
+</ul>
+<h2 id="版权信息"><a href="#版权信息" class="headerlink" title="版权信息"></a>版权信息</h2><p><strong>注意：本文转载于 <a href="https://github.com/ftTony/km" target="_blank" rel="noopener">Github</a>， 一切权利归原作者所有</strong></p>
+</div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">前端知识</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-leetcode.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/post/Note/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/post.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">浅拷贝与深拷贝</div></div></a></div><div class="next-post pull_right"><a href="/post/Leetcode/160.%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-leetcode.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Leetcode/160.相交链表</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/post.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 by Marshall Sun</div><div class="footer_custom_text">Inspired in South, implemented in Northeast.</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i></div><div id="rightside-config-show"><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
