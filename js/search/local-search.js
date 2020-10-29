@@ -87,7 +87,7 @@ $(function () {
             }
             // show search results
             if (isMatch) {
-              str += '<div class="local-search__hit-item"><a href="' + dataUrl + '" class="search-result-title">' + dataTitle + '</a>' + '</div>'
+              str += '<div class="local-search__hit-item"><a href="https://msun.work/' + dataUrl + '" class="search-result-title">' + dataTitle + '</a>' + '</div>'
               count += 1
               $('.local-search-stats__hr').show()
             }

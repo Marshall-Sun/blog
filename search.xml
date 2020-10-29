@@ -4,6 +4,256 @@
   
     
     <entry>
+      <title>Leetcode/剑指 Offer 22. 链表中倒数第k个节点</title>
+      <link href="post/Leetcode/%E5%89%91%E6%8C%87%20Offer%2022.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/"/>
+      <url>post/Leetcode/%E5%89%91%E6%8C%87%20Offer%2022.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入一个链表，输出该链表中倒数第 k 个节点。为了符合大多数人的习惯，本题从 1 开始计数，即链表的尾节点是倒数第 1 个节点。例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。</p><p>示例：</p><pre><code>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2.返回链表 4-&gt;5.</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">k</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> getKthFromEnd = <span class="function"><span class="keyword">function</span> (<span class="params">head, k</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> fast = head;</span><br><span class="line">  <span class="keyword">let</span> slow = head;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">    fast = fast.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (fast) &#123;</span><br><span class="line">    fast = fast.next;</span><br><span class="line">    slow = slow.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> slow;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>让 <code>fast</code> 先走 <code>k</code> 步，然后 <code>fast</code> 和 <code>slow</code> 一起走，直到 <code>fast</code> 为 <code>null</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/165.比较版本号</title>
+      <link href="post/Leetcode/165.%E6%AF%94%E8%BE%83%E7%89%88%E6%9C%AC%E5%8F%B7/"/>
+      <url>post/Leetcode/165.%E6%AF%94%E8%BE%83%E7%89%88%E6%9C%AC%E5%8F%B7/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/compare-version-numbers" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E6%AF%94%E8%BE%83%E7%89%88%E6%9C%AC%E5%8F%B7-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>比较两个版本号 <code>version1</code> 和 <code>version2</code>。<br>如果 <code>version1 &gt; version2</code> 返回 1，如果 <code>version1 &lt; version2</code> 返回 -1， 除此之外返回 0。</p><p>你可以假设版本字符串非空，并且只包含数字和 <code>.</code> 字符。</p><p><code>.</code> 字符不代表小数点，而是用于分隔数字序列。</p><p>例如，2.5 不是“两个半”，也不是“差一半到三”，而是第二版中的第五个小版本。</p><p>你可以假设版本号的每一级的默认修订版号为 0。例如，版本号 3.4 的第一级（大版本）和第二级（小版本）修订号分别为 3 和 4。其第三级和第四级修订号均为 0。</p><p>示例 1:</p><pre><code>输入: version1 = &quot;0.1&quot;, version2 = &quot;1.1&quot;输出: -1</code></pre><p>示例 2:</p><pre><code>输入: version1 = &quot;1.0.1&quot;, version2 = &quot;1&quot;输出: 1</code></pre><p>示例 3:</p><pre><code>输入: version1 = &quot;7.5.2.4&quot;, version2 = &quot;7.5.3&quot;输出: -1</code></pre><p>示例 4：</p><pre><code>输入：version1 = &quot;1.01&quot;, version2 = &quot;1.001&quot;输出：0解释：忽略前导零，“01” 和 “001” 表示相同的数字 “1”。</code></pre><p>示例 5：</p><pre><code>输入：version1 = &quot;1.0&quot;, version2 = &quot;1.0.0&quot;输出：0解释：version1 没有第三级修订号，这意味着它的第三级修订号默认为 “0”。</code></pre><p>提示：</p><ul><li>版本字符串由以点 （<code>.</code>） 分隔的数字字符串组成。这个数字字符串可能有前导零。</li><li>版本字符串不以点开始或结束，并且其中不会有两个连续的点。</li></ul><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">version1</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">version2</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> compareVersion = <span class="function"><span class="keyword">function</span> (<span class="params">version1, version2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> list1 = version1.split(<span class="string">"."</span>);</span><br><span class="line">  <span class="keyword">let</span> list2 = version2.split(<span class="string">"."</span>);</span><br><span class="line">  <span class="keyword">let</span> max = <span class="built_in">Math</span>.max(list1.length, list2.length);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; max; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> n1 = <span class="built_in">Number</span>(list1[i]) || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> n2 = <span class="built_in">Number</span>(list2[i]) || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n1 &lt; n2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n1 &gt; n2) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><ol><li>把两个版本号按小数点拆分成数组，并获取数组长度</li><li>以较长的数据长度为基准循环对比转换成数字以后的数值（需要注意 NaN 的情况）</li><li>当数值相同时进行下一次比较，最后返回 0 即可</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/329.矩阵中的最长递增路径</title>
+      <link href="post/Leetcode/329.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84/"/>
+      <url>post/Leetcode/329.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个整数矩阵，找出最长递增路径的长度。</p><p>对于每个单元格，你可以往上，下，左，右四个方向移动。你不能在对角线方向上移动或移动到边界外（即不允许环绕）。</p><p>示例 1:</p><pre><code>输入: nums = [  [9,9,4],  [6,6,8],  [2,1,1]] 输出: 4 解释: 最长递增路径为 [1, 2, 6, 9]。</code></pre><p>示例 2:</p><pre><code>输入: nums = [  [3,4,5],  [3,2,6],  [2,2,1]] 输出: 4 解释: 最长递增路径是 [3, 4, 5, 6]。注意不允许在对角线方向上移动。</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestIncreasingPath = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (matrix.length &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> rows = matrix.length, cols = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> answer = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> map = &#123;&#125;;</span><br><span class="line">  <span class="keyword">const</span> dfs = <span class="function">(<span class="params">i, j, pre</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> num = matrix[i][j];</span><br><span class="line">    <span class="keyword">if</span> (num &lt;= pre) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (map[i + <span class="string">"-"</span> + j]) <span class="keyword">return</span> map[i + <span class="string">"-"</span> + j];</span><br><span class="line">    <span class="keyword">let</span> count = <span class="built_in">Math</span>.max(</span><br><span class="line">      (i &gt; <span class="number">0</span> ? dfs(i - <span class="number">1</span>, j, num) : <span class="number">0</span>),</span><br><span class="line">      (j &gt; <span class="number">0</span> ? dfs(i, j - <span class="number">1</span>, num) : <span class="number">0</span>),</span><br><span class="line">      (i + <span class="number">1</span> &lt; rows ? dfs(i + <span class="number">1</span>, j, num) : <span class="number">0</span>),</span><br><span class="line">      (j + <span class="number">1</span> &lt; cols ? dfs(i, j + <span class="number">1</span>, num) : <span class="number">0</span>)</span><br><span class="line">    ) + <span class="number">1</span>;</span><br><span class="line">    map[i + <span class="string">"-"</span> + j] = count;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; cols; j++) &#123;</span><br><span class="line">      answer = <span class="built_in">Math</span>.max(answer, dfs(i, j, -<span class="literal">Infinity</span>));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>与<a href="https://msun.work/post/Leetcode/200.岛屿数量/">200.岛屿数量</a>以及<a href="https://msun.work/post/Leetcode/695.岛屿的最大面积/">695.岛屿的最大面积</a>类似，通过深度优先进行二维矩阵的遍历</p><p>注意：</p><ul><li>使用 <code>Math.max()</code> 选出深度遍历的最大路径，而非直接相加</li><li>使用 <code>Map</code> 记录已经遍历过的节点，加速</li><li>首次遍历时令 <code>pre = -Infinity</code>，便于判断 <code>if (num &lt;= pre) return 0;</code></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/704.二分查找</title>
+      <link href="post/Leetcode/704.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <url>post/Leetcode/704.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个 <code>n</code> 个元素有序的（升序）整型数组 <code>nums</code> 和一个目标值 <code>target</code> ，写一个函数搜索 <code>nums</code> 中的 <code>target</code>，如果目标值存在返回下标，否则返回 <code>-1</code>。</p><p>示例 1:</p><pre><code>输入: nums = [-1,0,3,5,9,12], target = 9输出: 4解释: 9 出现在 nums 中并且下标为 4</code></pre><p>示例 2:</p><pre><code>输入: nums = [-1,0,3,5,9,12], target = 2输出: -1解释: 2 不存在 nums 中因此返回 -1</code></pre><p>提示：</p><ul><li>你可以假设 <code>nums</code> 中的所有元素是不重复的。</li><li><code>n</code> 将在 <code>[1, 10000]</code> 之间。</li><li><code>nums</code> 的每个元素都将在 <code>[-9999, 9999]</code> 之间。</li></ul><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> search = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> l = <span class="number">0</span>, r = nums.length - <span class="number">1</span>, mid = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">    mid = (l + r) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (nums[mid] === target) <span class="keyword">return</span> mid;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) r = mid - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><ul><li>左右指针初始值分别为首末节点下标</li><li><code>while</code> 语句判断应该是 <code>l &lt;= r</code></li><li>首先判断是否直接相等，若是，返回 <code>mid</code>；若否，左加右减</li><li>最后返回 <code>-1</code></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/剑指 Offer 46. 把数字翻译成字符串</title>
+      <link href="post/Leetcode/%E5%89%91%E6%8C%87%20Offer%2046.%20%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+      <url>post/Leetcode/%E5%89%91%E6%8C%87%20Offer%2046.%20%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。</p><p>示例 1:</p><pre><code>输入: 12258输出: 5解释: 12258有5种不同的翻译，分别是&quot;bccfi&quot;, &quot;bwfi&quot;, &quot;bczi&quot;, &quot;mcfi&quot;和&quot;mzi&quot;</code></pre><p>提示：</p><p><code>0 &lt;= num &lt; 231</code></p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">num</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> translateNum = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="built_in">String</span>(num);</span><br><span class="line">  <span class="keyword">let</span> answer = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">const</span> check = <span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (s.length &lt; <span class="number">2</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> num = <span class="built_in">Number</span>(s.slice(<span class="number">0</span>, <span class="number">2</span>));</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">9</span> &lt; num &amp;&amp; num &lt; <span class="number">26</span>) &#123;</span><br><span class="line">      answer++;</span><br><span class="line">      check(s.slice(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    check(s.slice(<span class="number">1</span>));</span><br><span class="line">  &#125;;</span><br><span class="line">  check(str);</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>深度优先遍历判断当前字符串，看前两位是否满足 <code>9 &lt; num &amp;&amp; num &lt; 26</code>，若满足则 <code>answer++</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/695.岛屿的最大面积</title>
+      <link href="post/Leetcode/695.%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF/"/>
+      <url>post/Leetcode/695.%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/max-area-of-island" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个包含了一些 0 和 1 的非空二维数组 <code>grid</code> 。</p><p>一个 岛屿 是由一些相邻的 1 (代表土地) 构成的组合，这里的「相邻」要求两个 1 必须在水平或者竖直方向上相邻。你可以假设 <code>grid</code> 的四个边缘都被 0（代表水）包围着。</p><p>找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为 0。)</p><p>示例 1:</p><pre><code>[[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]对于上面这个给定矩阵应返回 6。注意答案不应该是 11 ，因为岛屿只能包含水平或垂直的四个方向的 1 。</code></pre><p>示例 2:</p><pre><code>[[0,0,0,0,0,0,0,0]]对于上面这个给定的矩阵, 返回 0。</code></pre><p>注意: 给定的矩阵 <code>grid</code> 的长度和宽度都不超过 50。</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">grid</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxAreaOfIsland = <span class="function"><span class="keyword">function</span> (<span class="params">grid</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (grid.length &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> rows = grid.length, cols = grid[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> answer = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> dfs = <span class="function">(<span class="params">i, j</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (grid[i][j] === <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    grid[i][j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="number">1</span> +</span><br><span class="line">      (i + <span class="number">1</span> &lt; rows ? dfs(i + <span class="number">1</span>, j) : <span class="number">0</span>) +</span><br><span class="line">      (j + <span class="number">1</span> &lt; cols ? dfs(i, j + <span class="number">1</span>) : <span class="number">0</span>) +</span><br><span class="line">      (i &gt; <span class="number">0</span> ? dfs(i - <span class="number">1</span>, j) : <span class="number">0</span>) +</span><br><span class="line">      (j &gt; <span class="number">0</span> ? dfs(i, j - <span class="number">1</span>) : <span class="number">0</span>)</span><br><span class="line">    );</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; cols; j++) &#123;</span><br><span class="line">      answer = <span class="built_in">Math</span>.max(answer, dfs(i, j));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>参考<a href="https://msun.work/post/Leetcode/200.岛屿数量/">200.岛屿数量</a>，通过深度优先遍历沉岛</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/199.二叉树的右视图</title>
+      <link href="post/Leetcode/199.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE/"/>
+      <url>post/Leetcode/199.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-tree-right-side-view" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。</p><p>示例:</p><pre><code>输入: [1,2,3,null,5,null,4]输出: [1, 3, 4]解释:    1            &lt;---  /   \ 2     3         &lt;---  \     \   5     4       &lt;---</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.left = this.right = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> rightSideView = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!root) <span class="keyword">return</span> [];</span><br><span class="line">  <span class="keyword">let</span> queue = [root];</span><br><span class="line">  <span class="keyword">let</span> answer = [];</span><br><span class="line">  <span class="keyword">while</span> (queue.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> len = queue.length;</span><br><span class="line">    answer.push(queue[len - <span class="number">1</span>].val);</span><br><span class="line">    <span class="keyword">while</span> (len--) &#123;</span><br><span class="line">      <span class="keyword">let</span> node = queue.shift();</span><br><span class="line">      <span class="keyword">if</span> (node.left) queue.push(node.left);</span><br><span class="line">      <span class="keyword">if</span> (node.right) queue.push(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>参考<a href="https://msun.work/post/Leetcode/662.二叉树最大宽度/">662.二叉树最大宽度</a></p><p>利用队列对树进行广度优先遍历，每一层中通过 <code>len--</code> 循环遍历</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/662.二叉树最大宽度</title>
+      <link href="post/Leetcode/662.%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E5%A4%A7%E5%AE%BD%E5%BA%A6/"/>
+      <url>post/Leetcode/662.%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E5%A4%A7%E5%AE%BD%E5%BA%A6/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/maximum-width-of-binary-tree" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E5%A4%A7%E5%AE%BD%E5%BA%A6-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个二叉树，编写一个函数来获取这个树的最大宽度。树的宽度是所有层中的最大宽度。这个二叉树与满二叉树（full binary tree）结构相同，但一些节点为空。</p><p>每一层的宽度被定义为两个端点（该层最左和最右的非空节点，两端点间的 <code>null</code> 节点也计入长度）之间的长度。</p><p>示例 1:</p><pre><code>输入:          1        /   \       3     2      / \     \     5   3     9输出: 4解释: 最大值出现在树的第 3 层，宽度为 4 (5,3,null,9)。</code></pre><p>示例 2:</p><pre><code>输入:          1         /        3       / \      5   3输出: 2解释: 最大值出现在树的第 3 层，宽度为 2 (5,3)。</code></pre><p>示例 3:</p><pre><code>输入:          1         / \        3   2       /      5输出: 2解释: 最大值出现在树的第 2 层，宽度为 2 (3,2)。</code></pre><p>示例 4:</p><pre><code>输入:          1         / \        3   2       /     \      5       9     /         \    6           7输出: 8解释: 最大值出现在树的第 4 层，宽度为 8 (6,null,null,null,null,null,null,7)。注意: 答案在 32 位有符号整数的表示范围内。</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> widthOfBinaryTree = <span class="function"><span class="keyword">function</span> (<span class="params">root</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> queue = [[root, <span class="number">0</span>]];</span><br><span class="line">  <span class="keyword">let</span> answer = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (queue.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> len = queue.length;</span><br><span class="line">    <span class="keyword">let</span> firstPos = queue[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">    answer = <span class="built_in">Math</span>.max(answer, queue[len - <span class="number">1</span>][<span class="number">1</span>] - firstPos + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span> (len--) &#123;</span><br><span class="line">      <span class="keyword">let</span> [node, pos] = queue.shift();</span><br><span class="line">      pos -= firstPos;</span><br><span class="line">      <span class="keyword">if</span> (node.left) queue.push([node.left, pos * <span class="number">2</span>]);</span><br><span class="line">      <span class="keyword">if</span> (node.right) queue.push([node.right, pos * <span class="number">2</span> + <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>根据求二叉树最大深度递归方式进行修改，也是对节点进行编号，编号从 0 开始</p><p><code>左子节点编号 = 父节点编号 * 2 + 1</code>， <code>右子节点编号 = 父节点编号 * 2 + 2</code></p><p>存储每个层级的节点编号，进行计算</p><p>同时利用队列对树进行广度优先遍历，每一层中通过 <code>len--</code> 循环遍历</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/151.翻转字符串里的单词</title>
+      <link href="post/Leetcode/151.%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/"/>
+      <url>post/Leetcode/151.%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/reverse-words-in-a-string/submissions" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个字符串，逐个翻转字符串中的每个单词。</p><p>说明：</p><ul><li>无空格字符构成一个 单词 。</li><li>输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。</li><li>如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</li></ul><p>示例 1：</p><pre><code>输入：&quot;the sky is blue&quot;输出：&quot;blue is sky the&quot;</code></pre><p>示例 2：</p><pre><code>输入：&quot;  hello world!  &quot;输出：&quot;world! hello&quot;解释：输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。</code></pre><p>示例 3：</p><pre><code>输入：&quot;a good   example&quot;输出：&quot;example good a&quot;解释：如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</code></pre><p>示例 4：</p><pre><code>输入：s = &quot;  Bob    Loves  Alice   &quot;输出：&quot;Alice Loves Bob&quot;</code></pre><p>示例 5：</p><pre><code>输入：s = &quot;Alice does not even like bob&quot;输出：&quot;bob like even not does Alice&quot;</code></pre><p>提示：</p><ul><li><code>1 &lt;= s.length &lt;= 104</code></li><li><code>s</code> 包含英文大小写字母、数字和空格 <code>&#39; &#39;</code></li><li><code>s</code> 中 至少存在一个 单词</li></ul><p>进阶：</p><p>请尝试使用 <code>O(1)</code> 额外空间复杂度的原地解法。</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ol><li><p>正则表达式</p><ul><li><code>String.prototype.trim()</code>：从一个字符串的两端删除空白字符。在这个上下文中的空白字符是所有的空白字符 (space, tab, no-break space 等) 以及所有行终止符字符（如 LF，CR 等）。</li><li><code>\s</code> 匹配一个空白字符，包括空格、制表符、换页符和换行符。</li><li><code>+</code> 匹配前面一个表达式 1 次或者多次。等价于 <code>{1,}</code>。</li></ul></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reverseWords = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> s.trim().split(<span class="regexp">/\s+/</span>).reverse().join(<span class="string">" "</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><ol start="2"><li><p><code>filter()</code></p><ul><li><code>Array.prototype.filter()</code> 为数组中的每个元素调用一次 <code>callback</code> 函数，并利用所有使得 <code>callback</code> 返回 <code>true</code> 或等价于 <code>true</code> 的值的元素创建一个新数组。</li></ul></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reverseWords = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> s.split(<span class="string">" "</span>).filter(<span class="function">(<span class="params">str</span>) =&gt;</span> str).reverse().join(<span class="string">" "</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/557.反转字符串中的单词III</title>
+      <link href="post/Leetcode/557.%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8DIII/"/>
+      <url>post/Leetcode/557.%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8DIII/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/reverse-words-in-a-string-iii" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8DIII-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p><p>示例：</p><pre><code>输入：&quot;Let&apos;s take LeetCode contest&quot;输出：&quot;s&apos;teL ekat edoCteeL tsetnoc&quot;</code></pre><p>提示：</p><ul><li>在字符串中，每个单词由单个空格分隔，并且字符串中不会有任何额外的空格。</li></ul><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reverseWords = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> s</span><br><span class="line">    .split(<span class="string">" "</span>)</span><br><span class="line">    .map(<span class="function">(<span class="params">str</span>) =&gt;</span> str.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>))</span><br><span class="line">    .join(<span class="string">" "</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>分别两次使用 <code>split()</code> 与 <code>join()</code> 即可</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 面经 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Leetcode/628.三个数的最大乘积</title>
       <link href="post/Leetcode/628.%E4%B8%89%E4%B8%AA%E6%95%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/"/>
       <url>post/Leetcode/628.%E4%B8%89%E4%B8%AA%E6%95%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/</url>
@@ -670,11 +920,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -737,11 +987,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -762,11 +1012,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -787,11 +1037,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -812,11 +1062,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -837,11 +1087,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -862,11 +1112,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -887,11 +1137,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -912,11 +1162,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -937,11 +1187,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -962,11 +1212,11 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> HOT 100 </tag>
+            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> HOT 100 </tag>
             
         </tags>
       
@@ -2263,7 +2513,7 @@
       <link href="post/Leetcode/2.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/"/>
       <url>post/Leetcode/2.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</url>
       
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/add-two-numbers" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p><p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p><p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p><p>示例：</p><pre><code>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)输出：7 -&gt; 0 -&gt; 8原因：342 + 465 = 807</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">l1</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">l2</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> addTwoNumbers = <span class="function"><span class="keyword">function</span> (<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> node = <span class="keyword">new</span> ListNode(<span class="string">"head"</span>);</span><br><span class="line">  <span class="keyword">let</span> temp = node;</span><br><span class="line">  <span class="keyword">let</span> add = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> curNum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (l1 || l2) &#123;</span><br><span class="line">    curNum = (l1 ? l1.val : <span class="number">0</span>) + (l2 ? l2.val : <span class="number">0</span>) + add;</span><br><span class="line">    temp.next = <span class="keyword">new</span> ListNode(curNum % <span class="number">10</span>);</span><br><span class="line">    temp = temp.next;</span><br><span class="line">    add = curNum &gt;= <span class="number">10</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (l1) l1 = l1.next;</span><br><span class="line">    <span class="keyword">if</span> (l2) l2 = l2.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (add) temp.next = <span class="keyword">new</span> ListNode(add);</span><br><span class="line">  <span class="keyword">return</span> node.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>利用<code>add</code>判断是否进位，<code>curNum</code>计算当前数位值</p><p>注意：<code>if (l1) l1 = l1.next;</code>也可写成<code>l1 &amp;&amp; (l1 = l1.next);</code></p><p>前边为 false，后边就不会执行</p>]]></content>
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/add-two-numbers" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p><p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p><p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p><p>示例：</p><pre><code>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)输出：7 -&gt; 0 -&gt; 8原因：342 + 465 = 807</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">l1</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">l2</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> addTwoNumbers = <span class="function"><span class="keyword">function</span> (<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> node = <span class="keyword">new</span> ListNode(<span class="string">"head"</span>);</span><br><span class="line">  <span class="keyword">let</span> num = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> add = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> temp = node;</span><br><span class="line">  <span class="keyword">while</span> (l1 || l2) &#123;</span><br><span class="line">    num = (l1 ? l1.val : <span class="number">0</span>) + (l2 ? l2.val : <span class="number">0</span>) + add;</span><br><span class="line">    temp.next = <span class="keyword">new</span> ListNode(num % <span class="number">10</span>);</span><br><span class="line">    temp = temp.next;</span><br><span class="line">    add = (num &gt;= <span class="number">10</span>);</span><br><span class="line">    <span class="keyword">if</span> (l1) l1 = l1.next;</span><br><span class="line">    <span class="keyword">if</span> (l2) l2 = l2.next; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (add) temp.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> node.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>利用<code>add</code>判断是否进位，<code>num</code>计算当前数位值</p><p>注意：</p><ol><li><p><code>if (l1) l1 = l1.next;</code>也可写成<code>l1 &amp;&amp; (l1 = l1.next);</code>，前边为 false，后边就不会执行</p></li><li><p><code>num = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + add;</code> 中 <code>add</code> 被强制转换为数字，<code>false =&gt; 0</code>，<code>true =&gt; 1</code></p></li></ol>]]></content>
       
       
       
@@ -2509,36 +2759,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leetcode/101.对称二叉树</title>
-      <link href="post/Leetcode/101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-      <url>post/Leetcode/101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/symmetric-tree" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个二叉树，检查它是否是镜像对称的。</p><p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p><pre><code>    1   / \  2   2 / \ / \3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p><pre><code>  1 / \2   2 \   \ 3    3</code></pre><p>进阶：</p><p>你可以运用递归和迭代两种方法解决这个问题吗？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ol><li><p>递归</p><ul><li><p>检查<code>左节点的左子节点 === 右节点的右子节点 &amp;&amp; 左节点的右子节点 === 右节点的左子节点</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Definition for a binary tree node.</span></span><br><span class="line"><span class="comment">* function TreeNode(val) &#123;</span></span><br><span class="line"><span class="comment">*     this.val = val;</span></span><br><span class="line"><span class="comment">*     this.left = this.right = null;</span></span><br><span class="line"><span class="comment">* &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> isSymmetric = <span class="function"><span class="keyword">function</span> (<span class="params">root</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!root) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">const</span> isEqual = <span class="function">(<span class="params">left, right</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!left &amp;&amp; !right) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (!left || !right) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> left.val === right.val &amp;&amp; isEqual(left.left, right.right) &amp;&amp; isEqual(left.right, right.left);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> isEqual(root.left, root.right);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul></li><li><p>迭代</p><ul><li><p>同递归，利用栈的特性，检查对应节点</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> isSymmetric = <span class="function"><span class="keyword">function</span> (<span class="params">root</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!root) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">let</span> stack = [root.left, root.right];</span><br><span class="line">  <span class="keyword">while</span> (stack.length) &#123;</span><br><span class="line">    <span class="keyword">let</span> right = stack.pop();</span><br><span class="line">    <span class="keyword">let</span> left = stack.pop();</span><br><span class="line">    <span class="keyword">if</span> (left &amp;&amp; right) &#123;</span><br><span class="line">      <span class="keyword">if</span> (left.val !== right.val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      stack.push(left.left);</span><br><span class="line">      stack.push(right.right);</span><br><span class="line">      stack.push(left.right);</span><br><span class="line">      stack.push(right.left);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (left || right) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul></li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构与算法 </tag>
-            
             <tag> 初级算法 </tag>
-            
-            <tag> Leetcode </tag>
-            
-            <tag> Javascript </tag>
             
         </tags>
       
@@ -2559,11 +2784,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2572,11 +2797,11 @@
     
     
     <entry>
-      <title>Leetcode/108.将有序数组转换为二叉搜索树</title>
-      <link href="post/Leetcode/108.%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
-      <url>post/Leetcode/108.%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</url>
+      <title>Leetcode/101.对称二叉树</title>
+      <link href="post/Leetcode/101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+      <url>post/Leetcode/101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
       
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。</p><p>本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。</p><p>示例:</p><pre><code>给定有序数组: [-10,-3,0,5,9],一个可能的答案是：[0,-3,9,-10,null,5]，它可以表示下面这个高度平衡二叉搜索树：      0     / \   -3   9   /   / -10  5</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.left = this.right = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> sortedArrayToBST = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> build = <span class="function">(<span class="params">l, r</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">let</span> mid = (l + r) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> TreeNode(nums[mid]);</span><br><span class="line">    node.left = build(l, mid - <span class="number">1</span>);</span><br><span class="line">    node.right = build(mid + <span class="number">1</span>, r);</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> build(<span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>利用开始与结束值定位中间元素，将中间元素作为<code>node</code></p><p>计算<code>mid</code>时，使用<code>&gt;&gt;&gt;</code>无符号右移1，等价于除以2</p>]]></content>
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/symmetric-tree" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个二叉树，检查它是否是镜像对称的。</p><p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p><pre><code>    1   / \  2   2 / \ / \3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p><pre><code>  1 / \2   2 \   \ 3    3</code></pre><p>进阶：</p><p>你可以运用递归和迭代两种方法解决这个问题吗？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ol><li><p>递归</p><ul><li><p>检查<code>左节点的左子节点 === 右节点的右子节点 &amp;&amp; 左节点的右子节点 === 右节点的左子节点</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Definition for a binary tree node.</span></span><br><span class="line"><span class="comment">* function TreeNode(val) &#123;</span></span><br><span class="line"><span class="comment">*     this.val = val;</span></span><br><span class="line"><span class="comment">*     this.left = this.right = null;</span></span><br><span class="line"><span class="comment">* &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> isSymmetric = <span class="function"><span class="keyword">function</span> (<span class="params">root</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!root) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">const</span> isEqual = <span class="function">(<span class="params">left, right</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!left &amp;&amp; !right) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (!left || !right) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> left.val === right.val &amp;&amp; isEqual(left.left, right.right) &amp;&amp; isEqual(left.right, right.left);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> isEqual(root.left, root.right);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul></li><li><p>迭代</p><ul><li><p>同递归，利用栈的特性，检查对应节点</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> isSymmetric = <span class="function"><span class="keyword">function</span> (<span class="params">root</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!root) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">let</span> stack = [root.left, root.right];</span><br><span class="line">  <span class="keyword">while</span> (stack.length) &#123;</span><br><span class="line">    <span class="keyword">let</span> right = stack.pop();</span><br><span class="line">    <span class="keyword">let</span> left = stack.pop();</span><br><span class="line">    <span class="keyword">if</span> (left &amp;&amp; right) &#123;</span><br><span class="line">      <span class="keyword">if</span> (left.val !== right.val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      stack.push(left.left);</span><br><span class="line">      stack.push(right.right);</span><br><span class="line">      stack.push(left.right);</span><br><span class="line">      stack.push(right.left);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (left || right) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul></li></ol>]]></content>
       
       
       
@@ -2584,11 +2809,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2609,11 +2834,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2622,11 +2847,11 @@
     
     
     <entry>
-      <title>Leetcode/121.买卖股票的最佳时机</title>
-      <link href="post/Leetcode/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/"/>
-      <url>post/Leetcode/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/</url>
+      <title>Leetcode/108.将有序数组转换为二叉搜索树</title>
+      <link href="post/Leetcode/108.%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+      <url>post/Leetcode/108.%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</url>
       
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</p><p>如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。</p><p>注意：你不能在买入股票前卖出股票。</p><p>示例 1:</p><pre><code>输入: [7,1,5,3,6,4]输出: 5解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。    注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。</code></pre><p>示例 2:</p><pre><code>输入: [7,6,4,3,1]输出: 0解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">prices</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxProfit = <span class="function"><span class="keyword">function</span> (<span class="params">prices</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> answer = <span class="number">0</span>, min = prices[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; prices.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (min &gt; prices[i]) min = prices[i];</span><br><span class="line">    answer = <span class="built_in">Math</span>.max(answer, prices[i] - min);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>将整个数组归纳考虑，假设我们已经知道了<code>i-1</code>个股票的最大利润为<code>dp[i-1]</code>，显然<code>i</code>个连续股票的最大利润为<code>dp[i-1]</code>，要么就是<code>prices[i] - min</code>（<code>min</code>为前 i-1 支股票的最小值 ），在这两个数中取最大值</p><p>在计算<code>dp[i]</code>的时候，只关心<code>dp[i-1]</code>与<code>prices[i]</code>，因此不用把整个<code>dp</code>数组保存下来，只需设置一个<code>answer</code>保存<code>dp[i-1]</code>就好了</p>]]></content>
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。</p><p>本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。</p><p>示例:</p><pre><code>给定有序数组: [-10,-3,0,5,9],一个可能的答案是：[0,-3,9,-10,null,5]，它可以表示下面这个高度平衡二叉搜索树：      0     / \   -3   9   /   / -10  5</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.left = this.right = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> sortedArrayToBST = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> build = <span class="function">(<span class="params">l, r</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">let</span> mid = (l + r) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> TreeNode(nums[mid]);</span><br><span class="line">    node.left = build(l, mid - <span class="number">1</span>);</span><br><span class="line">    node.right = build(mid + <span class="number">1</span>, r);</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> build(<span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>利用开始与结束值定位中间元素，将中间元素作为<code>node</code></p><p>计算<code>mid</code>时，使用<code>&gt;&gt;&gt;</code>无符号右移1，等价于除以2</p>]]></content>
       
       
       
@@ -2634,11 +2859,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2659,11 +2884,36 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
             <tag> 初级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/121.买卖股票的最佳时机</title>
+      <link href="post/Leetcode/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/"/>
+      <url>post/Leetcode/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</p><p>如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。</p><p>注意：你不能在买入股票前卖出股票。</p><p>示例 1:</p><pre><code>输入: [7,1,5,3,6,4]输出: 5解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。    注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。</code></pre><p>示例 2:</p><pre><code>输入: [7,6,4,3,1]输出: 0解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">prices</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxProfit = <span class="function"><span class="keyword">function</span> (<span class="params">prices</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> answer = <span class="number">0</span>, min = prices[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; prices.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (min &gt; prices[i]) min = prices[i];</span><br><span class="line">    answer = <span class="built_in">Math</span>.max(answer, prices[i] - min);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>将整个数组归纳考虑，假设我们已经知道了<code>i-1</code>个股票的最大利润为<code>dp[i-1]</code>，显然<code>i</code>个连续股票的最大利润为<code>dp[i-1]</code>，要么就是<code>prices[i] - min</code>（<code>min</code>为前 i-1 支股票的最小值 ），在这两个数中取最大值</p><p>在计算<code>dp[i]</code>的时候，只关心<code>dp[i-1]</code>与<code>prices[i]</code>，因此不用把整个<code>dp</code>数组保存下来，只需设置一个<code>answer</code>保存<code>dp[i-1]</code>就好了</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
             
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2684,11 +2934,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2709,11 +2959,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2734,61 +2984,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leetcode/141.环形链表</title>
-      <link href="post/Leetcode/141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/"/>
-      <url>post/Leetcode/141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/linked-list-cycle" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个链表，判断链表中是否有环。</p><p>为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。</p><p>示例 1：</p><pre><code>输入：head = [3,2,0,-4], pos = 1输出：true解释：链表中有一个环，其尾部连接到第二个节点。</code></pre><p>示例 2：</p><pre><code>输入：head = [1], pos = -1输出：false解释：链表中没有环。</code></pre><p>进阶：</p><p>你能用 O(1)（即，常量）内存解决此问题吗？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> hasCycle = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (head) &#123;</span><br><span class="line">    <span class="keyword">if</span> (head.visited) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    head.visited = <span class="literal">true</span>;</span><br><span class="line">    head = head.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>添加<code>visited</code>属性来判断是否访问过节点</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构与算法 </tag>
-            
             <tag> 初级算法 </tag>
-            
-            <tag> Leetcode </tag>
-            
-            <tag> Javascript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leetcode/14.最长公共前缀</title>
-      <link href="post/Leetcode/14.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/"/>
-      <url>post/Leetcode/14.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/longest-common-prefix" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>编写一个函数来查找字符串数组中的最长公共前缀。</p><p>如果不存在公共前缀，返回空字符串 “”。</p><p>示例 1:</p><pre><code>输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出: &quot;fl&quot;</code></pre><p>示例 2:</p><pre><code>输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]输出: &quot;&quot;解释: 输入不存在公共前缀。</code></pre><p>说明:</p><p>所有输入只包含小写字母 a-z 。</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string[]&#125;</span> <span class="variable">strs</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span> (<span class="params">strs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (strs.length &lt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  strs.sort();</span><br><span class="line">  <span class="keyword">let</span> times = <span class="built_in">Math</span>.min(strs[<span class="number">0</span>].length, strs[strs.length - <span class="number">1</span>].length);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (strs[<span class="number">0</span>][i] !== strs[strs.length - <span class="number">1</span>][i]) &#123;</span><br><span class="line">      <span class="keyword">return</span> strs[<span class="number">0</span>].slice(<span class="number">0</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>首先使用<code>Array.prototype.sort()</code>排序，之后比较首项与末项即可</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构与算法 </tag>
-            
-            <tag> 初级算法 </tag>
-            
-            <tag> Leetcode </tag>
-            
-            <tag> Javascript </tag>
             
         </tags>
       
@@ -2809,11 +3009,61 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
             <tag> 初级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/14.最长公共前缀</title>
+      <link href="post/Leetcode/14.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/"/>
+      <url>post/Leetcode/14.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/longest-common-prefix" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>编写一个函数来查找字符串数组中的最长公共前缀。</p><p>如果不存在公共前缀，返回空字符串 “”。</p><p>示例 1:</p><pre><code>输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出: &quot;fl&quot;</code></pre><p>示例 2:</p><pre><code>输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]输出: &quot;&quot;解释: 输入不存在公共前缀。</code></pre><p>说明:</p><p>所有输入只包含小写字母 a-z 。</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string[]&#125;</span> <span class="variable">strs</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span> (<span class="params">strs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (strs.length &lt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  strs.sort();</span><br><span class="line">  <span class="keyword">let</span> times = <span class="built_in">Math</span>.min(strs[<span class="number">0</span>].length, strs[strs.length - <span class="number">1</span>].length);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (strs[<span class="number">0</span>][i] !== strs[strs.length - <span class="number">1</span>][i]) &#123;</span><br><span class="line">      <span class="keyword">return</span> strs[<span class="number">0</span>].slice(<span class="number">0</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>首先使用<code>Array.prototype.sort()</code>排序，之后比较首项与末项即可</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
             
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/141.环形链表</title>
+      <link href="post/Leetcode/141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/"/>
+      <url>post/Leetcode/141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/linked-list-cycle" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个链表，判断链表中是否有环。</p><p>为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。</p><p>示例 1：</p><pre><code>输入：head = [3,2,0,-4], pos = 1输出：true解释：链表中有一个环，其尾部连接到第二个节点。</code></pre><p>示例 2：</p><pre><code>输入：head = [1], pos = -1输出：false解释：链表中没有环。</code></pre><p>进阶：</p><p>你能用 O(1)（即，常量）内存解决此问题吗？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> hasCycle = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (head) &#123;</span><br><span class="line">    <span class="keyword">if</span> (head.visited) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    head.visited = <span class="literal">true</span>;</span><br><span class="line">    head = head.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>添加<code>visited</code>属性来判断是否访问过节点</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2834,11 +3084,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2859,11 +3109,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2876,7 +3126,7 @@
       <link href="post/Leetcode/19.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9/"/>
       <url>post/Leetcode/19.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
       
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p><p>示例：</p><pre><code>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.说明：给定的 n 保证是有效的。</code></pre><p>进阶：</p><p>你能尝试使用一趟扫描实现吗？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> removeNthFromEnd = <span class="function"><span class="keyword">function</span> (<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> fast = head;</span><br><span class="line">  <span class="keyword">let</span> slow = head;</span><br><span class="line">  <span class="keyword">while</span> (fast.next) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">0</span>) n--;</span><br><span class="line">    <span class="keyword">else</span> slow = slow.next;</span><br><span class="line">    fast = fast.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (n &gt; <span class="number">0</span>) head = head.next;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (slow.next) slow.next = slow.next.next;</span><br><span class="line">  <span class="keyword">else</span> slow.next = <span class="literal">null</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><ol><li>在<code>while</code>循环中，遍历链表将<code>fast</code>指向尾部</li><li>利用<code>链表长度 - n = 目标节点编号</code>将第二个指针<code>slow</code>指向目标节点的父节点</li><li>判断特殊情况，是否删除的是首尾节点</li></ol>]]></content>
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p><p>示例：</p><pre><code>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.说明：给定的 n 保证是有效的。</code></pre><p>进阶：</p><p>你能尝试使用一趟扫描实现吗？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> removeNthFromEnd = <span class="function"><span class="keyword">function</span> (<span class="params">head, n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> first = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  first.next = head;</span><br><span class="line">  <span class="keyword">let</span> fast = first;</span><br><span class="line">  <span class="keyword">let</span> slow = first;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n + <span class="number">1</span>; i++) &#123;</span><br><span class="line">    fast = fast.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (fast) &#123;</span><br><span class="line">    fast = fast.next;</span><br><span class="line">    slow = slow.next;</span><br><span class="line">  &#125;</span><br><span class="line">  slow.next = slow.next.next;</span><br><span class="line">  <span class="keyword">return</span> first.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>参考<a href="https://msun.work/post/Leetcode/剑指%20Offer%2022.%20链表中倒数第k个节点/">剑指 Offer 22. 链表中倒数第 k 个节点</a>，让 <code>fast</code> 先走 <code>k</code> 步，然后 <code>fast</code> 和 <code>slow</code> 一起走，直到 <code>fast</code> 为 <code>null</code></p><p>注意：</p><p>因为本题需要删除节点，故应将 <code>slow</code> 指向倒数第 <code>n + 1</code> 个节点</p><p>但如果删除的是首个节点则会报错，故新建一个 <code>first</code> 节点与首个节点连接</p>]]></content>
       
       
       
@@ -2884,11 +3134,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2909,36 +3159,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leetcode/191.位-1-的个数</title>
-      <link href="post/Leetcode/191.%E4%BD%8D-1-%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
-      <url>post/Leetcode/191.%E4%BD%8D-1-%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/number-of-1-bits" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。</p><p>示例 1：</p><pre><code>输入：00000000000000000000000000001011输出：3解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 &apos;1&apos;。</code></pre><p>示例 2：</p><pre><code>输入：00000000000000000000000010000000输出：1解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 &apos;1&apos;。</code></pre><p>示例 3：</p><pre><code>输入：11111111111111111111111111111101输出：31解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 &apos;1&apos;。</code></pre><p>提示：</p><ul><li><p>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。</p></li><li><p>在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在上面的 示例 3 中，输入表示有符号整数 -3。</p></li></ul><p>进阶:<br>如果多次调用这个函数，你将如何优化你的算法？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span> - a positive integer</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> hammingWeight = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (n.toString(<span class="number">2</span>).match(<span class="regexp">/1/g</span>) || []).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>直接使用正则表达式判断</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构与算法 </tag>
-            
             <tag> 初级算法 </tag>
-            
-            <tag> Leetcode </tag>
-            
-            <tag> Javascript </tag>
             
         </tags>
       
@@ -2959,11 +3184,36 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
             <tag> 初级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/191.位-1-的个数</title>
+      <link href="post/Leetcode/191.%E4%BD%8D-1-%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
+      <url>post/Leetcode/191.%E4%BD%8D-1-%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/number-of-1-bits" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。</p><p>示例 1：</p><pre><code>输入：00000000000000000000000000001011输出：3解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 &apos;1&apos;。</code></pre><p>示例 2：</p><pre><code>输入：00000000000000000000000010000000输出：1解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 &apos;1&apos;。</code></pre><p>示例 3：</p><pre><code>输入：11111111111111111111111111111101输出：31解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 &apos;1&apos;。</code></pre><p>提示：</p><ul><li><p>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。</p></li><li><p>在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在上面的 示例 3 中，输入表示有符号整数 -3。</p></li></ul><p>进阶:<br>如果多次调用这个函数，你将如何优化你的算法？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span> - a positive integer</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> hammingWeight = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (n.toString(<span class="number">2</span>).match(<span class="regexp">/1/g</span>) || []).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>直接使用正则表达式判断</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
             
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -2984,36 +3234,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leetcode/206.反转链表</title>
-      <link href="post/Leetcode/206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
-      <url>post/Leetcode/206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/reverse-linked-list" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>反转一个单链表。</p><p>示例:</p><pre><code>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre><p>进阶:<br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ol><li><p>递归</p><ul><li><p><code>let next</code>传入的是地址，而非值</p></li><li><p><code>head.next = null</code>断开当前连接</p></li><li><p><code>next.next = head</code>反向连接节点</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Definition for singly-linked list.</span></span><br><span class="line"><span class="comment">* function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment">*     this.val = val;</span></span><br><span class="line"><span class="comment">*     this.next = null;</span></span><br><span class="line"><span class="comment">* &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> reverseList = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!head || !head.next) <span class="keyword">return</span> head;</span><br><span class="line">  <span class="keyword">let</span> next = head.next;</span><br><span class="line">  <span class="keyword">let</span> answer = reverseList(next);</span><br><span class="line">  head.next = <span class="literal">null</span>;</span><br><span class="line">  next.next = head;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul></li><li><p>迭代</p><ul><li><p>利用ES6的解构赋值，简化多行赋值代码</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> reverseList = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> node = head;</span><br><span class="line">  <span class="keyword">let</span> pre = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">while</span> (node) &#123;</span><br><span class="line">    [node.next, pre, node] = [pre, node, node.next];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pre;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul></li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构与算法 </tag>
-            
             <tag> 初级算法 </tag>
-            
-            <tag> Leetcode </tag>
-            
-            <tag> Javascript </tag>
             
         </tags>
       
@@ -3034,11 +3259,36 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
             <tag> 初级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/206.反转链表</title>
+      <link href="post/Leetcode/206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
+      <url>post/Leetcode/206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/reverse-linked-list" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>反转一个单链表。</p><p>示例:</p><pre><code>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre><p>进阶:<br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ol><li><p>递归</p><ul><li><p><code>let next</code>传入的是地址，而非值</p></li><li><p><code>head.next = null</code>断开当前连接</p></li><li><p><code>next.next = head</code>反向连接节点</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Definition for singly-linked list.</span></span><br><span class="line"><span class="comment">* function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment">*     this.val = val;</span></span><br><span class="line"><span class="comment">*     this.next = null;</span></span><br><span class="line"><span class="comment">* &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> reverseList = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!head || !head.next) <span class="keyword">return</span> head;</span><br><span class="line">  <span class="keyword">let</span> next = head.next;</span><br><span class="line">  <span class="keyword">let</span> answer = reverseList(next);</span><br><span class="line">  head.next = <span class="literal">null</span>;</span><br><span class="line">  next.next = head;</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul></li><li><p>迭代</p><ul><li><p>利用ES6的解构赋值，简化多行赋值代码</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> reverseList = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> node = head;</span><br><span class="line">  <span class="keyword">let</span> pre = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">while</span> (node) &#123;</span><br><span class="line">    [node.next, pre, node] = [pre, node, node.next];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pre;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
             
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3059,11 +3309,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3084,11 +3334,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3109,11 +3359,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3134,86 +3384,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leetcode/242.有效的字母异位词</title>
-      <link href="post/Leetcode/242.%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/"/>
-      <url>post/Leetcode/242.%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/valid-anagram" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。</p><p>示例 1:</p><pre><code>输入: s = &quot;anagram&quot;, t = &quot;nagaram&quot;输出: true</code></pre><p>示例 2:</p><pre><code>输入: s = &quot;rat&quot;, t = &quot;car&quot;输出: false</code></pre><p>说明:<br>你可以假设字符串只包含小写字母。</p><p>进阶:<br>如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">t</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isAnagram = <span class="function"><span class="keyword">function</span>(<span class="params">s, t</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> s.split(<span class="string">""</span>).sort().join() === t.split(<span class="string">""</span>).sort().join();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>直接使用<code>sort</code>与<code>join</code>判断是否相等</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构与算法 </tag>
-            
             <tag> 初级算法 </tag>
-            
-            <tag> Leetcode </tag>
-            
-            <tag> Javascript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leetcode/278.第一个错误的版本</title>
-      <link href="post/Leetcode/278.%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/"/>
-      <url>post/Leetcode/278.%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/first-bad-version" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。</p><p>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。</p><p>你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。</p><p>示例:</p><pre><code>给定 n = 5，并且 version = 4 是第一个错误的版本。调用 isBadVersion(3) -&gt; false调用 isBadVersion(5) -&gt; true调用 isBadVersion(4) -&gt; true所以，4 是第一个错误的版本。 </code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for isBadVersion()</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;integer&#125;</span> </span>version number</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span> </span>whether the version is bad</span></span><br><span class="line"><span class="comment"> * isBadVersion = function(version) &#123;</span></span><br><span class="line"><span class="comment"> *     ...</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;function&#125;</span> </span>isBadVersion()</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;function&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> solution = <span class="function"><span class="keyword">function</span> (<span class="params">isBadVersion</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;integer&#125;</span> </span>n Total versions</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return <span class="type">&#123;integer&#125;</span> </span>The first bad version</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> l = <span class="number">1</span>, r = n, mid;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">      mid = (l + r) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (isBadVersion(mid)) r = mid;</span><br><span class="line">      <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>二分法</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构与算法 </tag>
-            
-            <tag> 初级算法 </tag>
-            
-            <tag> Leetcode </tag>
-            
-            <tag> Javascript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leetcode/268.缺失数字</title>
-      <link href="post/Leetcode/268.%E7%BC%BA%E5%A4%B1%E6%95%B0%E5%AD%97/"/>
-      <url>post/Leetcode/268.%E7%BC%BA%E5%A4%B1%E6%95%B0%E5%AD%97/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/missing-number" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E7%BC%BA%E5%A4%B1%E6%95%B0%E5%AD%97-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个包含 0, 1, 2, …, n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。</p><p>示例 1:</p><pre><code>输入: [3,0,1]输出: 2</code></pre><p>示例 2:</p><pre><code>输入: [9,6,4,2,3,5,7,0,1]输出: 8</code></pre><p>说明:<br>你的算法应具有线性时间复杂度。你能否仅使用额外常数空间来实现?</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> missingNumber = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> n = nums.length;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params"><span class="number">1</span> + n</span>) * <span class="params">n</span> / 2 - <span class="params">nums</span>.<span class="params">reduce</span>(<span class="params">(res, num</span>) =&gt;</span> res + num, <span class="number">0</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>先求已有序列和，再通过公式计算应该的和，相减即可</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构与算法 </tag>
-            
-            <tag> 初级算法 </tag>
-            
-            <tag> Leetcode </tag>
-            
-            <tag> Javascript </tag>
             
         </tags>
       
@@ -3234,11 +3409,86 @@
             
             <tag> 数据结构与算法 </tag>
             
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
             <tag> 初级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/268.缺失数字</title>
+      <link href="post/Leetcode/268.%E7%BC%BA%E5%A4%B1%E6%95%B0%E5%AD%97/"/>
+      <url>post/Leetcode/268.%E7%BC%BA%E5%A4%B1%E6%95%B0%E5%AD%97/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/missing-number" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E7%BC%BA%E5%A4%B1%E6%95%B0%E5%AD%97-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个包含 0, 1, 2, …, n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。</p><p>示例 1:</p><pre><code>输入: [3,0,1]输出: 2</code></pre><p>示例 2:</p><pre><code>输入: [9,6,4,2,3,5,7,0,1]输出: 8</code></pre><p>说明:<br>你的算法应具有线性时间复杂度。你能否仅使用额外常数空间来实现?</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> missingNumber = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> n = nums.length;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params"><span class="number">1</span> + n</span>) * <span class="params">n</span> / 2 - <span class="params">nums</span>.<span class="params">reduce</span>(<span class="params">(res, num</span>) =&gt;</span> res + num, <span class="number">0</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>先求已有序列和，再通过公式计算应该的和，相减即可</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
             
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/242.有效的字母异位词</title>
+      <link href="post/Leetcode/242.%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/"/>
+      <url>post/Leetcode/242.%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/valid-anagram" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。</p><p>示例 1:</p><pre><code>输入: s = &quot;anagram&quot;, t = &quot;nagaram&quot;输出: true</code></pre><p>示例 2:</p><pre><code>输入: s = &quot;rat&quot;, t = &quot;car&quot;输出: false</code></pre><p>说明:<br>你可以假设字符串只包含小写字母。</p><p>进阶:<br>如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">t</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isAnagram = <span class="function"><span class="keyword">function</span>(<span class="params">s, t</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> s.split(<span class="string">""</span>).sort().join() === t.split(<span class="string">""</span>).sort().join();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>直接使用<code>sort</code>与<code>join</code>判断是否相等</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode/278.第一个错误的版本</title>
+      <link href="post/Leetcode/278.%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/"/>
+      <url>post/Leetcode/278.%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/first-bad-version" target="_blank" rel="noopener"><img src="/" class="lazyload" data-src="https://img.shields.io/badge/leetcode-%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC-lightgrey?style=for-the-badge&logo=leetcode"  alt=""></a></p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。</p><p>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。</p><p>你可以通过调用 bool isBadVersion(version) 接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。</p><p>示例:</p><pre><code>给定 n = 5，并且 version = 4 是第一个错误的版本。调用 isBadVersion(3) -&gt; false调用 isBadVersion(5) -&gt; true调用 isBadVersion(4) -&gt; true所以，4 是第一个错误的版本。 </code></pre><details><summary>展开</summary><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for isBadVersion()</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;integer&#125;</span> </span>version number</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span> </span>whether the version is bad</span></span><br><span class="line"><span class="comment"> * isBadVersion = function(version) &#123;</span></span><br><span class="line"><span class="comment"> *     ...</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;function&#125;</span> </span>isBadVersion()</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;function&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> solution = <span class="function"><span class="keyword">function</span> (<span class="params">isBadVersion</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;integer&#125;</span> </span>n Total versions</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return <span class="type">&#123;integer&#125;</span> </span>The first bad version</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> l = <span class="number">1</span>, r = n, mid;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">      mid = (l + r) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (isBadVersion(mid)) r = mid;</span><br><span class="line">      <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>二分法</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构与算法 </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3259,11 +3509,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3284,11 +3534,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3309,11 +3559,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3334,11 +3584,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3359,11 +3609,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3384,11 +3634,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3409,11 +3659,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3434,11 +3684,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3459,11 +3709,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3484,11 +3734,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3509,11 +3759,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3534,11 +3784,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3559,11 +3809,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3584,11 +3834,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3609,11 +3859,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3634,11 +3884,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3659,11 +3909,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3684,11 +3934,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
@@ -3709,11 +3959,11 @@
             
             <tag> 数据结构与算法 </tag>
             
-            <tag> 初级算法 </tag>
-            
             <tag> Leetcode </tag>
             
             <tag> Javascript </tag>
+            
+            <tag> 初级算法 </tag>
             
         </tags>
       
