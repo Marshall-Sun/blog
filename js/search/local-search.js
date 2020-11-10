@@ -87,7 +87,7 @@ $(function () {
             }
             // show search results
             if (isMatch) {
-              str += '<div class="local-search__hit-item"><a href="https://coding-pages-bucket-3412291-7653220-4522-366171-1301702900.cos-website.ap-hongkong.myqcloud.com/' + dataUrl + '" class="search-result-title">' + dataTitle + '</a>' + '</div>'
+              str += '<div class="local-search__hit-item"><a href="https://' + document.URL.split("/")[2] + '/' + dataUrl + '" class="search-result-title">' + dataTitle + '</a>' + '</div>'
               count += 1
               $('.local-search-stats__hr').show()
             }
