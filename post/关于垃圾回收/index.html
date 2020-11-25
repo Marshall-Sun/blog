@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>关于垃圾回收 | 👑Sun's Blog</title><meta name="description" content="关于垃圾回收"><meta name="keywords" content="前端知识,浏览器"><meta name="author" content="Marshall Sun"><meta name="copyright" content="Marshall Sun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://lib.baomitu.com" crossorigin="crossorigin"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="关于垃圾回收"><meta name="twitter:description" content="关于垃圾回收"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg"><meta property="og:type" content="article"><meta property="og:title" content="关于垃圾回收"><meta property="og:url" content="https://msun.work/post/%E5%85%B3%E4%BA%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"><meta property="og:site_name" content="👑Sun's Blog"><meta property="og:description" content="关于垃圾回收"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://msun.work/post/%E5%85%B3%E4%BA%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"><link rel="prev" title="关于 ECMAScript" href="https://msun.work/post/%E5%85%B3%E4%BA%8E%20ECMAScript/"><link rel="next" title="事件循环习题" href="https://msun.work/post/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E4%B9%A0%E9%A2%98/"><link rel="stylesheet" href="/css/blog_title_font/blog_title_font.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: true
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">188</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">23</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="https://marshall-sun.github.io/coursetable/" target="_blank" rel="noopener"><i class="fa-fw fa fa-table"></i><span> 课表</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回收栈中的数据"><span class="toc-number">2.</span> <span class="toc-text">回收栈中的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回收堆中的数据"><span class="toc-number">3.</span> <span class="toc-text">回收堆中的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代际假说和分代收集"><span class="toc-number">4.</span> <span class="toc-text">代际假说和分代收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收器的工作流程"><span class="toc-number">5.</span> <span class="toc-text">垃圾回收器的工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#副垃圾回收器"><span class="toc-number">6.</span> <span class="toc-text">副垃圾回收器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主垃圾回收器"><span class="toc-number">7.</span> <span class="toc-text">主垃圾回收器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全停顿"><span class="toc-number">8.</span> <span class="toc-text">全停顿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">9.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">👑Sun's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="https://marshall-sun.github.io/coursetable/" target="_blank" rel="noopener"><i class="fa-fw fa fa-table"></i><span> 课表</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">关于垃圾回收</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-11-24 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-11-24</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-24 23:28:59"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-11-24</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">前端知识</a><i class="fa fa-angle-right post-meta__separator" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">3.2k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 9 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原始数据类型是存储在栈空间中的，引用类型的数据是存储在堆空间中的。不过有些数据被使用之后就不再需要了，我们把这种数据称为<strong>垃圾数据</strong>。</p>
+<p>如果这些垃圾数据一直保存在内存中，那么内存会越用越多。所以我们需要对这些垃圾数据进行回收，以释放有限的内存空间。</p>
+<p>这时候就引入了<strong>垃圾回收机制</strong>（Garbage Collection，GC）。垃圾回收策略分为两种：</p>
+<ul>
+<li><strong>手动回收</strong>：C/C++ 可以通过 <code>free()</code> 这些代码来决定何时分配内存、何时销毁内存。</li>
+<li><strong>自动回收</strong>：JavaScript、Python、Java 等产生的垃圾数据是由垃圾回收器来释放的。</li>
+</ul>
+<p>再看 JavaScript 的 <a href="../数据类型及其判断#数据类型存储">数据类型存储</a>，分为栈存储和堆存储。</p>
+<ul>
+<li><p>对于栈区内存，当栈指针下移，也就是上下文切换之后，栈顶的空间会自动被回收。</p>
+</li>
+<li><p>而对于堆区内存，当在构建一个对象且进行赋值操作的时候，JavaScript 会将相应的内存分配到堆上。所以每创建一个对象之后，堆就会大一点。</p>
+</li>
+</ul>
+<p>现在我们将研究 JavaScript 的数据是如何自动回收的，这分为回收栈中的垃圾数据和回收堆中的垃圾数据两种。</p>
+<h2 id="回收栈中的数据"><a href="#回收栈中的数据" class="headerlink" title="回收栈中的数据"></a>回收栈中的数据</h2><p>首先是栈中的数据，我们还是通过一段示例代码的执行流程来分析其回收机制，具体如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> b = &#123; <span class="attr">name</span>: <span class="string">"极客邦"</span> &#125;;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">showName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c = <span class="string">"极客时间"</span>;</span><br><span class="line">    <span class="keyword">var</span> d = &#123; <span class="attr">name</span>: <span class="string">"极客时间"</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  showName();</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+
+<p>当执行到第 6 行代码时，其调用栈和堆空间状态图如下所示：</p>
+<p><img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/10.png"  alt=""></p>
+<p>从图中可以看出，原始类型的数据被分配到栈中，引用类型的数据会被分配到堆中。当 <code>foo</code> 函数执行结束之后，<code>foo</code> 函数的执行上下文会从堆中被销毁掉，那么它是怎么被销毁的呢？下面我们就来分析一下。</p>
+<p>在 <a href="../关于执行上下文">关于执行上下文</a> 中介绍过了，如果执行到 <code>showName</code> 函数时，那么 JavaScript 引擎会创建 <code>showName</code> 函数的执行上下文，并将 <code>showName</code> 函数的执行上下文压入到调用栈中，最终执行到 <code>showName</code> 函数时，其调用栈就如上图所示。</p>
+<p>与此同时，还有一个记录当前执行状态的指针（Extended Stack Pointer，ESP，扩展栈指针寄存器），指向调用栈中 <code>showName</code> 函数的执行上下文（即执行栈栈顶），表示当前正在执行 <code>showName</code> 函数。</p>
+<p>接着，当 <code>showName</code> 函数执行完成之后，函数执行流程就进入了 <code>foo</code> 函数，那这时就需要销毁 <code>showName</code> 函数的执行上下文了。ESP 这时候就帮上忙了，JavaScript 会将 ESP 下移到 <code>foo</code> 函数的执行上下文，这个下移操作就是销毁 <code>showName</code> 函数执行上下文的过程。</p>
+<p>你可能会有点懵，ESP 指针向下移动怎么就能把 <code>showName</code> 的执行上下文销毁了呢？具体可以看下面这张移动 ESP 前后的对比图：</p>
+<p><img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/11.png"  alt=""></p>
+<p>从图中可以看出，当 <code>showName</code> 函数执行结束之后，ESP 向下移动到 <code>foo</code> 函数的执行上下文中，上面 <code>showName</code> 的执行上下文虽然保存在栈内存中，但是已经是无效内存了。比如当 <code>foo</code> 函数再次调用另外一个函数时，这块内容会被直接覆盖掉，用来存放另外一个函数的执行上下文。</p>
+<p>所以说，当一个函数执行结束之后，JavaScript 引擎会通过向下移动 ESP 来销毁该函数保存在栈中的执行上下文。</p>
+<h2 id="回收堆中的数据"><a href="#回收堆中的数据" class="headerlink" title="回收堆中的数据"></a>回收堆中的数据</h2><p>当上面那段代码的 <code>foo</code> 函数执行结束之后，ESP 应该是指向全局执行上下文的，那这样的话，<code>showName</code> 函数和 <code>foo</code> 函数的执行上下文就处于无效状态了，不过保存在堆中的两个对象依然占用着空间，如下图所示：</p>
+<p><img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/12.png"  alt=""></p>
+<p>从图中可以看出，1003 和 1050 这两块内存依然被占用。要回收堆中的垃圾数据，就需要用到 JavaScript 中的垃圾回收器了。</p>
+<p>所以，接下来我们就来通过 Chrome 使用的 JavaScript 引擎 V8 来分析下堆中的垃圾数据是如何回收的。</p>
+<h2 id="代际假说和分代收集"><a href="#代际假说和分代收集" class="headerlink" title="代际假说和分代收集"></a>代际假说和分代收集</h2><p>不过在正式介绍 V8 是如何实现回收之前，需要先学习下<strong>代际假说</strong>（The Generational Hypothesis）的内容，这是垃圾回收领域中一个重要的术语，后续垃圾回收的策略都是建立在该假说的基础之上的，所以很重要。</p>
+<p><strong>代际假说有以下两个特点：</strong></p>
+<ol>
+<li>大部分对象在内存中存在的时间很短。简单来说，就是很多对象一经分配内存，很快就变得不可访问。</li>
+<li>不死的对象会活得更久。</li>
+</ol>
+<p>其实这两个特点不仅仅适用于 JavaScript，同样适用于大多数的动态语言，如 Java、Python 等。</p>
+<p>有了代际假说的基础，我们就可以来探讨 V8 是如何实现垃圾回收的了。</p>
+<p>通常，垃圾回收算法有很多种，但是并没有哪一种能胜任所有的场景。需要权衡各种场景，根据对象的生存周期的不同而使用不同的算法，以便达到最好的效果。</p>
+<p>所以在 V8 中会把堆分为新生代和老生代两个区域，即<strong>分代收集</strong>（Generational Collection）算法：</p>
+<ul>
+<li><strong>新生代</strong>（Young Space，新生区）中存放的是生存时间较短的对象，它通常只具有 1 ～ 8M 的容量。</li>
+<li><strong>老生代</strong>（Old Space，老生区）中存放的生存时间较长的对象，它具有的容量相对较大。</li>
+</ul>
+<p>对于这两块区域，V8 分别使用两种不同的垃圾回收器，以便更高效地实施垃圾回收：</p>
+<ul>
+<li>新生代的垃圾回收主要使用<strong>副垃圾回收器</strong>。</li>
+<li>老生代的垃圾回收主要使用<strong>主垃圾回收器</strong>。</li>
+</ul>
+<h2 id="垃圾回收器的工作流程"><a href="#垃圾回收器的工作流程" class="headerlink" title="垃圾回收器的工作流程"></a>垃圾回收器的工作流程</h2><p>这两种类型的垃圾回收器都有共同的执行流程：</p>
+<ol>
+<li><p>标记活动对象和非活动对象。</p>
+<p>所谓活动对象就是还在使用的对象，非活动对象就是可以进行垃圾回收的对象。</p>
+</li>
+<li><p>清理垃圾。</p>
+<p>在第一步标记垃圾完成后，统一清理内存中所有被标记为可回收的对象，回收它们所占据的内存。</p>
+</li>
+<li><p>整理内存碎片。</p>
+<p>一般来说，频繁回收对象后，内存中就会存在大量不连续空间，我们把这些不连续的内存空间称为<strong>内存碎片</strong>。</p>
+<p>当内存中出现了大量的内存碎片之后，如果需要分配较大连续内存的时候，就有可能出现内存不足的情况。</p>
+<p>所以最后一步需要整理这些内存碎片，但这步其实是可选的，因为有的垃圾回收器（比如副垃圾回收器）不会产生内存碎片。</p>
+</li>
+</ol>
+<p>那么接下来，我们就按照这个流程来分析两种垃圾回收器是如何处理垃圾回收的。</p>
+<h2 id="副垃圾回收器"><a href="#副垃圾回收器" class="headerlink" title="副垃圾回收器"></a>副垃圾回收器</h2><p>副垃圾回收器主要负责新生区的垃圾回收。通常大多数小的对象都会被分配到新生区，所以说这个区域虽然不大，但是垃圾回收还是比较频繁的。</p>
+<p>新生代中用 Scavenge 算法来处理。这个算法把新生代空间对半划分为两个区域，一半是对象区域，一半是空闲区域，如下图所示：</p>
+<p><img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/13.png"  alt=""></p>
+<p>新加入的对象都会存放到对象区域，当对象区域快被写满时，就需要执行一次垃圾清理操作。</p>
+<ol>
+<li><p>标记活动对象和非活动对象。</p>
+</li>
+<li><p>垃圾清理 + 整理内存碎片</p>
+<p>副垃圾回收器会把活动对象复制到空闲区域中，同时它还会把这些对象有序地排列起来，所以这个复制过程，也就相当于完成了内存整理操作，复制后空闲区域就没有内存碎片了。</p>
+<p>完成复制后，对象区域与空闲区域进行角色翻转，也就是原来的对象区域变成空闲区域，原来的空闲区域变成了对象区域。这样就完成了垃圾对象的回收操作，这还能让这两块区域无限使用。</p>
+</li>
+</ol>
+<p>Scavenge 算法在每次执行清理操作时，都需要复制活动对象。但复制操作需要时间成本，如果新生代空间设置得太大了，那么每次清理的时间就会过久，所以为了执行效率，一般新生代的空间会被设置得比较小。</p>
+<p>也正是因为新生代的空间不大，所以很容易装满。为了解决这个问题，JavaScript 引擎采用了对象晋升策略，也就是经过两次垃圾回收依然还存活的对象，会被移动到老生代中。</p>
+<h2 id="主垃圾回收器"><a href="#主垃圾回收器" class="headerlink" title="主垃圾回收器"></a>主垃圾回收器</h2><p>老生区中的对象有两个特点：对象占用空间大，对象存活时间长。</p>
+<p>由于老生区的对象比较大，若要在老生区中使用 Scavenge 算法进行垃圾回收，复制这些大的对象将会花费比较多的时间，从而导致回收执行效率不高，同时还会浪费一半的空间。所以采用标记清除算法（Mark-Sweep）进行垃圾回收：</p>
+<ol>
+<li><p>标记活动对象和非活动对象。</p>
+<p>从一组根元素开始，递归遍历这组根元素。在遍历过程中能到达的元素称为活动对象，没有到达的元素就可以判断为垃圾数据。</p>
+<p>比如最开始的那段代码，当 <code>showName</code> 函数执行退出之后，这段代码的调用栈和堆空间如下图所示：</p>
+<p> <img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/14.png"  alt=""></p>
+<p> 可以大致看到垃圾数据的标记过程，当 <code>showName</code> 函数执行结束之后，ESP 向下移动，指向了 <code>foo</code> 函数的执行上下文，这时候如果遍历调用栈，是不会找到引用 1003 地址的变量，也就意味着 1003 这块数据为垃圾数据，被标记为红色。由于 1050 这块数据被变量 <code>b</code> 引用了，所以这块数据会被标记为活动对象。这就是大致的标记过程。</p>
+</li>
+<li><p>清理垃圾 + 整理内存碎片。</p>
+<p>接下来就是垃圾的清除过程。它和副垃圾回收器的垃圾清除过程完全不同，你可以理解这个过程是清除掉红色标记数据的过程：</p>
+<p> <img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/15.png"  alt=""></p>
+</li>
+</ol>
+<p>上面的标记过程和清除过程就是标记清除算法。</p>
+<p>不过对一块内存多次执行标记清除算法后，会产生大量不连续的内存碎片，而碎片过多会导致大对象无法分配到足够的连续内存。</p>
+<p>于是又产生了标记整理算法（Mark-Compact），它在标记阶段与标记清除算法一致，但之后它不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存：</p>
+<p><img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/16.png"  alt=""></p>
+<h2 id="全停顿"><a href="#全停顿" class="headerlink" title="全停顿"></a>全停顿</h2><p>由于 JavaScript 是运行在主线程之上的，一旦执行垃圾回收算法，都需要将正在执行的 JavaScript 脚本暂停下来，待垃圾回收完毕后再恢复脚本执行。我们把这种行为叫做<strong>全停顿</strong>（Stop-The-World）。</p>
+<p>假如堆中的数据有 1.5GB，那么实现一次完整的垃圾回收需要 1 秒以上的时间，这导致应用的性能和响应能力直线下降。主垃圾回收器执行一次完整的垃圾回收流程如下图所示：</p>
+<p><img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/17.png"  alt=""></p>
+<p>在新生代的垃圾回收中，因其空间较小，且存活对象较少，所以全停顿的影响不大。但老生代如果在执行垃圾回收的过程中，占用主线程时间过久，将会造成页面的卡顿现象。</p>
+<p>为了降低卡顿，V8 将标记过程分为一个个的子标记过程，同时让垃圾回收标记和 JavaScript 应用逻辑交替进行，直到标记阶段完成。这就是<strong>增量标记算法</strong>（Incremental Marking）：</p>
+<p><img src="/" class="lazyload" data-src="http://blog.poetries.top/img-repo/2019/11/18.png"  alt=""></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://juejin.cn/post/6844904033317027854" target="_blank" rel="noopener">掘金</a></li>
+<li><a href="https://github.com/LiangJunrong/document-library" target="_blank" rel="noopener">GitHub</a></li>
+<li><a href="https://time.geekbang.org/column/intro/100033601" target="_blank" rel="noopener">极客时间</a></li>
+</ul>
+</div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">前端知识</a><a class="post-meta__tags" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-javascript.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/post/%E5%85%B3%E4%BA%8E%20ECMAScript/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-javascript.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">关于 ECMAScript</div></div></a></div><div class="next-post pull_right"><a href="/post/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E4%B9%A0%E9%A2%98/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-javascript.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">事件循环习题</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 by Marshall Sun</div><div class="footer_custom_text">Inspired in South, implemented in Northeast.</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i></div><div id="rightside-config-show"><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/search/local-search.js"></script></body></html>
