@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>关于网络安全 | 👑Sun's Blog</title><meta name="description" content="关于网络安全"><meta name="keywords" content="前端知识,浏览器"><meta name="author" content="Marshall Sun"><meta name="copyright" content="Marshall Sun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://lib.baomitu.com" crossorigin="crossorigin"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="关于网络安全"><meta name="twitter:description" content="关于网络安全"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg"><meta property="og:type" content="article"><meta property="og:title" content="关于网络安全"><meta property="og:url" content="https://msun.work/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"><meta property="og:site_name" content="👑Sun's Blog"><meta property="og:description" content="关于网络安全"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://msun.work/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"><link rel="prev" title="关于浏览器存储与鉴权" href="https://msun.work/post/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E4%B8%8E%E9%89%B4%E6%9D%83/"><link rel="next" title="从输入网址到加载完成" href="https://msun.work/post/%E4%BB%8E%E8%BE%93%E5%85%A5%E7%BD%91%E5%9D%80%E5%88%B0%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90/"><link rel="stylesheet" href="/css/blog_title_font/blog_title_font.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: true
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">192</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">23</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="https://marshall-sun.github.io/coursetable/" target="_blank" rel="noopener"><i class="fa-fw fa fa-table"></i><span> 课表</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#XSS"><span class="toc-number">1.</span> <span class="toc-text">XSS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#攻击方法"><span class="toc-number">1.2.</span> <span class="toc-text">攻击方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS-攻击的分类"><span class="toc-number">1.3.</span> <span class="toc-text">XSS 攻击的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储型-XSS"><span class="toc-number">1.3.1.</span> <span class="toc-text">存储型 XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反射型-XSS"><span class="toc-number">1.3.2.</span> <span class="toc-text">反射型 XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-型-XSS"><span class="toc-number">1.3.3.</span> <span class="toc-text">DOM 型 XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用防范方法"><span class="toc-number">1.4.</span> <span class="toc-text">常用防范方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpOnly"><span class="toc-number">1.4.1.</span> <span class="toc-text">HttpOnly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入过滤"><span class="toc-number">1.4.2.</span> <span class="toc-text">输入过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义-HTML"><span class="toc-number">1.4.3.</span> <span class="toc-text">转义 HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#白名单"><span class="toc-number">1.4.4.</span> <span class="toc-text">白名单</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF"><span class="toc-number">2.</span> <span class="toc-text">CSRF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义-1"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#攻击类型"><span class="toc-number">2.2.</span> <span class="toc-text">攻击类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET-类型"><span class="toc-number">2.2.1.</span> <span class="toc-text">GET 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST-类型"><span class="toc-number">2.2.2.</span> <span class="toc-text">POST 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接类型"><span class="toc-number">2.2.3.</span> <span class="toc-text">链接类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF-的特点"><span class="toc-number">2.3.</span> <span class="toc-text">CSRF 的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与-XSS-区别"><span class="toc-number">2.4.</span> <span class="toc-text">与 XSS 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防御"><span class="toc-number">2.5.</span> <span class="toc-text">防御</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">3.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">👑Sun's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="https://marshall-sun.github.io/coursetable/" target="_blank" rel="noopener"><i class="fa-fw fa fa-table"></i><span> 课表</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">关于网络安全</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-11-28 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-11-28</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-11-28 23:07:26"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-11-28</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">前端知识</a><i class="fa fa-angle-right post-meta__separator" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">2.8k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 9 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>跨站脚本攻击（Cross-Site Scripting，为了和 CSS 区分，简称 XSS），是一种代码注入攻击。攻击者通过在目标网站上注入编写好的代码（恶意脚本），使之在用户的浏览器上运行。利用这些恶意脚本，攻击者可获取用户的敏感信息如 Cookie、SessionID 等，进而危害数据安全。</p>
+<p>XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。</p>
+<p>而由于直接在用户的终端执行，恶意代码能够直接获取用户的信息，或者利用这些信息冒充用户向网站发起攻击者定义的请求。</p>
+<p>在部分情况下，由于输入的限制，注入的恶意脚本比较短。但可以通过引入外部的脚本，并由浏览器执行，来完成比较复杂的攻击策略。</p>
+<h2 id="攻击方法"><a href="#攻击方法" class="headerlink" title="攻击方法"></a>攻击方法</h2><ul>
+<li>在 HTML 内嵌的文本中，以 <code>&lt;script&gt;</code> 标签注入恶意内容。</li>
+<li>在内联的 JavaScript 中，拼接的数据突破了原本的限制（字符串，变量，方法名等）。</li>
+<li>在标签属性中，恶意内容包含引号 <code>&quot;</code>，从而突破属性值的限制，注入其他属性或者标签。</li>
+<li>在标签的 <code>href/src</code> 等属性中，包含 <code>javascript:</code> 等可执行代码。</li>
+<li>在 <code>onload/onerror/onclick</code> 等事件中，注入不受控制代码。</li>
+<li>在 CSS 或 <code>style</code> 属性中，包含类似 <code>background-image:url(&quot;javascript:...&quot;);</code> 的代码（新版本浏览器已经可以防范）。</li>
+<li>在 CSS 或 <code>style</code> 属性中，包含类似 expression(…) 的 CSS 表达式代码（新版本浏览器已经可以防范）。</li>
+</ul>
+<h2 id="XSS-攻击的分类"><a href="#XSS-攻击的分类" class="headerlink" title="XSS 攻击的分类"></a>XSS 攻击的分类</h2><p>根据攻击的来源，XSS 攻击可分为存储型、反射型和 DOM 型。</p>
+<table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>存储区</strong></th>
+<th><strong>插入点</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储型 XSS</td>
+<td>后端数据库</td>
+<td>HTML</td>
+</tr>
+<tr>
+<td>反射型 XSS</td>
+<td>URL</td>
+<td>HTML</td>
+</tr>
+<tr>
+<td>DOM 型 XSS</td>
+<td>后端数据库/前端存储/URL</td>
+<td>前端 JavaScript</td>
+</tr>
+</tbody></table>
+<h3 id="存储型-XSS"><a href="#存储型-XSS" class="headerlink" title="存储型 XSS"></a>存储型 XSS</h3><p>存储型 XSS（又称持久性 XSS）常见于带有用户保存数据的网站功能，如论坛发帖、商品评论、用户私信等。</p>
+<p>它是最危险的一种跨站脚本，相比反射型 XSS 和 DOM 型 XSS 具有更高的隐蔽性，所以危害更大，因为它不需要用户手动触发。任何允许用户存储数据的 Web 程序都可能存在存储型 XSS 漏洞，当攻击者提交一段 XSS 代码后，被服务器端接收并存储，当所有浏览者访问某个页面时都会被 XSS。</p>
+<p>攻击步骤：</p>
+<ol>
+<li>攻击者将恶意代码提交到目标网站的数据库中。</li>
+<li>用户打开目标网站时，网站服务端将恶意代码从数据库取出，拼接在 HTML 中返回给浏览器。</li>
+<li>用户浏览器接收到响应后解析执行，混在其中的恶意代码也被执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</li>
+</ol>
+<h3 id="反射型-XSS"><a href="#反射型-XSS" class="headerlink" title="反射型 XSS"></a>反射型 XSS</h3><p>反射型 XSS 跟存储型 XSS 的区别是：存储型 XSS 的恶意代码存在数据库里，反射型 XSS 的恶意代码存在 URL 里。</p>
+<p>反射型 XSS（又称非持久性 XSS）漏洞常见于通过 URL 传递参数的功能，如网站搜索、跳转等。</p>
+<p>由于需要用户主动打开恶意的 URL 才能生效，攻击者往往会结合多种手段诱导用户点击。</p>
+<p>POST 的内容也可以触发反射型 XSS，只不过其触发条件比较苛刻（需要构造表单提交页面，并引导用户点击），所以非常少见。</p>
+<p>攻击步骤：</p>
+<ol>
+<li>攻击者构造出特殊的 URL，其中包含恶意代码。</li>
+<li>用户打开带有恶意代码的 URL 时，网站服务端将恶意代码从 URL 中取出，拼接在 HTML 中返回给浏览器。</li>
+<li>用户浏览器接收到响应后解析执行，混在其中的恶意代码也被执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</li>
+</ol>
+<h3 id="DOM-型-XSS"><a href="#DOM-型-XSS" class="headerlink" title="DOM 型 XSS"></a>DOM 型 XSS</h3><p>DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行恶意代码由浏览器端完成，属于前端 JavaScript 自身的安全漏洞，而其他两种 XSS 都属于服务端的安全漏洞。</p>
+<p>注意:</p>
+<p>DOM 通常代表在 HTML、XHTML 和 XML 中的对象，使用 DOM 可以允许程序和脚本动态的访问和更新文档的内容、结构和样式。它不需要服务器解析响应的直接参与，触发 XSS 靠的是浏览器端的 DOM 解析，所以防范 DOM 型 XSS 完全就是前端的责任。</p>
+<p>攻击步骤：</p>
+<ol>
+<li>攻击者构造出特殊的 URL，其中包含恶意代码。</li>
+<li>用户打开带有恶意代码的 URL。</li>
+<li>用户浏览器接收到响应后解析执行，前端 JavaScript 取出 URL 中的恶意代码并执行。</li>
+<li>恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</li>
+</ol>
+<h2 id="常用防范方法"><a href="#常用防范方法" class="headerlink" title="常用防范方法"></a>常用防范方法</h2><h3 id="HttpOnly"><a href="#HttpOnly" class="headerlink" title="HttpOnly"></a><code>HttpOnly</code></h3><p>JavaScript <code>Document.cookie</code> API 无法访问带有 <code>HttpOnly</code> 属性的 Cookie。</p>
+<p>示例：</p>
+<pre><code>Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly</code></pre><h3 id="输入过滤"><a href="#输入过滤" class="headerlink" title="输入过滤"></a>输入过滤</h3><p>一般是用于对于输入格式的检查，例如邮箱、电话号码、用户名、密码等都要按照规定的格式输入，同时应该限定一个合理的长度。</p>
+<p>这不仅仅是前端负责，后端也要做相同的过滤检查。因为攻击者完全可以绕过正常的输入流程，直接利用相关接口向服务器发送设置。</p>
+<h3 id="转义-HTML"><a href="#转义-HTML" class="headerlink" title="转义 HTML"></a>转义 HTML</h3><p>如果拼接 HTML 是必要的，就需要对于引号，尖括号，斜杠进行转义。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">escape</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  str = str.replace(<span class="regexp">/&amp;/g</span>, <span class="string">"&amp;amp;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&lt;/g</span>, <span class="string">"&amp;lt;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/&gt;/g</span>, <span class="string">"&amp;gt;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/"/g</span>, <span class="string">"&amp;quto;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/'/g</span>, <span class="string">"&amp;#39;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/`/g</span>, <span class="string">"&amp;#96;"</span>);</span><br><span class="line">  str = str.replace(<span class="regexp">/\//g</span>, <span class="string">"&amp;#x2F;"</span>);</span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但这还不是很完善。想对 HTML 模板各处插入点进行充分的转义，就需要采用白名单。</p>
+<h3 id="白名单"><a href="#白名单" class="headerlink" title="白名单"></a>白名单</h3><p>对于显示富文本来说，不能通过上面的办法来转义所有字符，因为这样会把需要的格式也过滤掉。这种情况通常采用白名单过滤的办法。</p>
+<p>可使用这个库：<a href="https://jsxss.com/zh/index.html" target="_blank" rel="noopener">JSXSS</a>。</p>
+<h1 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>跨站请求伪造（Cross-site request forgery，CSRF），是一种劫持受信任用户向服务器发送非预期请求的攻击方式。</p>
+<p>通常情况下，CSRF 攻击是攻击者借助受害者的 Cookie 骗取服务器的信任，可以在受害者毫不知情的情况下以受害者名义伪造请求发送给受攻击服务器，从而在并未授权的情况下执行在权限保护之下的操作。</p>
+<p>要完成一次 CSRF 攻击，受害者必须依次完成两个步骤：</p>
+<ol>
+<li>登录受信任网站 A，并在本地生成 Cookie。</li>
+<li>在不登出 A 的情况下，访问危险网站 B。</li>
+</ol>
+<p>看到这里，你也许会认为：如果我不同时满足以上两个条件，就不会受到 CSRF 攻击。</p>
+<p>确实如此，但你不能保证以下情况不会发生：</p>
+<ol>
+<li>登录了一个网站后，不再打开一个 Tab 页面并访问存在漏洞的常用网站。</li>
+<li>关闭浏览器后，你本地的 Cookie 立刻过期，你上次的会话已结束。</li>
+</ol>
+<h2 id="攻击类型"><a href="#攻击类型" class="headerlink" title="攻击类型"></a>攻击类型</h2><h3 id="GET-类型"><a href="#GET-类型" class="headerlink" title="GET 类型"></a>GET 类型</h3><p>非常简单，只需要一个 HTTP 请求，一般会这样利用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://bank.example/withdraw?amount=10000&amp;for=hacker"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在受害者访问含有这个 <code>&lt;img&gt;</code> 的页面后，浏览器会自动向其包含的链接发出一次 HTTP 请求。<code>bank.example</code> 就会收到包含受害者登录信息的一次跨域请求。</p>
+<h3 id="POST-类型"><a href="#POST-类型" class="headerlink" title="POST 类型"></a>POST 类型</h3><p>通常使用的是一个自动提交的表单，如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://bank.example/withdraw"</span> <span class="attr">method</span>=<span class="string">"POST"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"account"</span> <span class="attr">value</span>=<span class="string">"xiaoming"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"amount"</span> <span class="attr">value</span>=<span class="string">"10000"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"for"</span> <span class="attr">value</span>=<span class="string">"hacker"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.forms[<span class="number">0</span>].submit();</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>访问该页面后，表单会自动提交，相当于模拟用户完成了一次 POST 操作。</p>
+<p>POST 类型的攻击通常比 GET 类型要求更加严格，但仍并不复杂。任何个人网站、博客，被黑客上传页面的网站都有可能是发起攻击的来源，后端接口不能将安全寄托在仅允许 POST 上面。</p>
+<h3 id="链接类型"><a href="#链接类型" class="headerlink" title="链接类型"></a>链接类型</h3><p>链接类型的 CSRF 并不常见，比起其他两种用户打开页面就中招的情况，这种需要用户点击链接才会触发。</p>
+<p>通常是在论坛中发布的图片中嵌入恶意链接，或者以广告的形式诱导用户中招，攻击者通常会以比较夸张的词语诱骗用户点击，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://bank.example/withdraw?amount=10000&amp;for=hacker"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>一刀 999<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="CSRF-的特点"><a href="#CSRF-的特点" class="headerlink" title="CSRF 的特点"></a>CSRF 的特点</h2><ul>
+<li>攻击一般发起在第三方网站，而不是被攻击的网站。被攻击的网站无法防止攻击发生。</li>
+<li>攻击利用受害者在被攻击网站的 Cookie 冒充受害者提交操作，而不是直接窃取数据。</li>
+<li>整个过程攻击者并不能获取到受害者的 Cookie，仅仅是冒充。</li>
+<li>跨站请求可以用各种方式：图片 URL、超链接、CORS、表单提交等等。部分请求方式可以直接嵌入在第三方论坛、文章中，难以进行追踪。</li>
+</ul>
+<p>CSRF 通常是跨域的，因为外域通常更容易被攻击者掌控。但是如果本域下有容易被利用的功能，比如可以发图和链接的论坛和评论区，攻击可以直接在本域下进行，而且这种攻击更加危险。</p>
+<h2 id="与-XSS-区别"><a href="#与-XSS-区别" class="headerlink" title="与 XSS 区别"></a>与 XSS 区别</h2><ul>
+<li><p>通常来说 CSRF 是由 XSS 实现的。</p>
+</li>
+<li><p>本质上讲，XSS 是代码注入问题，CSRF 是 HTTP 问题。</p>
+<p>XSS 是内容没有过滤导致浏览器将攻击者的输入当代码执行。CSRF 则是因为浏览器在发送 HTTP 请求时候自动带上 Cookie，而一般网站的 Session 都存在 Cookie 里。</p>
+</li>
+</ul>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><ul>
+<li>验证码。强制用户必须与应用进行交互，才能完成最终请求。此种方式能很好的防范，但是提高了用户操作难度。</li>
+<li>同源检测。既然 CSRF 大多来自第三方网站，那么就直接禁止外域（或者不受信任的域名）发起的请求。</li>
+<li>Token。这是公认最合适的方案，因为 CSRF 攻击依赖于 Cookie。但若网站同时存在 XSS 漏洞，这个方法也作用不大。具体使用可见 <a href="../关于浏览器存储与鉴权#Token">Token</a>。</li>
+</ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><a href="https://juejin.cn/post/6844903781704925191" target="_blank" rel="noopener">掘金</a></li>
+<li><a href="https://github.com/LiangJunrong/document-library" target="_blank" rel="noopener">GitHub</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies" target="_blank" rel="noopener">MDN</a></li>
+<li><a href="https://tech.meituan.com/2018/09/27/fe-security.html" target="_blank" rel="noopener">美团技术团队</a></li>
+<li><a href="https://tech.meituan.com/2018/10/11/fe-security-csrf.html" target="_blank" rel="noopener">美团技术团队</a></li>
+</ul>
+</div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">前端知识</a><a class="post-meta__tags" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-javascript.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/post/%E5%85%B3%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E4%B8%8E%E9%89%B4%E6%9D%83/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">关于浏览器存储与鉴权</div></div></a></div><div class="next-post pull_right"><a href="/post/%E4%BB%8E%E8%BE%93%E5%85%A5%E7%BD%91%E5%9D%80%E5%88%B0%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">从输入网址到加载完成</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 by Marshall Sun</div><div class="footer_custom_text">Inspired in South, implemented in Northeast.</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i></div><div id="rightside-config-show"><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/search/local-search.js"></script></body></html>
