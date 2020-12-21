@@ -1,0 +1,695 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>面试知识点数据统计 | 👑Sun's Blog</title><meta name="description" content="面试知识点数据统计"><meta name="keywords" content="前端知识,数据统计"><meta name="author" content="Marshall Sun"><meta name="copyright" content="Marshall Sun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://lib.baomitu.com" crossorigin="crossorigin"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="面试知识点数据统计"><meta name="twitter:description" content="面试知识点数据统计"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-note.png"><meta property="og:type" content="article"><meta property="og:title" content="面试知识点数据统计"><meta property="og:url" content="https://msun.work/post/Interview-knowledge/"><meta property="og:site_name" content="👑Sun's Blog"><meta property="og:description" content="面试知识点数据统计"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-note.png"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://msun.work/post/Interview-knowledge/"><link rel="prev" title="CSS 各种实现" href="https://msun.work/post/CSS%20%E5%90%84%E7%A7%8D%E5%AE%9E%E7%8E%B0/"><link rel="next" title="HTTP 相关知识" href="https://msun.work/post/HTTP%20%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"><link rel="stylesheet" href="/css/blog_title_font/blog_title_font.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: true
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">198</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">24</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="https://marshall-sun.github.io/coursetable/" target="_blank" rel="noopener"><i class="fa-fw fa fa-table"></i><span> 课表</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#严格模式-非严格模式"><span class="toc-text">严格模式 &#x2F; 非严格模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型转换"><span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域-amp-作用域链"><span class="toc-text">作用域 &amp; 作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generator-函数"><span class="toc-text">Generator 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行上下文-amp-执行栈"><span class="toc-text">执行上下文 &amp; 执行栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this，call，bind，apply"><span class="toc-text">this，call，bind，apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深浅拷贝"><span class="toc-text">深浅拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数"><span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型-amp-原型链"><span class="toc-text">原型 &amp; 原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-事件机制-amp-事件委托"><span class="toc-text">DOM 事件机制 &amp; 事件委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件循环"><span class="toc-text">事件循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Document-amp-Window"><span class="toc-text">Document &amp; Window</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收-amp-内存泄漏"><span class="toc-text">垃圾回收 &amp; 内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript-6"><span class="toc-text">ECMAScript 6+</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-核心特性"><span class="toc-text">ES6 核心特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异步解决方案-Promise-await"><span class="toc-text">异步解决方案 (Promise, await)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES7-ES8-ES9-ES10"><span class="toc-text">ES7 ES8 ES9 ES10</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BFC"><span class="toc-text">BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式布局"><span class="toc-text">响应式布局</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML"><span class="toc-text">HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5-新特性"><span class="toc-text">HTML5 新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#meta-属性"><span class="toc-text">meta 属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机网络"><span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-amp-HTTPS"><span class="toc-text">HTTP &amp; HTTPS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-amp-UDP"><span class="toc-text">TCP &amp; UDP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CDN"><span class="toc-text">CDN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#防抖-amp-节流"><span class="toc-text">防抖 &amp; 节流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#懒加载"><span class="toc-text">懒加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态加载"><span class="toc-text">动态加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务端渲染（Server-Side-Render，SSR）"><span class="toc-text">服务端渲染（Server Side Render，SSR）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器"><span class="toc-text">浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#跨域"><span class="toc-text">跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存"><span class="toc-text">缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器存储"><span class="toc-text">浏览器存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络安全"><span class="toc-text">网络安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS"><span class="toc-text">XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSRF"><span class="toc-text">CSRF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能优化"><span class="toc-text">性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器渲染"><span class="toc-text">浏览器渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进程-amp-线程"><span class="toc-text">进程 &amp; 线程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React"><span class="toc-text">React</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Angular"><span class="toc-text">Angular</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双向绑定"><span class="toc-text">双向绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区别"><span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Webpack"><span class="toc-text">Webpack</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TypeScript"><span class="toc-text">TypeScript</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nginx"><span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git"><span class="toc-text">Git</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-note.png)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">👑Sun's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="https://marshall-sun.github.io/coursetable/" target="_blank" rel="noopener"><i class="fa-fw fa fa-table"></i><span> 课表</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-id-card"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">面试知识点数据统计</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date" title="发表于 2020-11-03 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-11-03</time></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">5.1k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 17 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><pre><code>js操作数组的API
+腾讯 6/28
+
+浏览器中的js和nodejs有什么区别
+字节 5/30
+
+a=123跟var a=123,这两种创建变量的方式有什么不同
+除了a=123会创建全局的变量外，还多了个沿着作用域链查找的过程。
+暂时性锁区
+
+一个a 能使a === 1 &amp;&amp; a===2 &amp;&amp; a===3 === true
+字节 9/7
+
+函数柯里化，实现下面的代码
+sum(1,2)(2)() // 5
+sum(3)(3)()
+字节 10/13</code></pre><h2 id="严格模式-非严格模式"><a href="#严格模式-非严格模式" class="headerlink" title="严格模式 / 非严格模式"></a>严格模式 / 非严格模式</h2><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><pre><code>如何判断类型
+腾讯 6/21
+
+js中的数据类型
+如何判断数组，每个方法都问了原理
+手写了instanceof
+腾讯 6/21
+
+Js 传参，值传递与引用传递的不同
+腾讯 7/21
+
+js基本数据类型，复杂数据类型，分别是怎么存储的
+怎么判断是个数组，回答了Array.isArray
+有没有兼容性更好的，回答了Object.prototype.toString.call
+字节 6/17
+
+js 里边是怎么存储双精度浮点数的
+字节 4/9
+
+关于基本数据类型
+详细说一下 symbol 类型，于是说了一下作用、可能的 es5 实现方式。
+引用类型、值类型
+typeof操作符，用过吗，什么作用
+typeof 一个数组什么结果，怎么判断是否是数组
+
+instanceof操作符
+用过吗
+什么作用
+实现一下 instanceof
+
+怎么判断空对象，说了三种：
+for of 循环，加个标记变量（经评论区提醒：应该是用for in循环
+object.keys 判断返回的数组长度
+转成 json 格式的字符串、判断是否等于&quot;{}&quot;
+字节 7/12
+
+JS数据类型？
+bigint是干嘛的
+判断数组的方法
+字节 8/4
+
+js基本数据类型
+字节 11/3</code></pre><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h2 id="作用域-amp-作用域链"><a href="#作用域-amp-作用域链" class="headerlink" title="作用域 &amp; 作用域链"></a>作用域 &amp; 作用域链</h2><pre><code>讲一下块作用域
+腾讯 6/21
+
+作用域
+字节 11/3</code></pre><h2 id="Generator-函数"><a href="#Generator-函数" class="headerlink" title="Generator 函数"></a>Generator 函数</h2><pre><code>讲一下generator生成器
+腾讯 6/21
+
+迭代器 生成器了解吗
+for in，for of区别
+字节 5/27</code></pre><h2 id="执行上下文-amp-执行栈"><a href="#执行上下文-amp-执行栈" class="headerlink" title="执行上下文 &amp; 执行栈"></a>执行上下文 &amp; 执行栈</h2><pre><code>讲一下声明提升
+腾讯 6/21
+
+执行上下文
+字节 7/12</code></pre><h2 id="this，call，bind，apply"><a href="#this，call，bind，apply" class="headerlink" title="this，call，bind，apply"></a>this，call，bind，apply</h2><pre><code>关于this的题
+腾讯 6/16
+
+可以改变this指向的方法有哪些
+腾讯 6/28
+
+手写深拷贝，call
+手写 bind
+字节 4/9
+
+apply bind call区别
+this指向出了道题
+深拷贝和浅拷贝区别
+字节 5/27
+
+this 指向以及 call、apply、bind
+看代码讲输出结果
+讲一下 call、apply、bind 的作用以及不同
+字节 7/12
+
+this指向固定
+call apply bind，区别，用法。
+call apply bind？
+this指向？匿名函数的this？
+字节 8/4
+
+this指向
+字节 8/22</code></pre><h2 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h2><pre><code>手写深拷贝
+字节 4/9
+
+深拷贝和浅拷贝区别
+字节 5/27
+
+如何实现浅比较，手写一个
+用到了for(key in obj)的写法，被问是否会取出原型的键
+字节 6/17
+
+手写深拷贝
+字节 7/12</code></pre><h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><pre><code>讲一下箭头函数
+腾讯 6/21
+
+箭头函数相关（作用域、实例化）
+字节 10/13</code></pre><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><pre><code>关于闭包的题
+腾讯 6/16
+
+闭包（好多次都问了
+腾讯 6/21
+
+实现一个每秒输出hello world的函数，要求第三次输出后停止，用闭包实现
+字节 5/30
+
+闭包是什么、用在哪、缺点
+写一个闭包的例子，为什么里面的 function 能取到变量 aaa：
+function func() {
+  var aaa = &quot;abc&quot;;
+  return function () {
+    console.log(aaa);
+  };
+} 楼主扯：垃圾回收、作用域链
+字节 7/12
+
+了解立即执行函数吗？
+立即执行函数是不是一种闭包？
+字节 8/4
+
+写一个闭包
+字节 11/3</code></pre><h2 id="原型-amp-原型链"><a href="#原型-amp-原型链" class="headerlink" title="原型 &amp; 原型链"></a>原型 &amp; 原型链</h2><pre><code>关于JS原型链的题
+腾讯 6/16
+
+讲一下原型链
+（prototype，__proto__，constructor）分别指向谁
+腾讯 6/21
+
+原型对象和原型链
+字节 7/12</code></pre><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><pre><code>类的继承（随便说一个的具体实现
+腾讯 6/21
+
+
+创建一个 Person 类，其包含公有属性 name 和私有属性 age 以及公有方法 setAge
+创建一个 Teacher 类，使其继承 Person ，并包含私有属性 studentCount 和私有方法 setStudentCount 。
+继承是什么
+腾讯 7/21
+
+es5 es6继承方式
+字节 5/27
+
+说下继承？
+用es6实现实例继承
+字节 8/4</code></pre><h2 id="DOM-事件机制-amp-事件委托"><a href="#DOM-事件机制-amp-事件委托" class="headerlink" title="DOM 事件机制 &amp; 事件委托"></a>DOM 事件机制 &amp; 事件委托</h2><pre><code>什么是事件委托
+腾讯 6/21</code></pre><h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><pre><code>Js 是单线程的还是多线程的，单线程如何保证性能？（事件循环）
+腾讯 7/21
+
+event loop
+字节 5/27
+
+Event Loop机制，先说过程，然后再做一道题
+字节 5/27
+
+JavaScript的事件循环
+微任务和宏任务分别有哪些
+字节 8/22</code></pre><h2 id="Document-amp-Window"><a href="#Document-amp-Window" class="headerlink" title="Document &amp; Window"></a>Document &amp; Window</h2><pre><code>怎么判断一个元素出现在当前视窗
+字节 4/9</code></pre><h2 id="垃圾回收-amp-内存泄漏"><a href="#垃圾回收-amp-内存泄漏" class="headerlink" title="垃圾回收 &amp; 内存泄漏"></a>垃圾回收 &amp; 内存泄漏</h2><pre><code>浏览器的回收机制，新生代，老生代
+字节 5/30
+
+v8 的垃圾回收机制
+字节 7/12</code></pre><h2 id="ECMAScript-6"><a href="#ECMAScript-6" class="headerlink" title="ECMAScript 6+"></a>ECMAScript 6+</h2><h3 id="ES6-核心特性"><a href="#ES6-核心特性" class="headerlink" title="ES6 核心特性"></a>ES6 核心特性</h3><pre><code>用到的 es6 的特性
+var let const 的区别
+多个请求串行请求（for循环 + await）
+可以用 foreach 吗
+腾讯 7/21
+
+ES6有什么了解
+字节 5/27
+
+let var const区别
+字节 7/12
+
+ES6新知识点
+map有几个参数？
+字节 8/4</code></pre><h3 id="异步解决方案-Promise-await"><a href="#异步解决方案-Promise-await" class="headerlink" title="异步解决方案 (Promise, await)"></a>异步解决方案 (Promise, await)</h3><pre><code>讲一下promise
+腾讯 6/21
+
+js异步加载的方式有哪些？
+腾讯 6/28
+
+promise介绍一下
+async和await源码
+字节 5/27
+
+给一段关于异步的程序，说出打印情况
+字节 6/17
+
+使用Promise实现sleep（1000).then(()=&gt;{console.log(2)}),先打印1 过一秒打印2
+字节 8/4
+
+介绍Promise
+async、await
+字节 8/22</code></pre><h3 id="ES7-ES8-ES9-ES10"><a href="#ES7-ES8-ES9-ES10" class="headerlink" title="ES7 ES8 ES9 ES10"></a>ES7 ES8 ES9 ES10</h3><h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><pre><code>实现一个遮罩弹窗
+平时写 css 是怎么写的，说一下写 css 的思路
+腾讯 7/21
+
+css 里边的flex与其他有什么不同，用它有什么好处
+字节 4/9
+
+实现一个百度搜索框，包括垂直左右居中，自适应的特性
+字节 5/30
+
+css 实现一个自适应搜索框，输入框部分宽度自适应，搜索按钮宽度固定
+用 float 写了个版本，后面面试官提到用 flex，于是用 flex 布局再写一个版本
+position 有哪些字段，什么作用
+字节 7/12
+
+CSS动画，div每秒移动100px
+Css垂直居中
+基础：实现圣杯布局？
+怎么理解负margin？
+css画一个三角形
+字节 8/4
+
+手写三列布局
+css浮动，浮动清除，引导BFC
+Flex布局 各种属性
+字节 9/7
+
+em和rem
+css元素样式优先级
+居中的css
+css盒子模型，what？应用场景？
+字节 11/3</code></pre><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><pre><code>如何触发BFC
+BFC为什么可以减少重排重绘
+字节 4/9
+
+BFC的相关特性和应用
+字节 5/30</code></pre><h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><pre><code>关于content的类型、一些常用头部。
+腾讯 6/16
+
+img src为什么不能用空 应该用什么
+字节 5/27</code></pre><h2 id="HTML5-新特性"><a href="#HTML5-新特性" class="headerlink" title="HTML5 新特性"></a>HTML5 新特性</h2><h2 id="meta-属性"><a href="#meta-属性" class="headerlink" title="meta 属性"></a>meta 属性</h2><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><pre><code>一个8*8棋盘，0代表空，1代表有车（ju），车可以进攻横竖直线上的其他车（称为有冲突），问输入一个棋盘，是否有冲突。
+上一题的基础上，问有几个冲突，如0 1 0 1 0 0 0 1 共有2+1个冲突。
+腾讯 6/16
+
+说一下快排的实现（还问了好几个排序的时间复杂度，但我都忘了，然后让说一下时间复杂度的计算
+快排原理，时间复杂度，稳定性
+腾讯 6/21
+
+请写一个函数，计算一篇英文文章中出现次数最多的单词及出现次数
+
+实现一个函数，每次调用返回 不同的 长度为 2W 的数组
+数组的每一项由 26 个英文字母中的不同四个组成（大写），同时数组的每一项也不同
+（想到了结合 Math.random 生成字母，用对象存储已生成的结果保证不同 这种暴力方式）
+
+两个字符串的所有公共子串
+冒泡排序
+最长公共子串
+快排还记得吗，讲一讲
+基准元素的选择有什么更好的方案吗
+腾讯 7/21
+
+查询数组中第一个正数出现的位置和最后一个负数出现的位置
+时间复杂度和空间复杂度对性能有哪些影响，影响的是哪方面的性能
+手写快排，双向链表
+字节 4/9
+
+排序算法了解哪些
+手写桶排序
+字节 5/27
+
+实现归并排序
+字节 5/30
+
+千分位加逗号
+二叉树每条路径的数字和
+字节 6/17
+
+版本号排序
+字节 7/12
+
+数组去重（包括对象，嵌套对象，判断key与value值一样就是相同）
+字节 8/4
+
+手撕：冒泡-&gt;问复杂度，有没有时间复杂度为n的排序，答无（搜了搜有...
+字节 11/3</code></pre><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><pre><code>有一个非常大的日志文件 32G，统计里面出现次数前十的 ip 地址，怎么做
+Websocket 的链接过程？
+你拿到后端发过来的 websocket 是怎么做的？
+腾讯 7/21
+
+问了网络非常多的内容：
+包括拥塞控制
+流量控制
+三握手四挥手
+网络请求的方法
+状态码
+给了很多网络请求的情景，让我说出返回的响应头
+还有强缓存和协商缓存
+字节 5/30
+
+websocket过程，
+字节 8/4
+
+OSI网络七层模型。HTTP、webSocket分别在哪一层
+字节 8/22
+
+说到不同层之间的交流，两个网络不同层之间的交流
+字节 11/3</code></pre><h2 id="HTTP-amp-HTTPS"><a href="#HTTP-amp-HTTPS" class="headerlink" title="HTTP &amp; HTTPS"></a>HTTP &amp; HTTPS</h2><pre><code>HTTP和HTTPS区别
+腾讯 6/21
+
+说说你知道的http状态码
+http2的新特性？
+腾讯 6/28
+
+http1.0 开启 keep-alive 和不开启的区别？
+状态码 302 什么意思
+https了解吗，介绍一下
+说一说 http 缓存
+http1.1 和 http2.0 的区别（说了说队头阻塞、头部压缩、二进制帧）
+http 和 https 的区别
+http1.1 和 http2.0 的区别
+腾讯 7/21
+
+HTTP
+腾讯 9/7
+
+http和https区别
+字节 5/27
+
+提到测试环境需要用代理账号登入，被问HTTP代理的原理是什么
+字节 6/17
+
+整个 http 的流程
+https 是怎么保证传输数据包的安全
+证书里都有什么
+建立 HTTP 链接时的非对称加密
+建立链接后传输数据的对称加密
+数字签名
+字节 7/12
+
+讲一下HTTP请求的过程
+讲一下http请求报文
+https过程，
+缓存200和304？说一下200 fromcache的情况？
+状态码499了解吗
+字节 8/4
+
+HTTPS加密通信的过程
+字节 8/22
+
+HTTP Header
+字节 9/7
+
+HTTP1.x 和 HTTP2.0 的区别
+讲一下所知道的状态码，重点说一下 304
+HTTP 缓存（强制缓存、协商缓存）
+字节 10/13
+
+Http和https的区别（提到https只是更安全，并不绝对
+字节 11/3</code></pre><h2 id="TCP-amp-UDP"><a href="#TCP-amp-UDP" class="headerlink" title="TCP &amp; UDP"></a>TCP &amp; UDP</h2><pre><code>三次握手四次挥手
+三次握手，没问过程，问为什么不是2次
+答如果第一次延迟导致的问题和无法确保双方都能确定传输接受能力
+腾讯 6/21
+
+是每发出一个 http 请求就建立一个 tcp 连接吗
+详细聊了聊 tls 握手过程
+腾讯 7/21
+
+UDP、TCP
+腾讯 9/7
+
+tcp怎么保证可靠
+字节 5/27
+
+TCP怎么连接，怎么断开
+字节 6/17
+
+TCP，UDP区别，特点
+字节 8/4
+
+TCP三次握手
+字节 8/22</code></pre><h1 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h1><pre><code>CDN 是如何理解的，有什么好处
+他是怎么判断那个节点离他近的，原理
+字节 4/9</code></pre><h2 id="防抖-amp-节流"><a href="#防抖-amp-节流" class="headerlink" title="防抖 &amp; 节流"></a>防抖 &amp; 节流</h2><pre><code>节流和防抖
+腾讯 6/21
+
+手写防抖，节流
+字节 4/9
+
+输入框边打边搜索，节流和防抖的区别
+字节 6/17
+
+节流和防抖？实现防抖
+字节 8/4
+
+手写了防抖
+字节 8/22</code></pre><h2 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h2><pre><code>图片懒加载是怎么实现的
+图片懒加载的原理
+腾讯 7/21
+
+懒加载的原理
+在什么时候需要使用到懒加载
+字节 4/9
+
+懒加载优化
+字节 5/27</code></pre><h2 id="动态加载"><a href="#动态加载" class="headerlink" title="动态加载"></a>动态加载</h2><h2 id="服务端渲染（Server-Side-Render，SSR）"><a href="#服务端渲染（Server-Side-Render，SSR）" class="headerlink" title="服务端渲染（Server Side Render，SSR）"></a>服务端渲染（Server Side Render，SSR）</h2><pre><code>SSR
+腾讯 6/21</code></pre><h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><pre><code>讲一下跨域的方法
+如何实现
+跨域的原因和解决方法，什么无法跨域
+腾讯 6/21
+
+跨域问题及解决方案？（JSONP，CORS，代理）
+腾讯 6/28
+
+跨域以及处理方法
+字节 5/27
+
+跨域以及处理方法
+跨域请求中的CORS策略，简单请求和非简单请求都问了，问了很多细节
+字节 5/30
+
+为什么要跨域
+跨域有哪些方式
+jsonp 详细讲了一下
+跨域资源共享详细讲一下
+讲了一下浏览器、服务器的处理流程
+webpack 的 devserver 是怎么跨域的
+字节 7/12</code></pre><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><pre><code>浏览器缓存机制，强缓存、协商缓存？
+腾讯 6/28
+
+网络缓存，如何设置请求头
+字节 4/9
+
+浏览器缓存策略
+字节 6/17</code></pre><h2 id="浏览器存储"><a href="#浏览器存储" class="headerlink" title="浏览器存储"></a>浏览器存储</h2><pre><code>webStorage（特别问了cookie的存储大小
+浏览器存储，存储的方式
+腾讯 6/21
+
+cookie是什么？cookie的字段有哪些？
+浏览器缓存知道哪些？Local storage和cookie的区别是什么？
+Local storage、session storage有什么区别？
+在项目里如何运用cookie处理用户信息的？
+腾讯 6/28
+
+cookie的特性
+字节 5/30
+
+cookie、localStorage、sessionStorage 作用、区别
+cookie 有哪些字段、什么用
+cookie 的来源、作用、不足
+字节 7/12
+
+cookie/localstorage
+字节 9/7</code></pre><h2 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h2><pre><code>网络安全
+腾讯 6/21
+
+有涉及到web安全方面吗？说说常见的攻击方式？
+腾讯 6/28
+
+聊聊项目中的安全方面
+中间人攻击怎么办
+腾讯 7/21
+
+网络安全方面以及如何处理 （详细展开）
+字节 5/27
+
+关于安全方面的特性
+字节 5/30</code></pre><h3 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h3><pre><code>xss的转义是要在前端处理还是后端处理
+腾讯 6/21
+
+XSS解决方案
+腾讯 6/28
+
+XSS 原理，怎么预防？
+腾讯 7/21
+
+XSS 原理，怎么预防？
+字节 6/17
+
+个人项目中是否有xss
+xss的防范以及解决方法
+xss中a链接的攻击形式（自己挖坑
+script是否会阻塞其他的运行，解决方法
+字节 11/3</code></pre><h3 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h3><pre><code>csrf
+腾讯 6/21
+
+CSRF解决方案
+腾讯 6/28
+
+为什么要用 token（防止 CSRF）
+介绍一下 csrf 的原理 怎么去预防
+腾讯 7/21
+
+CSRF 原理，怎么预防？
+字节 6/17</code></pre><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><pre><code>讨论网站性能能从哪些方面排查原因。类似于浏览器输入网址全过程。。说了挺久，面试官还抢过去说。
+腾讯 6/16
+
+说一些性能优化的方法
+腾讯 6/21
+
+讲一下你知道的前端性能优化方式。
+腾讯 6/28
+
+做过的前端性能优化有哪些（提到图片懒加载）
+聊聊项目中的性能优化方面
+给你一个网址，怎么判断他的资源对首屏渲染影响 优化方案有哪些
+首屏渲染的时间怎么衡量
+加载js 、css、图片这些资源浏览器是并行加载还是串行加载
+如果资源非常多会还是全部并行吗
+腾讯 7/21
+
+如何减少网络请求，为什么要减少网络请求
+当要频繁改变一个元素的状态时，应该怎么设置可以减少性能损耗
+字节 4/9
+
+性能优化
+白屏优化
+字节 5/27
+
+重绘和重排优化
+动画的移动性能优化，例一个方块从左侧移到右侧的性能优化（js+css
+字节 11/3</code></pre><h2 id="浏览器渲染"><a href="#浏览器渲染" class="headerlink" title="浏览器渲染"></a>浏览器渲染</h2><pre><code>从在浏览器中输入地址到在界面上显示中间发生了什么
+DNS解析详细过程？=&gt;浏览器缓存（基础的+如何实现不使用任何缓存策略）=&gt;css和js的加载是否会阻塞DOM的加载（非渲染树！）=&gt;eventloop（详细的过程和有哪些）=&gt;导致回流的三个细节
+浏览器从输入url到加载完成经历了什么
+腾讯 6/21
+
+浏览器从输入url到加载完成经历了什么
+页面白屏如何排错？
+腾讯 6/28
+
+浏览器从输入url到加载完成经历了什么
+讲一讲浏览器的重排和重绘（经典）
+引起重排的原因有哪些（经典）
+获取一个 div 的宽度会引起重排吗
+浏览器渲染原理讲一下
+构建了 dom 树之后，dom 树中的元素会全部出现在渲染树中吗
+设置元素的 display:none 之后会从哪个流程开始
+设置 visibility: hidden 之后会从哪个流程开始
+腾讯 7/21
+
+浏览器 DOM CSS DOM
+腾讯 9/7
+
+你对重排重绘的理解
+字节 4/9
+
+浏览器渲染的流程，这个问的非常详细：
+问了css的层叠性
+还有绘制指令的具体顺序
+浏览器进程线程之间的切换和通信等等
+字节 5/30
+
+讲一下CSS中哪些属性触发重绘？回流？
+输入一个URL的过程？
+字节 8/4
+
+DNS 的工作流程
+字节 10/13</code></pre><h3 id="进程-amp-线程"><a href="#进程-amp-线程" class="headerlink" title="进程 &amp; 线程"></a>进程 &amp; 线程</h3><pre><code>进程和线程
+腾讯 6/21
+
+进程和线程的区别
+字节 5/27</code></pre><h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><pre><code>Vue和React比对。
+腾讯 6/16
+
+React的生命周期，说说你知道的生命周期函数
+vue和react的区别都有什么？
+与ES5相比，React的ES6语法有何不同？
+什么情况会引起组件重渲染？
+setState()函数是同步的还是异步的？
+腾讯 6/28
+
+Vue 和 React 的区别
+字节 4/9
+
+vue相比react解决了什么问题
+字节 5/27
+
+diff算法
+字节 5/30
+
+虚拟dom、diff算法
+React每次setState都会引起diff算法吗
+React组件通信的方式
+如果让你封装一个组件会怎么封装
+怎么设计一个轮播图组件
+轮播图怎么实现无限连接播放，用React怎么写？原生怎么写？
+字节 6/17
+
+React 生命周期
+字节 10/13</code></pre><h1 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h1><pre><code>angular用的哪个版本
+angular用了哪些特性
+angular业务开发使用过哪些
+
+angular的directive怎么写
+angular中的依赖注入呢核心组件用过吗service呢factory呢
+angular中的directives和services的区别在哪里，业务上有使用吗
+angular父子组件通信和兄弟组件通信说一下
+angular中的state.go方法和openmodel方法说一下</code></pre><h2 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h2><pre><code>双向数据绑定，angular中脏检查
+angular的脏检测机制为什么耗费性能   
+    谈了一下ng zone 和异步任务的改写，以及component tree的循环遍历
+有什么可以以优化脏检测性能的方法吗
+    谈了一下on push的方法，用rxjs发布object的属性，并修改脏检测机制，只有object的引用发生改变才执行脏检测
+angular的双向绑定原理是啥，你刚才提到vue，vue的双向绑定你也说一下吧，数据劫持这个过程是啥样子的</code></pre><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><pre><code>vue angular相同不同
+vue和angular的区别
+介绍一下vue和angular react区别
+为什么学了angular，没学vue和react</code></pre><h1 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h1><pre><code>Webpack工作流程介绍。
+腾讯 6/16
+
+webpack用过吗？简单说一说
+腾讯 6/28
+
+聊聊项目中的前端工程化
+腾讯 7/21
+
+WebPack 是如何打包的
+前端模块化有什么好处
+你是如何理解模块化的，各个模块化有什么不同之处
+字节 4/9
+
+loader的运行原理与作用
+plugin原理 两者区别
+字节 5/27
+
+webpack是如何根据环境变量来进行不同环境的构建，了解原理吗
+字节 6/17
+
+es6的模块化和common相互引入的优先级等的问题，给了个代码说输出
+字节 11/3</code></pre><h1 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h1><pre><code>ts和js的区别？
+腾讯 6/28
+
+typescript
+腾讯 9/7
+
+TypeScript 相关（接口、枚举、声明）
+字节 10/13</code></pre><h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><pre><code>nginx原理
+正向代理与反向代理
+字节 5/27</code></pre><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><pre><code>git常用命令
+git常用的命令有哪些？
+git的一些基本操作。
+
+git rebase 和 git merge 的区别
+git rebase 和 git merge 的区别？
+git merge和git rebase
+使用git merge有什么注意点
+git出现冲突如何解决
+
+git reset和git revert
+Git操作, 主要是revert与reset, 我们工作室使用的是Git Flow, 并且区分Master和Dev分支这种, 小哥说了一个Git Flow无法handle的场景, 即一个feature还未合并到Master, 但是后面的一个feature已经通过提测, 这时要如何处理?</code></pre></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">前端知识</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/">数据统计</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/post.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/post/CSS%20%E5%90%84%E7%A7%8D%E5%AE%9E%E7%8E%B0/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-css.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CSS 各种实现</div></div></a></div><div class="next-post pull_right"><a href="/post/HTTP%20%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-chrome.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">HTTP 相关知识</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/marshall-sun/CDN@latest/img/cover/cover-note.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 by Marshall Sun</div><div class="footer_custom_text">Inspired in South, implemented in Northeast.</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i></div><div id="rightside-config-show"><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/search/local-search.js"></script></body></html>
