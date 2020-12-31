@@ -129,7 +129,7 @@
 <p>XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。</p>
 <h3 id="常用防范方法"><a href="#常用防范方法" class="headerlink" title="常用防范方法"></a>常用防范方法</h3><ul>
 <li><p><code>HttpOnly</code></p>
-<p>  JavaScript <code>Document.cookie</code> API 无法访问带有 <code>HttpOnly</code> 属性的 Cookie。</p>
+<p>JavaScript <code>Document.cookie</code> API 无法访问带有 <code>HttpOnly</code> 属性的 Cookie。</p>
 <pre><code>Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly</code></pre></li>
 <li><p>输入过滤 + 转义</p>
 <p>一般是用于对于输入格式的检查，例如邮箱、电话号码、用户名、密码等都要按照规定的格式输入，同时应该限定一个合理的长度。</p>
