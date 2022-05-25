@@ -1,4 +1,8 @@
 // https://vuepress-theme-hope.github.io/v2/zh/config/style.html#palette-scss
 
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+
 $theme-color: #1d9bf0;
 $card-shadow: rgba(0, 0, 0, 0.05);
+$font-family: "system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+$font-family-fancy: '"Baloo Da 2", system-ui, -apple-system, sans-serif';
