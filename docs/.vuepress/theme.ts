@@ -1,23 +1,18 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import navbar from "./navbar";
 
 export default hopeTheme({
-  hostname: "https://vuepress-theme-hope-v2-demo.mrhope.site",
-
+  hostname: "https://sun-blog.netlify.app",
   author: {
     name: "Marshall Sun",
-    url: "https://mrhope.site",
   },
-
   iconAssets: "//at.alicdn.com/t/font_2410206_a0xb9hku9iu.css",
-
   logo: "/logo.svg",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "Marshall-Sun/blog",
+  docsDir: "docs",
+  docsBranch: "master",
 
-  docsDir: "demo/src",
-
-  navbar: navbar,
+  navbar: [],
   sidebar: false,
 
   footer: "Copyright © 2022 Marshall Sun",
@@ -28,16 +23,14 @@ export default hopeTheme({
 
   blog: {
     description: "一个普通的前端",
-    intro: "/intro.html",
     medias: {
-      Email: "https://example.com",
-      GitHub: "https://example.com",
+      Email: "mailto:themarshallsun@gmail.com",
+      GitHub: "https://github.com/Marshall-Sun",
     },
   },
 
   themeColor: false,
   fullscreen: false,
-  pure: true,
 
   plugins: {
     blog: {

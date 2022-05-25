@@ -1,9 +1,6 @@
 ---
 icon: edit
 date: 2022-01-09
-category:
-  - CategoryA
-  - CategoryB
 tag:
   - tag A
   - tag B
