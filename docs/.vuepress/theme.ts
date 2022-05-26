@@ -19,7 +19,7 @@ export default hopeTheme({
   copyright: false,
   displayFooter: true,
 
-  pageInfo: ["Author", "Date", "Tag", "ReadingTime", "Word"],
+  pageInfo: ["Author", "Date", "Tag", "Word", "ReadingTime"],
 
   blog: {
     description: "一个普通的前端",
@@ -27,6 +27,7 @@ export default hopeTheme({
       Email: "mailto:themarshallsun@gmail.com",
       GitHub: "https://github.com/Marshall-Sun",
     },
+    articleInfo: ["Date", "Tag", "Word"],
   },
 
   themeColor: false,
